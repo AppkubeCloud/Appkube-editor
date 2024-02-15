@@ -1,0 +1,81 @@
+.appkube-utilization-panel {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+.appkube-utilization-panel .utilization-card {
+	width: 277px;
+	height: 181px;
+	margin: 13px 8px 12px;
+	background: #fff 0% 0% no-repeat padding-box;
+	box-shadow: 0px 41.7776107788px 33.422088623px 0px #6c49ac 0D;
+	border-radius: 16px;
+	border: 1px solid #c7c7e8;
+	overflow: hidden;
+}
+.appkube-utilization-panel .utilization-card .card-title {
+	padding: 8px 15px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #8676ff;
+}
+.appkube-utilization-panel .utilization-card .card-title .icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 100%;
+	background-color: #a6af8126;
+	margin-right: 8px;
+	display: flex;
+}
+
+.appkube-utilization-panel .utilization-card .card-title .icon img {
+	margin: auto;
+}
+
+.appkube-utilization-panel .utilization-card .card-title .name {
+	font-weight: 700;
+	color: #383874;
+	font-size: 15px;
+	line-height: 18px;
+}
+.appkube-utilization-panel .utilization-card .utilization-details {
+	padding: 18px 35px;
+}
+.appkube-utilization-panel .utilization-card .utilization-details .info {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 11px;
+	align-items: center;
+}
+.appkube-utilization-panel .utilization-card .utilization-details .info .name {
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 18px;
+	color: #383874;
+}
+.appkube-utilization-panel .utilization-card .utilization-details .info .percantage {
+	display: block;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #383874;
+}
+.appkube-utilization-panel .utilization-card .utilization-details .info:last-child {
+	padding-bottom: 0px;
+}
+.appkube-utilization-panel .utilization-card:first-child {
+	margin-left: 0px;
+}
+.appkube-utilization-panel .utilization-card .error-message {
+	height: calc(100% - 50px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 700;
+	color: #383874;
+	line-height: 18px;
+}
