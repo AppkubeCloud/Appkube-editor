@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Total Functions Panel",
+  "id": "appkubeTotalFunctionsPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Total Functions Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

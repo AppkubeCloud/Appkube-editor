@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube End Usage Panel",
+  "id": "appkubeEndUsagePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube End Usage Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

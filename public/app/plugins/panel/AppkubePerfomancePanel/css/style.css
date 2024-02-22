@@ -1,0 +1,65 @@
+.performance-panel{
+	margin-left: auto;
+	margin-right: auto;
+	width: 230px;
+}
+
+.performance-panel .performance-container{
+	display: flex;
+	width: 100%;
+	height: 68px;
+	padding: 0px 11px;
+	border-radius: 7px;
+	background-color: #ffffff;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+	align-items: center;
+}
+
+.performance-panel .performance-container .icon{
+	width: 33px;
+	height: 33px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 100px 80px 0px #6C49AC12;
+	border-radius: 6px;
+	margin-right: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.performance-panel .performance-container .panel-details{
+	display: block;
+	overflow: hidden;
+}
+.performance-panel .performance-container .panel-details .title{
+	font-size: 13px;
+	line-height: 18px;
+	color: #383874;
+	font-weight: 300;
+	display: flex;
+}
+
+.performance-panel .performance-container .panel-details .percentage-info{
+	display: flex;
+	align-items: baseline;
+}
+.performance-panel .performance-container .panel-details .percentage-info .number{
+	font-size: 15px;
+	line-height: 26px;
+	font-weight: 600;
+	color: #383874;
+	padding-right: 5px;
+}
+
+.performance-panel .performance-container .panel-details .percentage-info progress{
+	height: 10px;
+
+}
+
+.performance-panel .performance-container .panel-details .percentage-info progress::-webkit-progress-bar{
+	background-color: #8676FF;
+
+}
+.performance-panel .performance-container .panel-details .percentage-info progress::-webkit-progress-value{
+	background-color: #000000;
+}

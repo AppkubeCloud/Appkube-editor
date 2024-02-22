@@ -1,0 +1,40 @@
+.complainces-panel .panel-title {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 700;
+	color: #383874;
+	border-bottom: 1px solid #6a6a9f;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	justify-content: flex-start;
+}
+.complainces-panel .complainces-panel-row {
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+}
+.complainces-panel .complainces-panel-row .complainces-panel-column {
+	width: 25%;
+}
+.complainces-panel .complainces-panel-row .complainces-panel-column .title {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #000;
+}
+.complainces-panel .complainces-panel-row .complainces-panel-column .title.panel-important-data {
+	color: #383874;
+	font-weight: 700;
+}
+.complainces-panel .complainces-panel-row .complainces-panel-column .details {
+	display: block;
+	margin-top: 4px;
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 300;
+	color: #000;
+}
+.complainces-panel .complainces-panel-row:last-child {
+	margin-bottom: 0;
+}

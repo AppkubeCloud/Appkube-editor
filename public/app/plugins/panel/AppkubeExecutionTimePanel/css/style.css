@@ -1,0 +1,61 @@
+.execution-time-table-panel .heading {
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+.execution-time-table-panel .common-table {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: 180px;
+}
+.execution-time-table-panel .common-table table {
+	overflow: auto;
+	width: 100%;
+}
+.execution-time-table-panel .common-table table thead tr th {
+	padding: 5px 15px;
+	border-right: 1px solid #DBDFF1;
+	background-color: #F0F3FF;
+}
+.execution-time-table-panel .common-table table thead tr th:last-child {
+	border-right: none;
+}
+.execution-time-table-panel .common-table table thead tr th .table-header {
+	display: inline-block;
+	opacity: 0.6;
+	font-size: 10px;
+	line-height: 12px;
+	color: #383874;
+	font-weight: 500;
+}
+.execution-time-table-panel .common-table table thead tr th .table-header.ms-text {
+	padding-right: 8px;
+}
+.execution-time-table-panel .common-table table thead tr th .table-header.ms-text:last-child {
+	padding-right: 0px;
+}
+.execution-time-table-panel .common-table table tbody tr td {
+	border-bottom: 1px solid #dbdff1;
+	padding: 5px 15px;
+}
+.execution-time-table-panel .common-table table tbody tr td .table-details {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+}
+.execution-time-table-panel .common-table table tbody tr td .line {
+	display: inline-block;
+	height: 10px;
+	border-radius: 3px;
+}
+.execution-time-table-panel .common-table table tbody tr td .line.green {
+	background-color: #53CA43;
+}
+.execution-time-table-panel .common-table table tbody tr td .line.red {
+	background-color: #FF2D2E;
+}

@@ -1,0 +1,175 @@
+.instance-panel .instance-panel-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.instance-panel .instance-panel-heading .title {
+	display: inline-flex;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.instance-panel .instance-panel-heading button {
+	display: inline-flex;
+	border: none;
+	border-radius: 4px;
+	padding: 3px 8px;
+	cursor: pointer;
+	background-color: #edf2f7;
+	color: #2d3748;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+}
+.instance-panel .subtitle {
+	font-size: 9px;
+	line-height: 14px;
+	color: #383874;
+	font-weight: 700;
+}
+.instance-panel .instance-panel-contents {
+	display: flex;
+	width: 100%;
+}
+.instance-panel .instance-panel-contents .instance-panel-left {
+	display: inline-flex;
+	flex-wrap: wrap;
+	width: 50%;
+}
+.instance-panel .instance-panel-contents .instance-panel-right {
+	display: inline-flex;
+	flex-wrap: wrap;
+	width: 50%;
+}
+.instance-panel .progress-bar {
+	position: relative;
+	display: flex;
+}
+.instance-panel .progress-bar svg {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	transform: rotate(-90deg);
+}
+.instance-panel .progress-bar svg circle {
+	width: 100%;
+	height: 100%;
+	fill: none;
+	stroke: #dbdff1;
+	stroke-width: 5;
+	stroke-linecap: round;
+}
+.instance-panel .progress-bar svg circle:last-of-type {
+	stroke-dasharray: 625px;
+	stroke-dashoffset: calc(625px - (625px * var(--percent)) / 100);
+	stroke: #3498db;
+}
+.instance-panel .progress-bar .number {
+	position: absolute;
+	top: 60px;
+	bottom: 0;
+	left: 45px;
+	right: 0;
+}
+.instance-panel .progress-bar .number h4 {
+	font-weight: 600;
+	color: #383874;
+	margin: 5px 0 0 0!important;
+}
+.instance-panel .progress-bar .number h4 .percantage {
+	font-weight: 400;
+	font-size: 12px;
+	left: -0.2em;
+}
+.instance-panel .progress-bar .title h2 {
+	margin: 25px 0 0;
+}
+.instance-panel .progress-bar:nth-child(1) svg circle:last-of-type {
+	stroke: #8676ff;
+}
+.instance-panel .progress-bar .bar-chart {
+	position: absolute;
+	top: 35px;
+	left: 45px;
+	bottom: 0;
+	right: 0;
+}
+.instance-panel .progress-bar .bar-chart span {
+	display: inline-block;
+	width: 8px;
+	margin: 0px 3px 0px 0px;
+	background-color: #8676ff;
+}
+.instance-panel .progress-bar .bar-chart span.low {
+	height: 10px;
+}
+.instance-panel .progress-bar .bar-chart span.medium {
+	height: 25px;
+}
+.instance-panel .progress-bar .bar-chart span.high {
+	height: 15px;
+}
+.instance-panel .right-contents {
+	display: flex;
+	width: 100%;
+}
+.instance-panel .right-contents .instance-name{
+	display: inline-flex;
+	width: 50%;
+	flex-wrap: wrap;
+}
+.instance-panel .right-contents .instance-number{
+	display: inline-flex;
+	width: 50%;
+	flex-wrap: wrap;
+}
+.instance-panel .instance-name .info {
+	display: flex;
+	width: 100%;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 600;
+	color: #383874;
+	padding-bottom: 15px;
+}
+.instance-panel .instance-name .info:last-child {
+	padding-bottom: 0;
+}
+.instance-panel .instance-number .details {
+	display: flex;
+	width: 100%;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+	padding-bottom: 15px;
+}
+.instance-panel .instance-number .details:last-child {
+	padding-bottom: 0;
+}
+
+.instance-panel .running-status span {
+	font-size: 14px;
+	color: #383874;
+	font-weight: 600;
+	line-height: 18px;
+}
+.instance-panel .running-status .run {
+	font-size: 15px;
+	color: #383874;
+	font-weight: 400;
+	line-height: 24px;
+	margin-right: 7px;
+}
+.instance-panel .running-status .fa-caret-up {
+	color: #00b929;
+	margin-right: 2px;
+}
+.instance-panel .running-status .percantage {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #00b929;
+}

@@ -1,0 +1,63 @@
+.notifications-table-panel .notifications-panel-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.notifications-table-panel .notifications-panel-heading .title {
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.notifications-table-panel .notifications-panel-heading button {
+	border: none;
+	border-radius: 4px;
+	padding: 3px 8px;
+	cursor: pointer;
+	background-color: #edf2f7;
+	color: #2d3748;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+}
+.notifications-table-panel .subtitle {
+	font-size: 9px;
+	line-height: 14px;
+	color: #383874;
+	font-weight: 700;
+}
+.notifications-table-panel .common-table {
+	width: 100%;
+	display: block;
+}
+.notifications-table-panel .common-table table {
+	overflow: auto;
+	width: 100%;
+}
+.notifications-table-panel .common-table table thead tr th {
+	padding: 10px 10px;
+}
+.notifications-table-panel .common-table table thead tr th:first-child {
+	padding-left: 0;
+}
+.notifications-table-panel .common-table table thead tr th .table-header {
+	font-size: 12px;
+	line-height: 16px;
+	color: #383874;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.notifications-table-panel .common-table table tbody tr td {
+	border-bottom: 1px solid #dbdff1;
+	padding: 10px 10px;
+}
+.notifications-table-panel .common-table table tbody tr td:first-child {
+	padding-left: 0px;
+}
+.notifications-table-panel .common-table table tbody tr td .table-details {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+}

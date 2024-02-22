@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Threat Calls Panel",
+  "id": "appkubeThreatCallsPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Threat Calls Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

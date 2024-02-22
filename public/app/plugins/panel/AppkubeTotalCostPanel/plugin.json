@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Total Cost Panel",
+  "id": "appkubeTotalCostPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Total Cost Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

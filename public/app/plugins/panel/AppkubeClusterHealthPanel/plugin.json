@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Cluster Health Panel",
+  "id": "appkubeClusterHealthPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Cluster Health Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

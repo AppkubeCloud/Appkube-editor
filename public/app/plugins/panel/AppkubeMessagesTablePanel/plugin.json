@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Messages Table Panel",
+  "id": "appkubeMessagesTablePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Messages Table Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

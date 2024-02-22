@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Compliance Panel",
+  "id": "appkubeCompliancePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Compliance Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

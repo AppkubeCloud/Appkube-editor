@@ -1,0 +1,38 @@
+.kubernetes-cost-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 280px;
+}
+.kubernetes-cost-panel .kubernetes-cost-inner {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 20px;
+	min-height: 150px;
+	border-radius: 7px;
+	background-color: #fff;
+	box-shadow: 0px 2.767256498336792px 2.2138051986694336px 0px #6C49AC05;
+	box-shadow: 0px 6.650102138519287px 5.32008171081543px 0px #6C49AC07;
+	box-shadow: 0px 12.521552085876465px 10.017241477966309px 0px #6C49AC09;
+	box-shadow: 0px 22.3363094329834px 17.869047164916992px 0px #6C49AC0B;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+	box-shadow: 0px 100px 80px 0px #6C49AC12;
+}
+.kubernetes-cost-panel .kubernetes-cost-inner .heading {
+	display: flex;
+	width: 100%;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+	color: #383874;
+	margin-bottom: 15px;
+}
+.kubernetes-cost-panel .kubernetes-cost-inner .price {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	font-size: 48px;
+	line-height: 54px;
+	font-weight: 600;
+	color: #00B929;
+}

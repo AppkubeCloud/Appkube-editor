@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Security Panel",
+  "id": "appkubeSecurityPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Security Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

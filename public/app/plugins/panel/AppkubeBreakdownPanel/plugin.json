@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Breakdown Panel",
+  "id": "appkubeBreakdownPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Breakdown Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

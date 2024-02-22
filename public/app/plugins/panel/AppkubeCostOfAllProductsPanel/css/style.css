@@ -1,0 +1,36 @@
+.cost-all-products-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
+}
+.cost-all-products-panel .cost-all-products-inner {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 15px 15px;
+	max-height: 250px;
+	overflow: hidden;
+	overflow-y: auto;
+	border-radius: 7px;
+	background-color: #fff;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+}
+.cost-all-products-panel .heading {
+	display: flex;
+	width: 100%;
+	font-size: 20px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 500;
+	justify-content: center;
+	padding-bottom: 10px;
+}
+.cost-all-products-panel .price {
+	display: flex;
+	width: 100%;
+	color: #383874;
+	font-size: 48px;
+	line-height: 60px;
+	font-weight: 600;
+	justify-content: center;
+}

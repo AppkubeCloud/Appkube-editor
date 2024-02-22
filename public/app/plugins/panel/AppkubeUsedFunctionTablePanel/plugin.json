@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Used Function Table Panel",
+  "id": "appkubeUsedFunctionTablePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Used Function Table Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

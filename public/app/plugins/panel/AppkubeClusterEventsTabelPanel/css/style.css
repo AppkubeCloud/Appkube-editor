@@ -1,0 +1,50 @@
+.cluster-events-table-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+}
+.cluster-events-table-inner-panel {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.cluster-events-table-panel .heading {
+	display: block;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+.cluster-events-table-panel .common-table {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: 180px;
+}
+.cluster-events-table-panel .common-table table {
+	overflow: auto;
+	width: 100%;
+}
+.cluster-events-table-panel .common-table table thead tr th {
+	padding: 10px 0px 0px;
+}
+.cluster-events-table-panel .common-table table thead tr th .table-header {
+	opacity: 0.6;
+	font-size: 11px;
+	line-height: 12px;
+	color: #383874;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.cluster-events-table-panel .common-table table tbody tr td {
+	border-bottom: 1px solid #dbdff1;
+	padding: 10px 0px;
+}
+.cluster-events-table-panel .common-table table tbody tr td .table-details {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+}

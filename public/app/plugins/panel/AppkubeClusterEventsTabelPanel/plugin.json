@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Cluster Events Table Panel",
+  "id": "appkubeClusterEventsTablePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Cluster Events Table Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

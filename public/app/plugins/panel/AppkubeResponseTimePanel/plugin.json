@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Response Time Panel",
+  "id": "appkubeResponseTimePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Response Time Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

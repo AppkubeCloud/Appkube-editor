@@ -1,0 +1,65 @@
+.response-time-table-panel .response-time-panel-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.response-time-table-panel .response-time-panel-heading .title {
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+.response-time-table-panel .common-table {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: 180px;
+}
+.response-time-table-panel .common-table table {
+	overflow: auto;
+	width: 100%;
+}
+.response-time-table-panel .common-table table thead tr th {
+	padding: 10px 15px 0px;
+}
+.response-time-table-panel .common-table table thead tr th .table-header {
+	opacity: 0.6;
+	font-size: 11px;
+	line-height: 12px;
+	color: #383874;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.response-time-table-panel .common-table table tbody tr td {
+	border-bottom: 1px solid #dbdff1;
+	padding: 10px 15px;
+}
+.response-time-table-panel .common-table table tbody tr td .table-details {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+}
+.response-time-table-panel .common-table table tbody tr td .lable-box {
+	font-size: 11px;
+	line-height: 14px;
+	font-weight: 600;
+	display: inline-block;
+	padding: 3px 5px;
+	width: 40px;
+	color: #fff;
+	text-align: center;
+	border-radius: 4px;
+}
+.response-time-table-panel .common-table table tbody tr td .lable-box.green {
+	background-color: #00B929;
+}
+.response-time-table-panel .common-table table tbody tr td .lable-box.red {
+	background-color: #FF2D2E;
+}
+.response-time-table-panel .common-table table tbody tr td .lable-box.blue {
+	background-color: #8676FF;
+}

@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Top Resources Request Count  Panel",
+  "id": "appkubeTopResourcesRequestCountPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Top Resources Request Count  Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+.cluster-health-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 540px;
+}
+.cluster-health-panel .cluster-health-inner-panel {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 20px;
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: 200px;
+	border-radius: 7px;
+	background-color: #ffffff;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+}
+.cluster-health-panel .heading {
+	width: 100%;
+	display: flex;
+	margin-bottom: 30px;
+}
+.cluster-health-panel .heading span {
+	display: inline-flex;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.cluster-health-panel .heading .time-periods {
+	display: inline-flex;
+	list-style: none;
+	width: auto;
+	margin-left: auto;
+	margin-right: 15px;
+}
+.cluster-health-panel .heading .time-periods li {
+	display: inline-flex;
+	vertical-align: top;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #05050F;
+	padding: 5px 8px;
+	margin-left: 2px;
+	margin-right: 2px;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.cluster-health-panel .heading .time-periods li.active {
+	background-color: #3247E5;
+	color: #ffffff;
+}
+.cluster-health-panel .heading .buttons {
+	display: inline-flex;
+	width: auto;
+}
+.cluster-health-panel .heading .buttons button {
+	float: right;
+	border: none;
+	padding: 0;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}
+.cluster-health-panel .lines-container {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.cluster-health-panel .line-container {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding-bottom: 8px;
+}
+.cluster-health-panel .line-container label {
+	display: inline-flex;
+	width: 15%;
+	color: #7E7E8F;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: 400;
+}
+.cluster-health-panel .line-container .line {
+	display: inline-flex;
+	width: 85%;
+}
+.cluster-health-panel .line-container .line span {
+	display: flex;
+	height: 14px;
+	border-radius: 4px;
+	font-size: 11px;
+	line-height: 14px;
+	font-weight: 300;
+	color: #ffffff;
+	padding: 0 15px;
+	justify-content: flex-end;
+}
+.cluster-health-panel .line-container .line.green span {
+	background-color: #00B929;
+}
+.cluster-health-panel .line-container .line.red span {
+	background-color: #FA6298;
+}
+.cluster-health-panel .line-container .line.orange span {
+	background-color: #FAA24B;
+}
+.cluster-health-panel .lines-graph {
+	margin-left: auto;
+	width: 85%;
+	border-top: 1px solid #E2E2EA;
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+.cluster-health-panel .lines-graph span {
+	display: inline-flex;
+	width: 14.28571%;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 10px;
+	line-height: 12px;
+	font-weight: 400;
+	color: #C6CBD9;
+	text-align: center;
+	justify-content: center;
+}
+.cluster-health-panel .lines-graph span:first-child {
+	text-align: left;
+	justify-content: flex-start;
+}
+.cluster-health-panel .lines-graph span:last-child {
+	text-align: right;
+	justify-content: flex-end;
+}

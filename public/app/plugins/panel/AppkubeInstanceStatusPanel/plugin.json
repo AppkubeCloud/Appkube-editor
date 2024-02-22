@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Instance Status Panel",
+  "id": "appkubeInstanceStatusPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Instance Status Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

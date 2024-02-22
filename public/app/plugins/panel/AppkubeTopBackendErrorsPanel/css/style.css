@@ -1,0 +1,241 @@
+.top-backend-errors-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 740px;
+}
+
+.top-backend-errors-panel-inner {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 15px 15px;
+	max-height: 250px;
+	overflow: hidden;
+	overflow-y: auto;
+	border-radius: 7px;
+	background-color: #fff;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+}
+
+.top-backend-errors-panel .header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 30px;
+}
+
+.top-backend-errors-panel .header .heading {
+	display: inline-flex;
+	width: auto;
+}
+
+.top-backend-errors-panel .header .buttons {
+	display: inline-flex;
+	width: auto;
+	margin-left: auto;
+}
+
+.top-backend-errors-panel .header .buttons .icon {
+	display: inline-flex;
+	width: auto;
+	border: none;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}
+
+.top-backend-errors-panel .common-table {
+	width: 100%;
+	display: block;
+}
+
+.top-backend-errors-panel .common-table table {
+	width: 100%;
+}
+
+.top-backend-errors-panel .common-table table thead tr th {
+	padding: 10px 10px;
+}
+
+.top-backend-errors-panel .common-table table thead tr th:first-child {
+	padding-left: 0;
+}
+
+.top-backend-errors-panel .common-table table thead tr th .table-header {
+	font-size: 12px;
+	line-height: 16px;
+	color: #383874;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.top-backend-errors-panel .common-table table tbody tr td {
+	border-bottom: 1px solid #dbdff1;
+	padding: 10px 10px;
+}
+
+.top-backend-errors-panel .common-table table tbody tr td:first-child {
+	padding-left: 0px;
+}
+
+.top-backend-errors-panel .common-table table tbody tr td .table-details {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+}
+
+.top-backend-errors-panel .threat-calls-box {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon {
+	display: inline-flex;
+	flex-wrap: wrap;
+	width: 56px;
+	height: 56px;
+	position: relative;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 10px 0;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon span p {
+	display: flex;
+	width: 100%;
+	color: #383874;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 600;
+	margin: 0;
+	justify-content: center;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon span p sub {
+	font-size: 12px;
+	line-height: 16px;
+	bottom: -3px;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon .percent {
+	position: relative;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon .percent svg {
+	position: relative;
+	width: 56px;
+	height: 56px;
+	transform: rotate(-90deg);
+}
+
+.top-backend-errors-panel .threat-calls-box .icon .percent svg circle {
+	width: 100%;
+	height: 100%;
+	fill: none;
+	stroke: #DBDFF1;
+	stroke-width: 3;
+	stroke-linecap: round;
+}
+
+.top-backend-errors-panel .threat-calls-box .icon .percent svg circle:last-of-type {
+	stroke-dasharray: 625px;
+	stroke-dashoffset: calc(625px - (625px * var(--percent)) / 100);
+}
+
+.top-backend-errors-panel .threat-calls-box .icon .percent.purple svg circle:last-of-type {
+	stroke: #FF708B;
+}
+
+.top-backend-errors-panel .threat-calls-box .contents {
+	display: inline-flex;
+	flex-wrap: wrap;
+	padding-left: 15px;
+	width: calc(100% - 56px);
+}
+
+.top-backend-errors-panel .threat-calls-box .name {
+	display: flex;
+	width: 100%;
+	font-size: 18px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 500;
+}
+
+.top-backend-errors-panel .threat-calls-box .price {
+	display: flex;
+	padding-top: 5px;
+	align-items: flex-end;
+	width: 100%;
+}
+
+.top-backend-errors-panel .threat-calls-box .price strong {
+	display: inline-flex;
+	font-size: 20px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 600;
+}
+
+.top-backend-errors-panel .threat-calls-box .price.up span {
+	margin: 0 0 0 5px;
+	padding: 0 0 0 12px;
+	position: relative;
+	font-size: 12px;
+	line-height: 20px;
+	height: 20px;
+	font-weight: 500;
+	color: #00B929;
+}
+
+.top-backend-errors-panel .threat-calls-box .price.up span::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 6px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-bottom: 6px solid #00b929;
+	border-top: 0;
+}
+
+.top-backend-errors-panel .threat-calls-box .price.down span {
+	margin: 0 0 0 5px;
+	padding: 0 0 0 12px;
+	position: relative;
+	font-size: 12px;
+	line-height: 20px;
+	height: 20px;
+	font-weight: 500;
+	color: #FF2D2E;
+}
+
+.top-backend-errors-panel .threat-calls-box .price.down span::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 6px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-top: 6px solid #FF2D2E;
+	border-bottom: 0;
+}

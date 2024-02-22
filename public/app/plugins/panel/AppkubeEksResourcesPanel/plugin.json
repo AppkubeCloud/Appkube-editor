@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Eks Resources Panel",
+  "id": "appkubeEksResourcesPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Eks Resources Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-
 import { NavLandingPage } from 'app/core/components/AppChrome/NavLandingPage';
 import ErrorPage from 'app/core/components/ErrorPage/ErrorPage';
 import { LoginPage } from 'app/core/components/Login/LoginPage';
@@ -26,31 +25,31 @@ export const extraRoutes: RouteDescriptor[] = [];
 export function getAppRoutes(): RouteDescriptor[] {
   const topnavRoutes: RouteDescriptor[] = config.featureToggles.topnav
     ? [
-        {
-          path: '/apps',
-          component: () => <NavLandingPage navId="apps" />,
-        },
-        {
-          path: '/alerts-and-incidents',
-          component: () => <NavLandingPage navId="alerts-and-incidents" />,
-        },
-        {
-          path: '/monitoring',
-          component: () => <NavLandingPage navId="monitoring" />,
-        },
-        {
-          path: '/admin/general',
-          component: () => <NavLandingPage navId="admin/general" />,
-        },
-        {
-          path: '/admin/plugins',
-          component: () => <NavLandingPage navId="admin/plugins" />,
-        },
-        {
-          path: '/admin/access',
-          component: () => <NavLandingPage navId="admin/access" />,
-        },
-      ]
+      {
+        path: '/apps',
+        component: () => <NavLandingPage navId="apps" />,
+      },
+      {
+        path: '/alerts-and-incidents',
+        component: () => <NavLandingPage navId="alerts-and-incidents" />,
+      },
+      {
+        path: '/monitoring',
+        component: () => <NavLandingPage navId="monitoring" />,
+      },
+      {
+        path: '/admin/general',
+        component: () => <NavLandingPage navId="admin/general" />,
+      },
+      {
+        path: '/admin/plugins',
+        component: () => <NavLandingPage navId="admin/plugins" />,
+      },
+      {
+        path: '/admin/access',
+        component: () => <NavLandingPage navId="admin/access" />,
+      },
+    ]
     : [];
 
   return [
@@ -159,7 +158,7 @@ export function getAppRoutes(): RouteDescriptor[] {
           ? import(/* webpackChunkName: "CorrelationsPage" */ 'app/features/correlations/CorrelationsPage')
           : import(
               /* webpackChunkName: "CorrelationsFeatureToggle" */ 'app/features/correlations/CorrelationsFeatureToggle'
-            )
+          )
       ),
     },
     {
@@ -180,12 +179,12 @@ export function getAppRoutes(): RouteDescriptor[] {
       component:
         config.rbacEnabled && contextSrv.hasPermission(AccessControlAction.FoldersPermissionsRead)
           ? SafeDynamicImport(
-              () =>
-                import(/* webpackChunkName: "FolderPermissions"*/ 'app/features/folders/AccessControlFolderPermissions')
-            )
+            () =>
+              import(/* webpackChunkName: "FolderPermissions"*/ 'app/features/folders/AccessControlFolderPermissions')
+          )
           : SafeDynamicImport(
-              () => import(/* webpackChunkName: "FolderPermissions"*/ 'app/features/folders/FolderPermissions')
-            ),
+            () => import(/* webpackChunkName: "FolderPermissions"*/ 'app/features/folders/FolderPermissions')
+          ),
     },
     {
       path: '/dashboards/f/:uid/:slug/settings',
@@ -393,8 +392,8 @@ export function getAppRoutes(): RouteDescriptor[] {
       component: !config.verifyEmailEnabled
         ? () => <Redirect to="/signup" />
         : SafeDynamicImport(
-            () => import(/* webpackChunkName "VerifyEmailPage"*/ 'app/core/components/Signup/VerifyEmailPage')
-          ),
+          () => import(/* webpackChunkName "VerifyEmailPage"*/ 'app/core/components/Signup/VerifyEmailPage')
+        ),
       pageClass: 'login-page sidemenu-hidden',
       chromeless: true,
     },

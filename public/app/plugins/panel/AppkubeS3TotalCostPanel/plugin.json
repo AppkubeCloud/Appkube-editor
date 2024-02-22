@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube S3 Total Cost Panel",
+  "id": "appkubeS3TotalCostPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube S3 Total Cost Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

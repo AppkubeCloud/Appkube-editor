@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Error On Request Panel",
+  "id": "appkubeErrorOnRequestPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Error On Request Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

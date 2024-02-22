@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Execution Time Table Panel",
+  "id": "appkubeExecutionTimeTablePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Execution Time Table Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

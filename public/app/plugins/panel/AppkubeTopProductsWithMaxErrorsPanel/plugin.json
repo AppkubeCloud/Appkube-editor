@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Top Products With Max Errors Panel",
+  "id": "appkubeTopProductsWithMaxErrorsPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Top Products With Max Errors Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

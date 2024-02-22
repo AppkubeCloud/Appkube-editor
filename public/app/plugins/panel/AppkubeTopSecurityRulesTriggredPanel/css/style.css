@@ -1,0 +1,110 @@
+.security-rules-triggre-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 680px;
+}
+.security-rules-triggre-panel .security-rules-triggre-inner-panel {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 20px;
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: 200px;
+	border-radius: 7px;
+	background-color: #ffffff;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+}
+.security-rules-triggre-panel .heading {
+	width: 100%;
+	display: block;
+	margin-bottom: 30px;
+}
+.security-rules-triggre-panel .heading span {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.security-rules-triggre-panel .heading button {
+	float: right;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+}
+.security-rules-triggre-panel .lines-container {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.security-rules-triggre-panel .line-container {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding-bottom: 5px;
+}
+.security-rules-triggre-panel .line-container label {
+	display: inline-flex;
+	width: 30%;
+	color: #383874;
+	font-size: 11px;
+	line-height: 12px;
+	font-weight: 400;
+}
+.security-rules-triggre-panel .line-container .line {
+	display: inline-flex;
+	width: 70%;
+}
+.security-rules-triggre-panel .line-container .line span {
+	display: flex;
+	height: 10px;
+	border-radius: 3px;
+	background-color: #FFBA69;
+}
+.security-rules-triggre-panel .lines-graph {
+	margin-left: auto;
+	width: 70%;
+	border-top: 1px solid #E2E2EA;
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+.security-rules-triggre-panel .lines-graph span {
+	display: inline-flex;
+	width: 14.28571%;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 10px;
+	line-height: 12px;
+	font-weight: 400;
+	color: #C6CBD9;
+	text-align: center;
+	justify-content: center;
+}
+.security-rules-triggre-panel .lines-graph span:first-child {
+	text-align: left;
+	justify-content: flex-start;
+}
+.security-rules-triggre-panel .lines-graph span:last-child {
+	text-align: right;
+	justify-content: flex-end;
+}
+.security-rules-triggre-panel .count-box {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-end;
+	color: #383874;
+	font-size: 11px;
+	line-height: 12px;
+	font-weight: 400;
+}
+.security-rules-triggre-panel .count-box span {
+	display: inline-flex;
+	width: 14px;
+	height: 14px;
+	margin-right: 10px;
+	border-radius: 3px;
+	background-color: #FFBA69;
+}

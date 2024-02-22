@@ -1,0 +1,98 @@
+.resourses-panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 840px;
+}
+.resourses-panel .resourses-inner {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 0px 15px;
+	max-height: 250px;
+	overflow: hidden;
+	overflow-y: auto;
+	border-radius: 7px;
+	background-color: #fff;
+}
+.resourses-panel .resourses-heading {
+	display: flex;
+	width: 100%;
+	font-size: 20px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 600;
+	justify-content: flex-start;
+	padding-bottom: 10px;
+}
+.resourses-panel .resourses-boxes {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.resourses-panel .resourses-boxes .resourses-box {
+	display: inline-flex;
+	flex-wrap: wrap;
+	width: 185px;
+	border-radius: 7px;
+	padding: 15px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+}
+.resourses-panel .resourses-boxes .resourses-box:nth-child(4n+0) {
+	margin-right: 0;
+}
+.resourses-panel .resourses-boxes .resourses-box .heading {
+	display: flex;
+	width: 100%;
+	font-size: 14px;
+	line-height: 18px;
+	color: #383874;
+	font-weight: 600;
+	justify-content: flex-start;
+}
+.resourses-panel .resourses-boxes .resourses-box .price {
+	display: flex;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	align-items: flex-end;
+	width: 100%;
+}
+.resourses-panel .resourses-boxes .resourses-box .price strong {
+	display: inline-flex;
+	font-size: 22px;
+	line-height: 26px;
+	color: #383874;
+	font-weight: 500;
+}
+.resourses-panel .resourses-boxes .resourses-box .price span {
+	margin: 0 0 0 5px;
+	padding: 0 0 0 12px;
+	position: relative;
+	font-size: 12px;
+	line-height: 20px;
+	height: 20px;
+	font-weight: 500;
+	color: #00B929;
+}
+.resourses-panel .resourses-boxes .resourses-box .price span::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 6px;
+	width: 0;
+  height: 0;
+  border-style: solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 6px solid #00b929;
+  border-top: 0;
+}
+.resourses-panel .resourses-boxes .resourses-box .detail {
+	display: flex;
+	width: 100%;
+	font-size: 10px;
+	line-height: 14px;
+	font-weight: 400;
+	color: #383874;
+}

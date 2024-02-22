@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Kubernetes Cost Panel",
+  "id": "appkubeKubernetesCostPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Kubernetes Cost Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}
