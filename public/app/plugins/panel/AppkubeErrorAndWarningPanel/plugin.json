@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Error And Warning Panel",
+  "id": "appkubeErrorAndWarningPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Error And Warning Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

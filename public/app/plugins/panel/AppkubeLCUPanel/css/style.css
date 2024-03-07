@@ -1,0 +1,44 @@
+.success-and-failed-request-panel {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.success-and-failed-request-panel-inner {
+	width: 100%;
+	padding:12px;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.success-and-failed-request-panel .header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 30px;
+}
+
+.success-and-failed-request-panel .header .heading {
+	display: inline-flex;
+	width: auto;
+	font-size: 20px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 600;
+}
+
+.success-and-failed-request-panel .header .buttons {
+	display: inline-flex;
+	width: auto;
+	margin-left: auto;
+}
+
+.success-and-failed-request-panel .header .buttons .icon {
+	display: inline-flex;
+	width: auto;
+	border: none;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}

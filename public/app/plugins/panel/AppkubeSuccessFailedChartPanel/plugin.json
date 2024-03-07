@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Success Failed Chart Panel",
+  "id": "appkubeSuccessFailedChartPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Success Failed Chart Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

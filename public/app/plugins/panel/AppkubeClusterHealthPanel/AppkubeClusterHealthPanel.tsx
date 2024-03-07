@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
+
 import { PanelProps } from '@grafana/data';
+
 import './css/style.css';
 
 class AppkubeClusterHealthPanel extends PureComponent<PanelProps> {
@@ -35,19 +37,19 @@ class AppkubeClusterHealthPanel extends PureComponent<PanelProps> {
           </div>
           <div className="lines-container">
             <div className="line-container">
-              <label>Healthy</label>
+              <label htmlFor="Healthy">Healthy</label>
               <div className="line green">
                 <span style={{ width: '98.55%' }}>98.55%</span>
               </div>
             </div>
             <div className="line-container">
-              <label>Unhealthy</label>
+              <label htmlFor="Unhealthy">Unhealthy</label>
               <div className="line red">
                 <span style={{ width: '45.9%' }}>45.9%</span>
               </div>
             </div>
             <div className="line-container">
-              <label>Critical</label>
+              <label htmlFor="Critical">Critical</label>
               <div className="line orange">
                 <span style={{ width: '25.54%' }}>25.54%</span>
               </div>

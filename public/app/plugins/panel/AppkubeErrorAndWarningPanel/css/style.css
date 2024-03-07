@@ -1,0 +1,51 @@
+.error-warning-panel {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.error-warning-panel .error-warning-inner {
+	width: 100%;
+	padding: 12px;
+	height: 100%;
+	overflow: auto;
+}
+.error-warning-panel .error-warning-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding-bottom: 29px;
+}
+.error-warning-panel .error-warning-header .error-warning-title {
+	font-size: 14px;
+	line-height: 18px;
+	color: #383874;
+	font-weight: 700;
+}
+.error-warning-panel .error-warning-header .error-warning-percentage {
+	display: flex;
+}
+.error-warning-panel .error-warning-header .error-warning-percentage .error-warning-info{
+	display: flex;
+	align-items: center;
+	margin-right: 50px;
+}
+.error-warning-panel .error-warning-header .error-warning-percentage .error-warning-info .dot-icon{
+	width: 9px;
+	height: 9px;
+	border-radius: 100%;
+	margin-right: 7px;
+}
+.error-warning-panel .error-warning-header .error-warning-percentage .error-warning-info .dot-icon.error{
+	background-color: #ff7d95;
+}
+.error-warning-panel .error-warning-header .error-warning-percentage .error-warning-info .dot-icon.warning{
+	background-color: #8154ff;
+}
+
+.error-warning-panel .error-warning-header .error-warning-percentage .error-warning-info .name{
+	font-size: 12px;
+	line-height: 16px;
+	color: #383874;
+	font-weight: 700;
+}

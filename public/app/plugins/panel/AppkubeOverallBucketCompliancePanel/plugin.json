@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Overall Bucket Compliance Panel",
+  "id": "appkubeOverallBucketCompliancePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Overall Bucket Compliance Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Authentication Chart Panel",
+  "id": "appkubeAuthenticationChartPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Authentication Chart Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Flow Count Panel",
+  "id": "appkubeFlowCountPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Flow Count Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

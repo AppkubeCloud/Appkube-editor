@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube LCU Panel",
+  "id": "appkubeLCUPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube LCU Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

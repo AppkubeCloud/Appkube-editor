@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Cpu Utilization Panel",
+  "id": "appkubeCpuUtilizationPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Cpu Utilization Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

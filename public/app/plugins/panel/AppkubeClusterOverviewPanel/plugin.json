@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Cluster Overview Panel",
+  "id": "appkubeClusterOverviewPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Cluster Overview Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

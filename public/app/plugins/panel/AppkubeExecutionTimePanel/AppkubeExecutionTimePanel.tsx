@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+
 import { PanelProps } from '@grafana/data';
 import './css/style.css';
 

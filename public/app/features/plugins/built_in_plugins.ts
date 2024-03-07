@@ -45,6 +45,59 @@ const parcaPlugin = async () =>
   await import(/* webpackChunkName: "parcaPlugin" */ 'app/plugins/datasource/parca/module');
 
 import { config } from '@grafana/runtime';
+import * as AppkubeApiServersTablePanel from 'app/plugins/panel/AppkubeApiServersTablePanel/module';
+import * as AppkubeAuthenticationChartPanel from 'app/plugins/panel/AppkubeAuthenticationChartPanel/module';
+import * as AppkubeBreakdownPanel from 'app/plugins/panel/AppkubeBreakdownPanel/module';
+import * as AppkubeClusterCapacityPanel from 'app/plugins/panel/AppkubeClusterCapacityPanel/module';
+import * as AppkubeClusterEventsTabelPanel from 'app/plugins/panel/AppkubeClusterEventsTabelPanel/module';
+import * as AppkubeClusterHealthPanel from 'app/plugins/panel/AppkubeClusterHealthPanel/module';
+import * as AppkubeClusterOverviewPanel from 'app/plugins/panel/AppkubeClusterOverviewPanel/module';
+import * as AppkubeCompliancePanel from 'app/plugins/panel/AppkubeCompliancePanel/module';
+import * as AppkubeCostByHighestSpendTargetGroupsPanel from 'app/plugins/panel/AppkubeCostByHighestSpendTargetGroupsPanel/module';
+import * as AppkubeCostHighestSpendProductsPanel from 'app/plugins/panel/AppkubeCostHighestSpendProductsPanel/module';
+import * as AppkubeCostOfAllProductsPanel from 'app/plugins/panel/AppkubeCostOfAllProductsPanel/module';
+import * as AppkubeCpuUtilizationPanel from 'app/plugins/panel/AppkubeCpuUtilizationPanel/module';
+import * as AppkubeDataLifecycleManagementPanel from 'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module';
+import * as AppkubeDonutChartPanel from 'app/plugins/panel/AppkubeDonutChartPanel/module';
+import * as AppkubeEksResourcesPanel from 'app/plugins/panel/AppkubeEksResourcesPanel/module';
+import * as AppkubeEndUsagePanel from 'app/plugins/panel/AppkubeEndUsagePanel/module';
+import * as AppkubeErrorAndWarningPanel from 'app/plugins/panel/AppkubeErrorAndWarningPanel/module';
+import * as AppkubeErrorOnRequestPanel from 'app/plugins/panel/AppkubeErrorOnRequestPanel/module';
+import * as AppkubeExecutionTimePanel from 'app/plugins/panel/AppkubeExecutionTimePanel/module';
+import * as AppkubeFlowCountPanel from 'app/plugins/panel/AppkubeFlowCountPanel/module';
+import * as AppkubeFunctionByProductsPanel from 'app/plugins/panel/AppkubeFunctionByProductsPanel/module';
+import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
+import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
+import * as AppkubeLCUPanel from 'app/plugins/panel/AppkubeLCUPanel/module';
+import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
+import * as AppkubeMultilineChartPanel from 'app/plugins/panel/AppkubeMultilineChartPanel/module';
+import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
+import * as AppkubeNumberZoneChartPanel from 'app/plugins/panel/AppkubeNumberZoneChartPanel/module';
+import * as AppkubeOverallBucketCompliancePanel from 'app/plugins/panel/AppkubeOverallBucketCompliancePanel/module';
+import * as AppkubePerfomancePanel from 'app/plugins/panel/AppkubePerfomancePanel/module';
+import * as AppkubePodsOverviewPanel from 'app/plugins/panel/AppkubePodsOverviewPanel/module';
+import * as AppkubeRegionWiseStoragePanel from 'app/plugins/panel/AppkubeRegionWiseStoragePanel/module';
+import * as AppkubeResoursesPanel from 'app/plugins/panel/AppkubeResoursesPanel/module';
+import * as AppkubeResponseTimePanel from 'app/plugins/panel/AppkubeResponseTimePanel/module';
+import * as AppkubeS3TotalCostPanel from 'app/plugins/panel/AppkubeS3TotalCostPanel/module';
+import * as AppkubeSecurityPanel from 'app/plugins/panel/AppkubeSecurityPanel/module';
+import * as AppkubeSuccessAndFailedRequestPanel from 'app/plugins/panel/AppkubeSuccessAndFailedRequestPanel/module';
+import * as AppkubeSuccessFailedChartPanel from 'app/plugins/panel/AppkubeSuccessFailedChartPanel/module';
+import * as AppkubeTablePanel from 'app/plugins/panel/AppkubeTablePanel/module';
+import * as AppkubeThreatCallsPanel from 'app/plugins/panel/AppkubeThreatCallsPanel/module';
+import * as AppkubeTopBackendErrorsPanel from 'app/plugins/panel/AppkubeTopBackendErrorsPanel/module';
+import * as AppkubeTopBucketCompliancePanel from 'app/plugins/panel/AppkubeTopBucketCompliancePanel/module';
+import * as AppkubeTopFailureFunctionsPanel from 'app/plugins/panel/AppkubeTopFailureFunctionsPanel/module';
+import * as AppkubeTopProductsPanel from 'app/plugins/panel/AppkubeTopProductsPanel/module';
+import * as AppkubeTopProductsWithMaxErrorsPanel from 'app/plugins/panel/AppkubeTopProductsWithMaxErrorsPanel/module';
+import * as AppkubeTopResourcesRequestCountPanel from 'app/plugins/panel/AppkubeTopResourcesRequestCountPanel/module';
+import * as AppkubeTopSecurityRulesTriggredPanel from 'app/plugins/panel/AppkubeTopSecurityRulesTriggredPanel/module';
+import * as AppkubeTopUsedFunctionPanel from 'app/plugins/panel/AppkubeTopUsedFunctionPanel/module';
+import * as AppkubeTotalCostPanel from 'app/plugins/panel/AppkubeTotalCostPanel/module';
+import * as AppkubeTotalFunctionsPanel from 'app/plugins/panel/AppkubeTotalFunctionsPanel/module';
+import * as AppkubeUsedFunctionTablePanel from 'app/plugins/panel/AppkubeUsedFunctionTablePanel/module';
+import * as AppkubeUtilizationPanel from 'app/plugins/panel/AppkubeUtilizationPanel/module';
+import * as AppkubeWiseCostPanel from 'app/plugins/panel/AppkubeWiseCostPanel/module';
 import * as alertGroupsPanel from 'app/plugins/panel/alertGroups/module';
 import * as alertListPanel from 'app/plugins/panel/alertlist/module';
 import * as annoListPanel from 'app/plugins/panel/annolist/module';
@@ -71,41 +124,6 @@ import * as timeseriesPanel from 'app/plugins/panel/timeseries/module';
 import * as tracesPanel from 'app/plugins/panel/traces/module';
 import * as welcomeBanner from 'app/plugins/panel/welcome/module';
 import * as xyChartPanel from 'app/plugins/panel/xychart/module';
-import * as AppkubeUtilizationPanel from 'app/plugins/panel/AppkubeUtilizationPanel/module';
-import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
-import * as AppkubeTablePanel from 'app/plugins/panel/AppkubeTablePanel/module';
-import * as AppkubeCompliancePanel from 'app/plugins/panel/AppkubeCompliancePanel/module';
-import * as AppkubeTotalCostPanel from 'app/plugins/panel/AppkubeTotalCostPanel/module';
-import * as AppkubeTotalFunctionsPanel from 'app/plugins/panel/AppkubeTotalFunctionsPanel/module';
-import * as AppkubeTopUsedFunctionPanel from 'app/plugins/panel/AppkubeTopUsedFunctionPanel/module';
-import * as AppkubeResoursesPanel from 'app/plugins/panel/AppkubeResoursesPanel/module';
-import * as AppkubeTopFailureFunctionsPanel from 'app/plugins/panel/AppkubeTopFailureFunctionsPanel/module';
-import * as AppkubeTopProductsWithMaxErrorsPanel from 'app/plugins/panel/AppkubeTopProductsWithMaxErrorsPanel/module';
-import * as AppkubeBreakdownPanel from 'app/plugins/panel/AppkubeBreakdownPanel/module';
-import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
-import * as AppkubeUsedFunctionTablePanel from 'app/plugins/panel/AppkubeUsedFunctionTablePanel/module';
-import * as AppkubeExecutionTimePanel from 'app/plugins/panel/AppkubeExecutionTimePanel/module';
-import * as AppkubeThreatCallsPanel from 'app/plugins/panel/AppkubeThreatCallsPanel/module';
-import * as AppkubeClusterEventsTabelPanel from 'app/plugins/panel/AppkubeClusterEventsTabelPanel/module';
-import * as AppkubeTopSecurityRulesTriggredPanel from 'app/plugins/panel/AppkubeTopSecurityRulesTriggredPanel/module';
-import * as AppkubeTopResourcesRequestCountPanel from 'app/plugins/panel/AppkubeTopResourcesRequestCountPanel/module';
-import * as AppkubeEksResourcesPanel from 'app/plugins/panel/AppkubeEksResourcesPanel/module';
-import * as AppkubeApiServersTablePanel from 'app/plugins/panel/AppkubeApiServersTablePanel/module';
-import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
-import * as AppkubeResponseTimePanel from 'app/plugins/panel/AppkubeResponseTimePanel/module';
-import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
-import * as AppkubeClusterHealthPanel from 'app/plugins/panel/AppkubeClusterHealthPanel/module';
-import * as AppkubePerfomancePanel from 'app/plugins/panel/AppkubePerfomancePanel/module';
-import * as AppkubeCostOfAllProductsPanel from 'app/plugins/panel/AppkubeCostOfAllProductsPanel/module';
-import * as AppkubeCostHighestSpendProductsPanel from 'app/plugins/panel/AppkubeCostHighestSpendProductsPanel/module';
-import * as AppkubeSecurityPanel from 'app/plugins/panel/AppkubeSecurityPanel/module';
-import * as AppkubeEndUsagePanel from 'app/plugins/panel/AppkubeEndUsagePanel/module';
-import * as AppkubeS3TotalCostPanel from 'app/plugins/panel/AppkubeS3TotalCostPanel/module';
-import * as AppkubeCostByHighestSpendTargetGroupsPanel from 'app/plugins/panel/AppkubeCostByHighestSpendTargetGroupsPanel/module';
-import * as AppkubeTopBackendErrorsPanel from 'app/plugins/panel/AppkubeTopBackendErrorsPanel/module';
-import * as AppkubeErrorOnRequestPanel from 'app/plugins/panel/AppkubeErrorOnRequestPanel/module';
-import * as AppkubeTopBucketCompliancePanel from 'app/plugins/panel/AppkubeTopBucketCompliancePanel/module';
-
 // Async loaded panels
 const geomapPanel = async () => await import(/* webpackChunkName: "geomapPanel" */ 'app/plugins/panel/geomap/module');
 const canvasPanel = async () => await import(/* webpackChunkName: "canvasPanel" */ 'app/plugins/panel/canvas/module');
@@ -220,6 +238,25 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeTopBackendErrorsPanel/module': AppkubeTopBackendErrorsPanel,
   'app/plugins/panel/AppkubeErrorOnRequestPanel/module': AppkubeErrorOnRequestPanel,
   'app/plugins/panel/AppkubeTopBucketCompliancePanel/module': AppkubeTopBucketCompliancePanel,
+  'app/plugins/panel/AppkubeRegionWiseStoragePanel/module': AppkubeRegionWiseStoragePanel,
+  'app/plugins/panel/AppkubeTopProductsPanel/module': AppkubeTopProductsPanel,
+  'app/plugins/panel/AppkubeSuccessAndFailedRequestPanel/module': AppkubeSuccessAndFailedRequestPanel,
+  'app/plugins/panel/AppkubeSuccessFailedChartPanel/module': AppkubeSuccessFailedChartPanel,
+  'app/plugins/panel/AppkubePodsOverviewPanel/module': AppkubePodsOverviewPanel,
+  'app/plugins/panel/AppkubeLCUPanel/module': AppkubeLCUPanel,
+  'app/plugins/panel/AppkubeClusterOverviewPanel/module': AppkubeClusterOverviewPanel,
+  'app/plugins/panel/AppkubeFlowCountPanel/module': AppkubeFlowCountPanel,
+  'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module': AppkubeDataLifecycleManagementPanel,
+  'app/plugins/panel/AppkubeOverallBucketCompliancePanel/module': AppkubeOverallBucketCompliancePanel,
+  'app/plugins/panel/AppkubeCpuUtilizationPanel/module': AppkubeCpuUtilizationPanel,
+  'app/plugins/panel/AppkubeNumberZoneChartPanel/module': AppkubeNumberZoneChartPanel,
+  'app/plugins/panel/AppkubeMultilineChartPanel/module': AppkubeMultilineChartPanel,
+  'app/plugins/panel/AppkubeDonutChartPanel/module': AppkubeDonutChartPanel,
+  'app/plugins/panel/AppkubeAuthenticationChartPanel/module': AppkubeAuthenticationChartPanel,
+  'app/plugins/panel/AppkubeWiseCostPanel/module': AppkubeWiseCostPanel,
+  'app/plugins/panel/AppkubeClusterCapacityPanel/module': AppkubeClusterCapacityPanel,
+  'app/plugins/panel/AppkubeFunctionByProductsPanel/module': AppkubeFunctionByProductsPanel,
+  'app/plugins/panel/AppkubeErrorAndWarningPanel/module': AppkubeErrorAndWarningPanel,
 };
 
 export default builtInPlugins;

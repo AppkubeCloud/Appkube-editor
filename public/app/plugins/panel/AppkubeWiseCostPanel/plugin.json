@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Wise Cost Panel",
+  "id": "appkubeWiseCostPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Wise Cost Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

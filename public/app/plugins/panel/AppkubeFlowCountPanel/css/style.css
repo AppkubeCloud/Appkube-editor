@@ -1,0 +1,38 @@
+.flow-count-panel {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.flow-count-panel .flow-count-inner-panel {
+	width: 100%;
+	padding: 12px;
+	overflow: hidden;
+	overflow-y: auto;
+  height: 100%;
+}
+.flow-count-panel .heading {
+	width: 100%;
+	display: flex;
+	margin-bottom: 30px;
+	align-items: center;
+}
+.flow-count-panel .heading span {
+	display: inline-flex;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.flow-count-panel .heading .buttons {
+	display: inline-flex;
+	margin-left: auto;
+	width: auto;
+}
+.flow-count-panel .heading .buttons button {
+	float: right;
+	border: none;
+	padding: 0;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}

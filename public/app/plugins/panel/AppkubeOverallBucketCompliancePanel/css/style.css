@@ -1,0 +1,46 @@
+.overall-bucket-compliance-panel {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.overall-bucket-compliance-panel .flow-count-inner-panel {
+	width: 100%;
+	padding: 12px;
+	overflow: hidden;
+	overflow-y: auto;
+  height: 100%;
+}
+.overall-bucket-compliance-panel .heading {
+	width: 100%;
+	display: flex;
+	margin-bottom: 30px;
+	align-items: center;
+}
+.overall-bucket-compliance-panel .heading span {
+	display: inline-flex;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.overall-bucket-compliance-panel .cotal-buckets-contants {
+	display: flex;
+	width: 270px;
+}
+.overall-bucket-compliance-panel .cotal-buckets-contants ul {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.overall-bucket-compliance-panel .cotal-buckets-contants ul li {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+.overall-bucket-compliance-panel .cotal-buckets-contants ul li span {
+	margin-left: auto;
+}

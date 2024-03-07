@@ -1,0 +1,103 @@
+.top-products-panel {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.top-products-panel .top-products-inner {
+	width: 100%;
+	padding: 10px 10px 20px;
+	height: 100%;
+	overflow: auto;
+}
+.top-products-panel .top-products-heading {
+	display: flex;
+	width: 100%;
+	font-size: 16px;
+	line-height: 20px;
+	color: #000000;
+	font-weight: 600;
+	padding-bottom: 15px;
+}
+.top-products-panel .errors-boxes {
+	display: block;
+	width: 100%;
+}
+.top-products-panel .errors-box {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.top-products-panel .errors-box .product-details{
+	display: flex;
+	align-items: center;
+	width: 70%;
+}
+.top-products-panel .errors-box .product-details .icon {
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+	position: relative;
+}
+.top-products-panel .errors-box .product-details .icon span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.top-products-panel .errors-box .product-details .icon .percent {
+ position: relative;
+}
+.top-products-panel .errors-box .product-details .icon .percent svg {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-90deg);
+}
+
+.top-products-panel .errors-box .product-details .icon .percent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #DBDFF1;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.top-products-panel .errors-box .product-details .icon .percent svg circle:last-of-type {
+  stroke-dasharray: 625px;
+  stroke-dashoffset: calc(625px - (625px * var(--percent)) / 100);
+  stroke: #FFBA69; 
+}
+
+.top-products-panel .errors-box .product-details .contents {
+	display: inline-flex;
+	flex-wrap: wrap;
+	padding-left: 15px;
+}
+.top-products-panel .errors-box .objects-details{
+	width: 30%;
+	display: block;
+}
+.top-products-panel .errors-box .name {
+	display: flex;
+	width: 100%;
+	font-size: 13px;
+	line-height: 18px;
+	color: #383874;
+	font-weight: 400;
+}
+
+.top-products-panel .errors-box strong {
+	display: inline-flex;
+	font-size: 14px;
+	line-height: 18px;
+	color: #383874;
+	font-weight: 600;
+}

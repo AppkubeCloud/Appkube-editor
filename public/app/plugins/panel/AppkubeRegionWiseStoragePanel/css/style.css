@@ -1,0 +1,103 @@
+.region-wise-storage-panel{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.region-wise-storage-panel .region-wise-storage-container{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding: 14px 22px 22px;
+}
+
+.region-wise-storage-panel .region-wise-storage-container .title{
+font-size: 15px;
+line-height: 18px;
+color: #383874;
+font-weight: 600;
+margin-bottom: 18px;
+}
+
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container{
+	display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+	margin-bottom: 8px;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress{
+	height: 35px;
+	border-radius: 18px;
+	margin-right: 8px;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.united{
+  width:calc(100% - 80px); 
+	background-color: #8676FF;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.china{
+  width: calc(100% - 120px);
+	background-color: #8676FF;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.india{
+  width: calc(100% - 150px);
+	background-color: #FF9066;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.russia{
+  width: calc(100% - 180px);
+	background-color: #FF9066;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.france{
+  width: calc(100% - 200px);
+	background-color: #FFCC41;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.australia{
+  width: calc(100% - 220px);
+	background-color: #FFCC41;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .progress.spane{
+  width: calc(100% - 240px);
+	background-color: #42CD7E;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details{
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	padding: 0px 10px;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details .country-name{
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 23px;
+	color: #FFFFFF;
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.united{
+	width:calc(100% - 80px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.china{
+	width: calc(100% - 120px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.india{
+  width: calc(100% - 150px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.russia{
+  width: calc(100% - 180px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.france{
+  width: calc(100% - 200px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.australia{
+  width: calc(100% - 220px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .country-details.spane{
+  width: calc(100% - 240px);
+}
+.region-wise-storage-panel .region-wise-storage-container .country-wise-storage-container .progressbar-container .storage-gb{
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 300;
+	color: #05050F;
+}
+
+

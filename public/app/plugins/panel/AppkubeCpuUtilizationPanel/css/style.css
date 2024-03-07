@@ -1,0 +1,61 @@
+.cpu-utilization-panel {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.cpu-utilization-panel .cluster-overview-inner-panel {
+	width: 100%;
+	padding: 12px;
+	overflow: hidden;
+	overflow-y: auto;
+  height: 100%;
+}
+.cpu-utilization-panel .heading {
+	width: 100%;
+	display: flex;
+	margin-bottom: 30px;
+	align-items: center;
+}
+.cpu-utilization-panel .heading span {
+	display: inline-flex;
+	font-size: 14px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 700;
+}
+.cpu-utilization-panel .heading .time-periods {
+	display: inline-flex;
+	list-style: none;
+	width: auto;
+	margin-left: auto;
+	margin-right: 15px;
+}
+.cpu-utilization-panel .heading .time-periods li {
+	display: inline-flex;
+	vertical-align: top;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #05050F;
+	padding: 5px 8px;
+	margin-left: 2px;
+	margin-right: 2px;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.cpu-utilization-panel .heading .time-periods li.active {
+	background-color: #3247E5;
+	color: #ffffff;
+}
+.cpu-utilization-panel .heading .buttons {
+	display: inline-flex;
+	width: auto;
+}
+.cpu-utilization-panel .heading .buttons button {
+	float: right;
+	border: none;
+	padding: 0;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}

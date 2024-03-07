@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Number Zone Chart Panel",
+  "id": "appkubeNumberZoneChartPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Number Zone Chart Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

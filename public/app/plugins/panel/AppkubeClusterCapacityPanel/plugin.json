@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Cluster Capacity Panel",
+  "id": "appkubeClusterCapacityPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Cluster Capacity Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

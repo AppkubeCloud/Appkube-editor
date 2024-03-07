@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+
 import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
@@ -26,25 +27,25 @@ class AppkubeCostByHighestSpendTargetGroupsPanel extends PureComponent<PanelProp
           </div>
           <div className="graph-container">
             <div className="graph">
-              <label>Lambda</label>
+              <label htmlFor="Lambda">Lambda</label>
               <div className="line">
                 <span style={{ width: '70%', backgroundColor: '#FAA24B' }}>782</span>
               </div>
             </div>
             <div className="graph">
-              <label>EC2</label>
+              <label htmlFor="EC2">EC2</label>
               <div className="line">
                 <span style={{ width: '80%', backgroundColor: '#F9D33D' }}>889</span>
               </div>
             </div>
             <div className="graph">
-              <label>Containers</label>
+              <label htmlFor="Containers">Containers</label>
               <div className="line">
                 <span style={{ width: '55%', backgroundColor: '#88E143' }}>450</span>
               </div>
             </div>
             <div className="graph">
-              <label>Ip Address</label>
+              <label htmlFor="Ip Address">Ip Address</label>
               <div className="line">
                 <span style={{ width: '75%', backgroundColor: '#53CA43' }}>805</span>
               </div>

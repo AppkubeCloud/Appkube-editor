@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
+
 import { PanelProps } from '@grafana/data';
+
 import './css/style.css';
 
 class AppkubeTopSecurityRulesTriggredPanel extends PureComponent<PanelProps> {
@@ -18,43 +20,43 @@ class AppkubeTopSecurityRulesTriggredPanel extends PureComponent<PanelProps> {
           </div>
           <div className="lines-container">
             <div className="line-container">
-              <label>Change thread namespace</label>
+              <label htmlFor="Change thread namespace">Change thread namespace</label>
               <div className="line">
                 <span style={{ width: '100%' }}></span>
               </div>
             </div>
             <div className="line-container">
-              <label>Secure EKS Control Plane</label>
+              <label  htmlFor="Secure EKS Control Plane">Secure EKS Control Plane</label>
               <div className="line">
                 <span style={{ width: '80%' }}></span>
               </div>
             </div>
             <div className="line-container">
-              <label>VPC Security</label>
+              <label htmlFor="VPC Security">VPC Security</label>
               <div className="line">
                 <span style={{ width: '70%' }}></span>
               </div>
             </div>
             <div className="line-container">
-              <label>Node Security</label>
+              <label htmlFor="Node Security">Node Security</label>
               <div className="line">
                 <span style={{ width: '60%' }}></span>
               </div>
             </div>
             <div className="line-container">
-              <label>Secure Container Images</label>
+              <label htmlFor="Secure Container Images">Secure Container Images</label>
               <div className="line">
                 <span style={{ width: '50%' }}></span>
               </div>
             </div>
             <div className="line-container">
-              <label>IAM Roles and Policies</label>
+              <label  htmlFor="IAM Roles and Policies">IAM Roles and Policies</label>
               <div className="line">
                 <span style={{ width: '48%' }}></span>
               </div>
             </div>
             <div className="line-container">
-              <label>Logging and Monitoring</label>
+              <label htmlFor="Logging and Monitoring">Logging and Monitoring</label>
               <div className="line">
                 <span style={{ width: '44%' }}></span>
               </div>

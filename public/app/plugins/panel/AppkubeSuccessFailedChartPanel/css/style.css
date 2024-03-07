@@ -1,0 +1,78 @@
+.success-and-failed-request-panel {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.success-and-failed-request-panel-inner {
+	width: 100%;
+	padding:12px;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.success-and-failed-request-panel .header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 30px;
+}
+
+.success-and-failed-request-panel .header .heading {
+	display: inline-flex;
+	width: auto;
+	font-size: 18px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 600;
+}
+.success-and-failed-request-panel .header .contents {
+	display: inline-flex;
+	width: auto;
+	margin-left: auto;
+}
+.success-and-failed-request-panel .header .contents span {
+	display: inline-flex;
+	margin-left: 50px;
+	font-size: 14px;
+	line-height: 24px;
+	color: #cbd0dd;
+	font-weight: 600;
+	position: relative;
+	padding-left: 15px;
+}
+.success-and-failed-request-panel .header .contents span.failire::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	left: 0px;
+	top: 8px;
+	border-radius: 50%;
+	background-color: #fe4244;
+}
+.success-and-failed-request-panel .header .contents span.success::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	left: 0px;
+	top: 8px;
+	border-radius: 50%;
+	background-color: #4069ff;
+}
+.success-and-failed-request-panel .header .buttons {
+	display: inline-flex;
+	width: auto;
+	margin-left: auto;
+}
+
+.success-and-failed-request-panel .header .buttons .icon {
+	display: inline-flex;
+	width: auto;
+	border: none;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}

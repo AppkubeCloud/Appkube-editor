@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Region Wise Storage Panel",
+  "id": "appkubeRegionWiseStoragePanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Region Wise Storage Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

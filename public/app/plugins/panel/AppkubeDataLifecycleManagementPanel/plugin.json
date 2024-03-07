@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "Appkube Data Lifecycle Management Panel",
+  "id": "appkubeDataLifecycleManagementPanel",
+
+  "skipDataQuery": true,
+
+  "info": {
+    "description": "Appkube Data Lifecycle Management Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}
