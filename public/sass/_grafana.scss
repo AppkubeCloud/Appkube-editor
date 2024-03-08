@@ -102,4 +102,8 @@
 @import 'pages/ec2_explorer';
 @import 'pages/lambda';
 @import 'pages/eks_explorer';
-@import 'pages/nlbexplore'
+@import 'pages/nlbexplore';
+
+// LOAD @grafana/ui components
+@import 'https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@0ac23ca/css/all.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css';

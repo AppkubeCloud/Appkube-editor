@@ -238,23 +238,21 @@
         padding: 0px 35px;
 
         li {
+          display: inline-flex;
           list-style: none;
-          padding: 7px 35px;
-          font-size: 11px;
-          line-height: 14px;
-          cursor: pointer;
-
-          &.active-tab {
-            background-color: #3247e5;
-            border-radius: 40px;
-
-            a {
-              color: #ffffff !important;
-            }
-          }
-
-          a {
+          button{
+            padding: 7px 35px;
+            font-size: 11px;
+            line-height: 14px;
+            cursor: pointer;
             color: #05050f;
+            background: none;
+            border: none;
+            &.active-tab {
+              background-color: #3247e5;
+              border-radius: 40px;
+              color: #ffffff;
+            }
           }
         }
       }
@@ -442,7 +440,7 @@
               border-bottom: 11px solid transparent;
               position: absolute;
               top: 0px;
-              left: 48px;
+              left: 45px;
               right: 0;
             }
 
@@ -451,7 +449,7 @@
 
               &::before {
                 border-left: 12px solid #ffba69;
-                left: 39px;
+                left: 37px;
               }
             }
           }

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Performance from './Components/Performance';
+
 import Availability from './Components/Availability';
-import Reliability from './Components/Reliability';
-import EndUsage from './Components/EndUsage';
-import Security from './Components/Security';
 import Compliance from './Components/Compliance';
-import DataProtection from './Components/DataProtection';
 import ConfigurationModal from './Components/ConfigurationModal';
+import DataProtection from './Components/DataProtection';
+import EndUsage from './Components/EndUsage';
 import HostedServiceModal from './Components/HostedServiceModal';
+import Performance from './Components/Performance';
+import Reliability from './Components/Reliability';
+import Security from './Components/Security';
 import SlaModal from './Components/SlaModal';
 
 const images: any = {
@@ -185,26 +186,40 @@ class EC2Explorer extends Component<any, any> {
           <div className="aws-panel-tabs">
             <div className="manage-dashboard-tabs">
               <ul>
-                <li className={value === 0 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(0)}>
-                  <a>Performance</a>
+                <li>
+                  <button className={value === 0 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(0)}>
+                    Performance
+                  </button>
                 </li>
-                <li className={value === 1 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(1)}>
-                  <a>Availability</a>
+                <li>
+                  <button className={value === 1 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(1)}>
+                    Availability
+                  </button>
                 </li>
-                <li className={value === 2 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(2)}>
-                  <a>Reliability</a>
+                <li>
+                  <button className={value === 2 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(2)}>
+                    Reliability
+                  </button>
                 </li>
-                <li className={value === 3 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(3)}>
-                  <a>EndUsage</a>
+                <li>
+                  <button className={value === 3 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(3)}>
+                    EndUsage
+                  </button>
                 </li>
-                <li className={value === 4 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(4)}>
-                  <a>Security</a>
+                <li>
+                  <button className={value === 4 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(4)}>
+                    Security
+                  </button>
                 </li>
-                <li className={value === 5 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(5)}>
-                  <a>Compliance</a>
+                <li>
+                  <button className={value === 5 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(5)}>
+                    Compliance
+                  </button>
                 </li>
-                <li className={value === 6 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(6)}>
-                  <a>DataProtection</a>
+                <li>
+                  <button className={value === 6 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(6)}>
+                    DataProtection
+                  </button>
                 </li>
               </ul>
             </div>

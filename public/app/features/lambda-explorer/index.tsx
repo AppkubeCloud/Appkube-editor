@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import FiltersModal from './Components/FiltersModal';
 
 const images: any = {
@@ -67,45 +68,45 @@ class LambdaExplorer extends Component<any, any> {
               <>
                 <div ref={this.popupRef} className="sla-popup">
                   <ul>
-                    <li className="sla-name active">
-                      <a href="#">
+                    <li className="sla-name">
+                      <button className="active">
                         <img src={images.slaIcon} alt="" />
                         <span className="name">Performance</span>
-                      </a>
+                      </button>
                     </li>
-                    <li className="sla-name ">
-                      <a href="#">
+                    <li className="sla-name">
+                      <button>
                         <img src={images.slaIcon} alt="" />
                         <span className="name">Reliablity</span>
-                      </a>
+                      </button>
                     </li>
                     <li className="sla-name">
-                      <a href="#">
+                      <button>
                         <img src={images.slaIcon} alt="" />
                         <span className="name">Availiablity</span>
-                      </a>
+                      </button>
                     </li>
                     <li className="sla-name">
-                      <a href="#">
+                      <button>
                         <img src={images.slaIcon} alt="" />
                         <span className="name">End Usage</span>
-                      </a>
+                      </button>
                     </li>
                     <li className="sla-name">
-                      <a href="#">
+                      <button>
                         <img src={images.slaIcon} alt="" />
                         <span className="name">Security</span>
-                      </a>
+                      </button>
                     </li>
                     <li className="sla-name">
-                      <a href="#">
+                      <button>
                         <img src={images.slaIcon} alt="" />
                         <span className="name">Cost</span>
-                      </a>
+                      </button>
                     </li>
                   </ul>
                 </div>
-                <div className="sla-shadow"></div>
+                <div className="sla-shadow" onClick={this.toggleSla}></div>
               </>
             )}
           </div>
@@ -113,17 +114,25 @@ class LambdaExplorer extends Component<any, any> {
         <div className="tabs-container">
           <div className="tabs">
             <ul>
-              <li className={value === 0 ? 'active' : ''} onClick={(e) => this.setActiveTab(0)}>
-                All Product
+              <li>
+                <button className={value === 0 ? 'active' : ''} onClick={(e) => this.setActiveTab(0)}>
+                  All Product
+                </button>
               </li>
-              <li className={value === 1 ? 'active' : ''} onClick={(e) => this.setActiveTab(1)}>
-                Product 1
+              <li>
+                <button className={value === 1 ? 'active' : ''} onClick={(e) => this.setActiveTab(1)}>
+                  Product 1
+                </button>
               </li>
-              <li className={value === 2 ? 'active' : ''} onClick={(e) => this.setActiveTab(2)}>
-                Product 2
+              <li>
+                <button className={value === 2 ? 'active' : ''} onClick={(e) => this.setActiveTab(2)}>
+                  Product 2
+                </button>
               </li>
-              <li className={value === 3 ? 'active' : ''} onClick={(e) => this.setActiveTab(3)}>
-                Product 3
+              <li>
+                <button className={value === 3 ? 'active' : ''} onClick={(e) => this.setActiveTab(3)}>
+                  Product 3
+                </button>
               </li>
             </ul>
           </div>

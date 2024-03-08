@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { Modal } from '@grafana/ui';
 
 const images: any = {
@@ -137,7 +138,7 @@ class HostedServiceModal extends Component<any> {
             <tbody>
               {rows.map((row: any) => (
                 <tr key={row.name}>
-                  <td scope="row">{row.name}</td>
+                  <td>{row.name}</td>
                   <td align="center">
                     <div className="info">{row.enviroment}</div>
                   </td>
