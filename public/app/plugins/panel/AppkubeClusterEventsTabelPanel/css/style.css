@@ -1,7 +1,6 @@
 .cluster-events-table-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 400px;
+	display: block;
+	width: 100%;
 }
 .cluster-events-table-inner-panel {
 	display: flex;
@@ -19,9 +18,6 @@
 .cluster-events-table-panel .common-table {
 	width: 100%;
 	display: block;
-	overflow: hidden;
-	overflow-y: auto;
-	max-height: 180px;
 }
 .cluster-events-table-panel .common-table table {
 	overflow: auto;

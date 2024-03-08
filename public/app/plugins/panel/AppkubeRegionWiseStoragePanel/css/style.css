@@ -1,13 +1,10 @@
 .region-wise-storage-panel{
 	width: 100%;
-	height: 100%;
 	display: block;
 }
 
 .region-wise-storage-panel .region-wise-storage-container{
 	width: 100%;
-	height: 100%;
-	overflow: auto;
 	padding: 14px 22px 22px;
 }
 

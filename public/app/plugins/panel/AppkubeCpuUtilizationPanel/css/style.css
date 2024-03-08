@@ -1,14 +1,10 @@
 .cpu-utilization-panel {
 	width: 100%;
-	height: 100%;
 	display: block;
 }
 .cpu-utilization-panel .cluster-overview-inner-panel {
 	width: 100%;
 	padding: 12px;
-	overflow: hidden;
-	overflow-y: auto;
-  height: 100%;
 }
 .cpu-utilization-panel .heading {
 	width: 100%;

@@ -14,9 +14,6 @@
 .messages-table-panel .common-table {
 	width: 100%;
 	display: block;
-	overflow: hidden;
-	overflow-y: auto;
-	max-height: 180px;
 }
 .messages-table-panel .common-table table {
 	overflow: auto;

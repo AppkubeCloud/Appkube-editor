@@ -1,16 +1,12 @@
 .cluster-health-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 540px;
+	display: block;
+	width: 100%;
 }
 .cluster-health-panel .cluster-health-inner-panel {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	padding: 20px;
-	overflow: hidden;
-	overflow-y: auto;
-	max-height: 200px;
 	border-radius: 7px;
 	background-color: #ffffff;
 	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;

@@ -6,9 +6,6 @@
 .number-zone-chart-panel .number-zone-chart-inner-panel {
 	width: 100%;
 	padding: 12px;
-	overflow: hidden;
-	overflow-y: auto;
-  height: 100%;
 }
 .number-zone-chart-panel .heading {
 	width: 100%;

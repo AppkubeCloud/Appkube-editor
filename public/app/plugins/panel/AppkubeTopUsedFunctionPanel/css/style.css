@@ -1,6 +1,4 @@
 .top-used-function-panel {
-	margin-left: auto;
-	margin-right: auto;
 	width: 250px;
 }
 .top-used-function-panel .top-used-function-inner {
@@ -8,9 +6,6 @@
 	flex-wrap: wrap;
 	width: 100%;
 	padding: 0px 15px;
-	max-height: 250px;
-	overflow: hidden;
-	overflow-y: auto;
 	border-radius: 7px;
 	background-color: #fff;
 }

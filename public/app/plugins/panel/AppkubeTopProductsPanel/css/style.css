@@ -1,14 +1,10 @@
 .top-products-panel {
   display: block;
   width: 100%;
-  height: 100%;
-  overflow: auto;
 }
 .top-products-panel .top-products-inner {
 	width: 100%;
 	padding: 10px 10px 20px;
-	height: 100%;
-	overflow: auto;
 }
 .top-products-panel .top-products-heading {
 	display: flex;

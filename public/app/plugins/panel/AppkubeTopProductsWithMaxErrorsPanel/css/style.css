@@ -1,16 +1,11 @@
 .top-products-errors-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 300px;
+	width: 100%;
 }
 .top-products-errors-panel .top-products-errors-inner {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	padding: 10px 10px 20px;
-	max-height: 240px;
-	overflow: hidden;
-	overflow-y: auto;
 	background-color: #F6F7FB;
 	border: 1px solid #ffffff;
 }

@@ -1,7 +1,6 @@
 .total-cost-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 250px;
+	display: block;
+	width: 100%;
 	
 }
 .total-cost-panel .total-cost-inner {

@@ -1,15 +1,10 @@
 .wise-cost-panel {
-	width: 100%;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
+	width: 300px;
+	display: block;
 }
 .wise-cost-panel .wise-cost-panel-inner-panel {
 	width: 100%;
 	padding: 0px;
-	overflow: hidden;
-	overflow-y: auto;
-  height: 100%;
 }
 .wise-cost-panel .heading {
 	width: 100%;

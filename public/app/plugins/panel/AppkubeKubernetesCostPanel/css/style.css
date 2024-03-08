@@ -1,7 +1,6 @@
 .kubernetes-cost-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 280px;
+	display: block;
+	width: 100%;
 }
 .kubernetes-cost-panel .kubernetes-cost-inner {
 	display: flex;

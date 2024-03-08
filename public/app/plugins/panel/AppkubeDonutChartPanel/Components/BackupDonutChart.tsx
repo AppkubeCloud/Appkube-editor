@@ -21,8 +21,8 @@ const BackupDonutChart: React.FC = () => {
       .scaleOrdinal<string>()
       .domain(data.map((d) => d.name))
       .range(['#ff708b', '#FFFFFF']);
-    height = Math.min(width, 500);
-    const radius = Math.min(width, height) / 2;
+    height = Math.min(width, 150);
+    const radius = Math.min(width, height) / 1;
     const arc = d3
       .arc<d3.PieArcDatum<{ name: string; value: number }>>()
       .innerRadius(radius * 0.67)

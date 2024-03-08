@@ -1,14 +1,10 @@
 .cluster-capacity-panel {
 	width: 100%;
-	height: 100%;
 	display: block;
 }
 .cluster-capacity-panel .cluster-capacity-inner-panel {
 	width: 100%;
 	padding: 12px;
-	overflow: hidden;
-	overflow-y: auto;
-  height: 100%;
 }
 .cluster-capacity-panel .heading {
 	width: 100%;

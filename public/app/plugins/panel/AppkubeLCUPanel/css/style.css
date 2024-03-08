@@ -6,9 +6,6 @@
 .success-and-failed-request-panel-inner {
 	width: 100%;
 	padding:12px;
-	height: 100%;
-	overflow: hidden;
-	overflow-y: auto;
 }
 
 .success-and-failed-request-panel .header {
