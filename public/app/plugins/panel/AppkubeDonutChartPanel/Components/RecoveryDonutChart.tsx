@@ -22,7 +22,7 @@ const RecoveryDonutChart: React.FC = () => {
       .domain(data.map((d) => d.name))
       .range(['#2b5aff', '#FFFFFF']);
     height = Math.min(width, 150);
-    const radius = Math.min(width, height) / 1;
+    const radius = Math.min(width, height) / 2;
     const arc = d3
       .arc<d3.PieArcDatum<{ name: string; value: number }>>()
       .innerRadius(radius * 0.67)
@@ -73,14 +73,14 @@ const RecoveryDonutChart: React.FC = () => {
     svg
       .append('text')
       .attr('x', 0)
-      .attr('y', 0)
+      .attr('y', 10)
       .attr('text-anchor', 'middle')
       .attr('font-size', 24)
       .text(`${percentage}`);
   }, []);
   return (
     <div className="chart">
-      <svg ref={ref} width={width} height={height} />
+      <svg ref={ref} width={width} height={height} viewBox="-75, -75, 150, 150" />
     </div>
   );
 };

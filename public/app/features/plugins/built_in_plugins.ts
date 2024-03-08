@@ -68,7 +68,6 @@ import * as AppkubeFlowCountPanel from 'app/plugins/panel/AppkubeFlowCountPanel/
 import * as AppkubeFunctionByProductsPanel from 'app/plugins/panel/AppkubeFunctionByProductsPanel/module';
 import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
-import * as AppkubeLCUPanel from 'app/plugins/panel/AppkubeLCUPanel/module';
 import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
 import * as AppkubeMultilineChartPanel from 'app/plugins/panel/AppkubeMultilineChartPanel/module';
 import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
@@ -81,7 +80,6 @@ import * as AppkubeResoursesPanel from 'app/plugins/panel/AppkubeResoursesPanel/
 import * as AppkubeResponseTimePanel from 'app/plugins/panel/AppkubeResponseTimePanel/module';
 import * as AppkubeS3TotalCostPanel from 'app/plugins/panel/AppkubeS3TotalCostPanel/module';
 import * as AppkubeSecurityPanel from 'app/plugins/panel/AppkubeSecurityPanel/module';
-import * as AppkubeSuccessAndFailedRequestPanel from 'app/plugins/panel/AppkubeSuccessAndFailedRequestPanel/module';
 import * as AppkubeSuccessFailedChartPanel from 'app/plugins/panel/AppkubeSuccessFailedChartPanel/module';
 import * as AppkubeTablePanel from 'app/plugins/panel/AppkubeTablePanel/module';
 import * as AppkubeThreatCallsPanel from 'app/plugins/panel/AppkubeThreatCallsPanel/module';
@@ -240,10 +238,8 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeTopBucketCompliancePanel/module': AppkubeTopBucketCompliancePanel,
   'app/plugins/panel/AppkubeRegionWiseStoragePanel/module': AppkubeRegionWiseStoragePanel,
   'app/plugins/panel/AppkubeTopProductsPanel/module': AppkubeTopProductsPanel,
-  'app/plugins/panel/AppkubeSuccessAndFailedRequestPanel/module': AppkubeSuccessAndFailedRequestPanel,
   'app/plugins/panel/AppkubeSuccessFailedChartPanel/module': AppkubeSuccessFailedChartPanel,
   'app/plugins/panel/AppkubePodsOverviewPanel/module': AppkubePodsOverviewPanel,
-  'app/plugins/panel/AppkubeLCUPanel/module': AppkubeLCUPanel,
   'app/plugins/panel/AppkubeClusterOverviewPanel/module': AppkubeClusterOverviewPanel,
   'app/plugins/panel/AppkubeFlowCountPanel/module': AppkubeFlowCountPanel,
   'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module': AppkubeDataLifecycleManagementPanel,
