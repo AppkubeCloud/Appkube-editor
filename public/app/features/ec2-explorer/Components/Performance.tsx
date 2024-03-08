@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
+import CustomDashboardLoader from 'app/features/custom-dashboard-loader';
+
 class Performance extends Component {
-  constructor(props: any) {
+  constructor(props: Record<string,string>) {
     super(props);
     this.state = {};
   }
 
   render() {
-    return <div>Performance</div>;
+    return <div>
+      <CustomDashboardLoader
+        uid={"6haWC40Sz"}
+        slug="new-dashboard"
+      />
+    </div>;
   }
 }
 

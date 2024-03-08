@@ -12,7 +12,7 @@ import Reliability from './Components/Reliability';
 import Security from './Components/Security';
 import SlaModal from './Components/SlaModal';
 
-const images: any = {
+const images = {
   awsIcon: '/public/img/ec2-explorer/aws.png',
   hostedIcon: '/public/img/ec2-explorer/hosted.png',
   costIcon: '/public/img/ec2-explorer/cost.svg',
@@ -29,23 +29,24 @@ const images: any = {
   statusIcon: '/public/img/ec2-explorer/status.png',
 };
 
-class EC2Explorer extends Component<any, any> {
-  constructor(props: any) {
+class EC2Explorer extends Component {
+  constructor(props: Record<string, string>) {
     super(props);
+    let elementId = this.findParam("var-elementId", location.href);
+    if (!elementId) {
+      alert("Please add element id");
+    }
     this.state = {
       value: 0,
       showConfigurationModal: false,
       showHostedServiceModal: false,
       showSlaModal: false,
       activeTab: 0,
+      elementId
     };
   }
 
-  // handleChange = (event: any, newValue: any) => {
-  //   this.setState({ value: newValue });
-  // };
-
-  setActiveTab = (value: any) => {
+  setActiveTab = (value: number) => {
     this.setState({
       value,
     });
@@ -69,8 +70,19 @@ class EC2Explorer extends Component<any, any> {
     });
   };
 
+  findParam = (paramName: string, url: string) => {
+    if (!url) {
+      url = location.href;
+    }
+    paramName = paramName.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    const regexS = "[\\?&]" + paramName + "=([^&#]*)";
+    const regex = new RegExp(regexS);
+    const results = regex.exec(url);
+    return results == null ? "" : results[1];
+  }
+
   render() {
-    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal } = this.state;
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId } = this.state;
     return (
       <>
         <div className="aws-topology-container">
@@ -90,6 +102,8 @@ class EC2Explorer extends Component<any, any> {
               </div>
             </div>
           </div>
+          {/* This is needed for data source to detect the element. don't change id */}
+          <input style={{ display: "none" }} id="elementId" value={elementId as string} />
           <div className="aws-container d-flex justify-content-between align-items-center">
             <div className="name d-flex align-items-center">
               <div className="icon">
