@@ -6,9 +6,6 @@
 .overall-bucket-compliance-panel .flow-count-inner-panel {
 	width: 100%;
 	padding: 12px;
-	overflow: hidden;
-	overflow-y: auto;
-  height: 100%;
 }
 .overall-bucket-compliance-panel .heading {
 	width: 100%;

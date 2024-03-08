@@ -6,9 +6,6 @@
 .flow-count-panel .flow-count-inner-panel {
 	width: 100%;
 	padding: 12px;
-	overflow: hidden;
-	overflow-y: auto;
-  height: 100%;
 }
 .flow-count-panel .heading {
 	width: 100%;

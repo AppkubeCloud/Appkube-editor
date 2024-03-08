@@ -1,16 +1,12 @@
 .top-failure-function-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 250px;
+	display: block;
+	width: 100%;
 }
 .top-failure-function-panel .top-failure-function-inner {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	padding: 0px 15px;
-	max-height: 240px;
-	overflow: hidden;
-	overflow-y: auto;
 	border-radius: 7px;
 	background-color: #fff;
 }

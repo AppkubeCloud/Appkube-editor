@@ -1,7 +1,6 @@
 .security-panel{
-	margin-left: auto;
-	margin-right: auto;
-	width: 230px;
+	display: block;
+	width: 100%;
 }
 
 .security-panel .security-container{

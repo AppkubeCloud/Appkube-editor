@@ -1,7 +1,6 @@
 .used-function-table-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 300px;
+	display: block;
+	width: 100%;
 }
 .used-function-table-inner-panel {
 	display: flex;
@@ -19,9 +18,6 @@
 .used-function-table-panel .common-table {
 	width: 100%;
 	display: block;
-	overflow: hidden;
-	overflow-y: auto;
-	max-height: 180px;
 }
 .used-function-table-panel .common-table table {
 	overflow: auto;

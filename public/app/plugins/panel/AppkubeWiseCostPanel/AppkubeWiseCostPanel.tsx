@@ -28,7 +28,7 @@ let data: DataPoint[] = [
     population: 10,
   },
 ];
-let width = 900;
+let width = 300;
 let height = 300;
 
 class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
@@ -51,7 +51,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
   drawChart() {
     // const { width, height } = this.props;
 
-    const svg = d3.select(this.svgRef.current).attr('width', 220).attr('height', 220);
+    const svg = d3.select(this.svgRef.current).attr('width', 300).attr('height', 300);
 
     svg.selectAll('*').remove(); // Clear previous elements
 
@@ -70,7 +70,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .enter()
       .append('g')
       .attr('class', 'donut-arc')
-      .attr('transform', `translate(${width / 10.0},${height / 1.5})`);
+      .attr('transform', `translate(${width / 1.8},${height / 1.5})`);
 
     arcs
       .append('path')

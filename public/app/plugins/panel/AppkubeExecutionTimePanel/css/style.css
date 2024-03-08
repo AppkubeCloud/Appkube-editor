@@ -8,12 +8,8 @@
 .execution-time-table-panel .common-table {
 	width: 100%;
 	display: block;
-	overflow: hidden;
-	overflow-y: auto;
-	max-height: 180px;
 }
 .execution-time-table-panel .common-table table {
-	overflow: auto;
 	width: 100%;
 }
 .execution-time-table-panel .common-table table thead tr th {

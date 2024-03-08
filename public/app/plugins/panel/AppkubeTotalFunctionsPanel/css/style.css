@@ -1,7 +1,6 @@
 .total-functions-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 250px;
+	display: block;
+	width: 100%;
 	
 }
 .total-functions-panel .total-functions-inner {

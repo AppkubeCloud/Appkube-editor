@@ -1,7 +1,6 @@
 .service-total-cost-panel{
-	margin-left: auto;
-	margin-right: auto;
-	width: 230px;
+	display: block;
+	width: 100%;
 }
 
 .service-total-cost-panel .service-total-cost-container{
@@ -14,7 +13,6 @@
 	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
 	align-items: center;
 }
-
 
 .service-total-cost-panel .service-total-cost-container .panel-details .title{
 	font-size: 12px;

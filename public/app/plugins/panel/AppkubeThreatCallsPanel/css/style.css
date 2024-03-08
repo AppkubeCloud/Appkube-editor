@@ -1,16 +1,12 @@
 .threat-calls-panel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 420px;
+	display: block;
+	width: 100%;
 }
 .threat-calls-panel .threat-calls-inner {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	padding: 10px 10px 20px;
-	max-height: 240px;
-	overflow: hidden;
-	overflow-y: auto;
 	background-color: #ffffff;
 }
 .threat-calls-panel .threat-calls-heading {
