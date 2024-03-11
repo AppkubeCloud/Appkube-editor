@@ -29,7 +29,7 @@ let data: DataPoint[] = [
   },
 ];
 let width = 300;
-let height = 300;
+let height = 200;
 
 class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
@@ -70,7 +70,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .enter()
       .append('g')
       .attr('class', 'donut-arc')
-      .attr('transform', `translate(${width / 1.8},${height / 1.5})`);
+      .attr('transform', `translate(${width / 1.8},${height / 1.8})`);
 
     arcs
       .append('path')
@@ -84,7 +84,6 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .attr('clip-path', (d: any, i: any) => `url(#clip${i})`);
   }
   render() {
-    const { height } = this.props;
     return (
       <div className="wise-cost-panel">
         <div className="wise-cost-panel-inner-panel">
@@ -97,7 +96,6 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
             ref={this.svgRef}
             viewBox={`0 0 ${width} ${height}`}
             preserveAspectRatio="xMidYMid meet"
-            style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '220' }}
           ></svg>
           <div className="contents">
             <div className="content-row">

@@ -28,7 +28,7 @@
 }
 .kubernetes-cost-panel .kubernetes-cost-inner .price {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	width: 100%;
 	font-size: 48px;
 	line-height: 54px;
