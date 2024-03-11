@@ -72,6 +72,38 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
     );
   };
 
+  renderNetworkUtilizationData = (data: any) => {
+    return (
+      <div className="utilization-card">
+        <div className="card-title">
+          <div className="icon">
+            <img src={imageJSON.network_utilization} alt="" />
+          </div>
+          <span className="name">Network Utilization</span>
+        </div>
+        <div className="utilization-details">
+          <div className="info">
+            <span className="name">Inbound Traffic</span>
+            <span className="percantage" title={data.InboundTraffic}>
+              {Math.round(data.InboundTraffic)} MB
+            </span>
+          </div>
+          <div className="info">
+            <span className="name">Outbound Traffic</span>
+            <span className="percantage" title={data.OutboundTraffic}>
+              {Math.round(data.OutboundTraffic)} MB
+            </span>
+          </div>
+          <div className="info">
+            <span className="name">Data Transferred</span>
+            <span className="percantage" title={data.DataTrasferred}>
+              {Math.round(data.DataTrasferred)} GB
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
 
 
@@ -92,7 +124,7 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
               cardJSX = this.renderError('CPU Utilization', '');
             }
           }
-        }else if(query.queryString==='memory_utilization_panel'){
+        } else if (query.queryString==='memory_utilization_panel'){
           if (error) {
             cardJSX = this.renderError('Memory Utilization', error);
           } else {
@@ -100,6 +132,16 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
               cardJSX = this.memoryUtilizationData(JSON.parse(data));
             } else {
               cardJSX = this.renderError('Memory Utilization', '');
+            }
+          }
+        } else if (query.queryString === "network_utilization_panel") {
+          if(error) {
+            cardJSX = this.renderError("Network Utilization", error);
+          } else {
+            if(data) {
+              cardJSX = this.renderNetworkUtilizationData(JSON.parse(data));
+            } else {
+              cardJSX = this.renderError("Network Utilization", "");
             }
           }
         }
