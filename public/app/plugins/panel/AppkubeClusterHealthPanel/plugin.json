@@ -3,8 +3,6 @@
   "name": "Appkube Cluster Health Panel",
   "id": "appkubeClusterHealthPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Cluster Health Panel",
     "author": {

@@ -3,8 +3,6 @@
   "name": "Appkube Total Cost Panel",
   "id": "appkubeTotalCostPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Total Cost Panel",
     "author": {

@@ -182,7 +182,7 @@ class MultilineChart extends Component<Props> {
   render() {
     return (
       <div className='multi-line-chart'>
-        <svg ref={this.svgRef} width="600" height="400"></svg>
+        <svg ref={this.svgRef} width="900" height="400"></svg>
       </div>
     );
   }

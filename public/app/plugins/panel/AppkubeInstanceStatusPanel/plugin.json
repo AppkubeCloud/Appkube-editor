@@ -3,8 +3,6 @@
   "name": "Appkube Instance Status Panel",
   "id": "appkubeInstanceStatusPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Instance Status Panel",
     "author": {

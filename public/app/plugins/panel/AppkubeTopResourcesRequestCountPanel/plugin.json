@@ -3,8 +3,6 @@
   "name": "Appkube Top Resources Request Count  Panel",
   "id": "appkubeTopResourcesRequestCountPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Resources Request Count  Panel",
     "author": {

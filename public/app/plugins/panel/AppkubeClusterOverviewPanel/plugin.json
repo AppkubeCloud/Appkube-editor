@@ -3,8 +3,6 @@
   "name": "Appkube Cluster Overview Panel",
   "id": "appkubeClusterOverviewPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Cluster Overview Panel",
     "author": {

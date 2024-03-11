@@ -3,8 +3,6 @@
   "name": "Appkube Top Used Function Panel",
   "id": "appkubeTopUsedFunctionPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Used Function Panel",
     "author": {

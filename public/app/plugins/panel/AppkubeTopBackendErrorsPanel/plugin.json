@@ -3,8 +3,6 @@
   "name": "Appkube Top Backend Errors Panel",
   "id": "appkubeTopBackendErrorsPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Backend Errors Panel",
     "author": {

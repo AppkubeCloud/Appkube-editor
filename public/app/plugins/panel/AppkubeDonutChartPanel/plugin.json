@@ -3,8 +3,6 @@
   "name": "Appkube Donut Chart Panel",
   "id": "appkubeDonutChartPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Donut Chart Panel",
     "author": {

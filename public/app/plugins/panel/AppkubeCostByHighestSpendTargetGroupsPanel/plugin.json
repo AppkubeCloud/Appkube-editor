@@ -3,8 +3,6 @@
   "name": "Appkube Cost By Highest Spend Target Groups Panel",
   "id": "appkubeCostByHighestSpendTargetGroupsPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Cost By Highest Spend Target Groups Panel",
     "author": {

@@ -3,8 +3,6 @@
   "name": "Appkube Cluster Events Table Panel",
   "id": "appkubeClusterEventsTablePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Cluster Events Table Panel",
     "author": {

@@ -3,8 +3,6 @@
   "name": "Appkube Top Bucket Compliance Panel",
   "id": "appkubeTopBucketCompliancePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Bucket Compliance Panel",
     "author": {

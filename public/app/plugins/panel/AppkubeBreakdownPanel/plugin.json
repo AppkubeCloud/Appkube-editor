@@ -3,8 +3,6 @@
   "name": "Appkube Breakdown Panel",
   "id": "appkubeBreakdownPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Breakdown Panel",
     "author": {

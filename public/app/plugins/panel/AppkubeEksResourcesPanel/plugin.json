@@ -3,8 +3,6 @@
   "name": "Appkube Eks Resources Panel",
   "id": "appkubeEksResourcesPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Eks Resources Panel",
     "author": {

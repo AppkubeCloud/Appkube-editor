@@ -3,8 +3,6 @@
   "name": "Appkube Error On Request Panel",
   "id": "appkubeErrorOnRequestPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Error On Request Panel",
     "author": {

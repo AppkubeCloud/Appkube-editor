@@ -3,8 +3,6 @@
   "name": "Appkube Api Servers Table Panel",
   "id": "appkubeApiServersTablePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Api Servers Table Panel",
     "author": {

@@ -3,8 +3,6 @@
   "name": "Appkube Function By Products Panel",
   "id": "appkubeFunctionByProductsPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Function By Products Panel",
     "author": {

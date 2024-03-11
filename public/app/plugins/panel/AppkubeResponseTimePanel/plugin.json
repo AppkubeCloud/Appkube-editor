@@ -3,8 +3,6 @@
   "name": "Appkube Response Time Panel",
   "id": "appkubeResponseTimePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Response Time Panel",
     "author": {

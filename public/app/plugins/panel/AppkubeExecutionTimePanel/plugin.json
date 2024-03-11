@@ -3,8 +3,6 @@
   "name": "Appkube Execution Time Table Panel",
   "id": "appkubeExecutionTimeTablePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Execution Time Table Panel",
     "author": {

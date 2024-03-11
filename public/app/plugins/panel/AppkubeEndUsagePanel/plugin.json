@@ -3,8 +3,6 @@
   "name": "Appkube End Usage Panel",
   "id": "appkubeEndUsagePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube End Usage Panel",
     "author": {

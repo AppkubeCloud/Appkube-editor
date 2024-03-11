@@ -3,8 +3,6 @@
   "name": "Appkube Authentication Chart Panel",
   "id": "appkubeAuthenticationChartPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Authentication Chart Panel",
     "author": {

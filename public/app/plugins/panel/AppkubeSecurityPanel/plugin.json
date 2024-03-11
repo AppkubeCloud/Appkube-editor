@@ -3,8 +3,6 @@
   "name": "Appkube Security Panel",
   "id": "appkubeSecurityPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Security Panel",
     "author": {

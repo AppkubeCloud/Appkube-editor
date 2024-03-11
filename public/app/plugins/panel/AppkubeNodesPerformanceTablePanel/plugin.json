@@ -3,8 +3,6 @@
   "name": "Appkube Nodes Performance Table Panel",
   "id": "appkubeNodesPerformanceTablePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Nodes Performance Table Panel",
     "author": {

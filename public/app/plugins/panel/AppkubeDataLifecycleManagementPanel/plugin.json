@@ -3,8 +3,6 @@
   "name": "Appkube Data Lifecycle Management Panel",
   "id": "appkubeDataLifecycleManagementPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Data Lifecycle Management Panel",
     "author": {

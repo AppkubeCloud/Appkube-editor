@@ -3,8 +3,6 @@
   "name": "Appkube Perfomance Panel",
   "id": "appkubePerfomancePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Perfomance Panel",
     "author": {

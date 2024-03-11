@@ -3,8 +3,6 @@
   "name": "Appkube Region Wise Storage Panel",
   "id": "appkubeRegionWiseStoragePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Region Wise Storage Panel",
     "author": {

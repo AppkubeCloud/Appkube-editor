@@ -3,8 +3,6 @@
   "name": "Appkube Top Products Panel",
   "id": "appkubeTopProductsPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Products Panel",
     "author": {

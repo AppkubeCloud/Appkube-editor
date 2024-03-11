@@ -3,8 +3,6 @@
   "name": "Appkube Top Failure Function Panel",
   "id": "appkubeTopFailureFunctionsPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Failure Function Panel",
     "author": {

@@ -3,8 +3,6 @@
   "name": "Appkube Kubernetes Cost Panel",
   "id": "appkubeKubernetesCostPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Kubernetes Cost Panel",
     "author": {

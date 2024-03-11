@@ -3,8 +3,6 @@
   "name": "Appkube Success Failed Chart Panel",
   "id": "appkubeSuccessFailedChartPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Success Failed Chart Panel",
     "author": {

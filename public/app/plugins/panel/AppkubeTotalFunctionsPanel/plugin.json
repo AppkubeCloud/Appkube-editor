@@ -3,8 +3,6 @@
   "name": "Appkube Total Functions Panel",
   "id": "appkubeTotalFunctionsPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Total Functions Panel",
     "author": {

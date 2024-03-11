@@ -3,8 +3,6 @@
   "name": "Appkube Multiline Chart Panel",
   "id": "appkubeMultilineChartPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Multiline Chart Panel",
     "author": {

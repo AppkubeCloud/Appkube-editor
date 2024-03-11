@@ -3,8 +3,6 @@
   "name": "Appkube Overall Bucket Compliance Panel",
   "id": "appkubeOverallBucketCompliancePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Overall Bucket Compliance Panel",
     "author": {

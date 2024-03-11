@@ -3,8 +3,6 @@
   "name": "Appkube Wise Cost Panel",
   "id": "appkubeWiseCostPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Wise Cost Panel",
     "author": {

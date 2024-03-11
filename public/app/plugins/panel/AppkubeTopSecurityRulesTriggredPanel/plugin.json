@@ -3,8 +3,6 @@
   "name": "Appkube Top Security Rules Triggred Panel",
   "id": "appkubeTopSecurityRulesTriggredPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Top Security Rules Triggred Panel",
     "author": {

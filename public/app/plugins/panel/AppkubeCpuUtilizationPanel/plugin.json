@@ -3,8 +3,6 @@
   "name": "Appkube Cpu Utilization Panel",
   "id": "appkubeCpuUtilizationPanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Cpu Utilization Panel",
     "author": {

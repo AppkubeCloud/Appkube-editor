@@ -3,8 +3,6 @@
   "name": "Appkube Messages Table Panel",
   "id": "appkubeMessagesTablePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Messages Table Panel",
     "author": {

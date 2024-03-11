@@ -3,8 +3,6 @@
   "name": "Appkube Table Panel",
   "id": "appkubeTablePanel",
 
-  "skipDataQuery": true,
-
   "info": {
     "description": "Appkube Table Panel",
     "author": {
