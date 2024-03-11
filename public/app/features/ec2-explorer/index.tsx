@@ -29,7 +29,16 @@ const images = {
   statusIcon: '/public/img/ec2-explorer/status.png',
 };
 
-class EC2Explorer extends Component {
+interface LocalState {
+  value: number;
+  showConfigurationModal: boolean;
+  showHostedServiceModal: boolean;
+  showSlaModal: boolean;
+  activeTab: number;
+  elementId: string;
+};
+
+class EC2Explorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
     super(props);
     let elementId = this.findParam("var-elementId", location.href);
