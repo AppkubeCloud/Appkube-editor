@@ -39,6 +39,42 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
     );
   };
 
+  memoryUtilizationData= (data: any) => {
+    return (
+      <div className="utilization-card">
+        <div className="card-title">
+          <div className="icon">
+            <img src={imageJSON.memory_utilization} alt="" />
+          </div>
+          <span className="name">Memory Utilization</span>
+        </div>
+        <div className="utilization-details">
+          <div className="info">
+            <span className="name">Current Usage</span>
+            <span className="percantage" title={data.CurrentUsage}>
+              {Math.round(data.CurrentUsage)}GB
+            </span>
+          </div>
+          <div className="info">
+            <span className="name">Average Usage</span>
+            <span className="percantage" title={data.AverageUsage}>
+              {Math.round(data.AverageUsage)}GB
+            </span>
+          </div>
+          <div className="info">
+            <span className="name">Max Usage</span>
+            <span className="percantage" title={data.MaxUsage}>
+              {Math.round(data.MaxUsage)}GB
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+
+
+
   renderFrames = (series: any) => {
     const retData: any = [];
     for (let i = 0; i < series.length; i++) {
@@ -56,8 +92,19 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
               cardJSX = this.renderError('CPU Utilization', '');
             }
           }
+        }else if(query.queryString==='memory_utilization_panel'){
+          if (error) {
+            cardJSX = this.renderError('Memory Utilization', error);
+          } else {
+            if (data) {
+              cardJSX = this.memoryUtilizationData(JSON.parse(data));
+            } else {
+              cardJSX = this.renderError('Memory Utilization', '');
+            }
+          }
         }
-      } else {
+      }
+      else {
         cardJSX = this.renderError('', '');
       }
       retData.push(cardJSX);
