@@ -80,6 +80,7 @@ import * as AppkubeResoursesPanel from 'app/plugins/panel/AppkubeResoursesPanel/
 import * as AppkubeResponseTimePanel from 'app/plugins/panel/AppkubeResponseTimePanel/module';
 import * as AppkubeS3TotalCostPanel from 'app/plugins/panel/AppkubeS3TotalCostPanel/module';
 import * as AppkubeSecurityPanel from 'app/plugins/panel/AppkubeSecurityPanel/module';
+import * as AppkubeServiceAvailablityPanel from 'app/plugins/panel/AppkubeServiceAvailablityPanel/module';
 import * as AppkubeSuccessFailedChartPanel from 'app/plugins/panel/AppkubeSuccessFailedChartPanel/module';
 import * as AppkubeTablePanel from 'app/plugins/panel/AppkubeTablePanel/module';
 import * as AppkubeThreatCallsPanel from 'app/plugins/panel/AppkubeThreatCallsPanel/module';
@@ -253,6 +254,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeClusterCapacityPanel/module': AppkubeClusterCapacityPanel,
   'app/plugins/panel/AppkubeFunctionByProductsPanel/module': AppkubeFunctionByProductsPanel,
   'app/plugins/panel/AppkubeErrorAndWarningPanel/module': AppkubeErrorAndWarningPanel,
+  'app/plugins/panel/AppkubeServiceAvailablityPanel/module': AppkubeServiceAvailablityPanel,
 };
 
 export default builtInPlugins;

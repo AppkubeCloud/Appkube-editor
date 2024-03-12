@@ -1,10 +1,10 @@
 {
   "type": "panel",
-  "name": "Appkube Table Panel",
-  "id": "appkubeTablePanel",
+  "name": "Appkube Service Availablity Panel",
+  "id": "appkubeServiceAvailablityPanel",
 
   "info": {
-    "description": "A list of recent alerts and notifications related to the instance's availability",
+    "description": "Appkube Service Availablity Panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"

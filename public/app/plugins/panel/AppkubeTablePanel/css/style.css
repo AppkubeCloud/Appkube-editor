@@ -5,10 +5,10 @@
 	width: 100%;
 }
 .notifications-table-panel .notifications-panel-heading .title {
-	font-size: 14px;
+	font-size: 16px;
 	color: #383874;
-	line-height: 18px;
-	font-weight: 700;
+	line-height: 24px;
+	font-weight: 600;
 }
 .notifications-table-panel .notifications-panel-heading button {
 	border: none;
@@ -22,10 +22,11 @@
 	line-height: 16px;
 }
 .notifications-table-panel .subtitle {
-	font-size: 9px;
-	line-height: 14px;
+	font-size: 11px;
+	line-height: 18px;
 	color: #383874;
-	font-weight: 700;
+	font-weight: 500;
+	margin-top: 3px;
 }
 .notifications-table-panel .common-table {
 	width: 100%;

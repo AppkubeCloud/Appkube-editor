@@ -1,14 +1,13 @@
-.pods-overview-panel {
+.service-availablity-panel {
 	width: 100%;
 	display: block;
 }
-
-.pods-overview-panel .heading {
+.service-availablity-panel .heading {
 	width: 100%;
-	display: flex;
+	display: block;
 	font-size: 16px;
 	color: #383874;
-	line-height: 18px;
+	line-height: 20px;
 	font-weight: 600;
 	margin-bottom: 0px;
 }

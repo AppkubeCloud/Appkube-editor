@@ -15,22 +15,18 @@ interface DataPoint {
 }
 let data: DataPoint[] = [
   {
-    age_group: 'Running pods (65%)',
-    population: 60,
+    age_group: 'Service Availablity',
+    population: 55,
   },
   {
-    age_group: 'Pending pods (25%)',
-    population: 25,
-  },
-  {
-    age_group: 'Failed pods (10%)',
-    population: 10,
+    age_group: 'Service Used',
+    population: 65,
   },
 ];
 let width = 300;
 let height = 300;
 
-class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
+class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
     super(props);
   }
@@ -56,7 +52,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
 
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.6;
-    const colors = ['#53ca43', '#f9d33d', '#ff2d2e'];
+    const colors = ['#2b5aff', '#ff708b'];
     const color = d3.scaleOrdinal<string>(colors).domain(data.map((d: { age_group: any }) => d.age_group));
     const pie = d3.pie<DataItem>().value((d: { population: any }) => d.population);
     const arc = d3
@@ -85,7 +81,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     const legend = svg
       .append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${width / 1 + 50},${height / 2.2})`);
+      .attr('transform', `translate(${width / 1},${height / 2.1})`);
 
     const lg = legend
       .selectAll<SVGGElement, d3.PieArcDatum<DataItem>>('g')
@@ -102,24 +98,24 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     lg.append('rect')
       .attr('fill', (d: { data: { age_group: any } }) => color(d.data.age_group))
       .attr('x', -300)
-      .attr('y', 100 - 7)
-      .attr('width', 15)
-      .attr('height', 5)
+      .attr('y', 100 - 8)
+      .attr('width', 10)
+      .attr('height', 10)
       .append('title')
       .html((d: { data: { age_group: any } }) => d.data.age_group);
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
       .style('font-size', '12px')
-      .attr('x', -270)
+      .attr('x', -280)
       .attr('y', 100)
       .text((d: { data: { age_group: any } }) => d.data.age_group)
       .append('title');
   }
   render() {
     return (
-      <div className="pods-overview-panel">
-        <div className="heading">Pods Overview</div>
+      <div className="service-availablity-panel">
+        <div className="heading">Service Availablity</div>
         <svg
           ref={this.svgRef}
           viewBox={`0 0 ${width} ${height}`}
@@ -130,4 +126,4 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
   }
 }
 
-export default AppkubePodsOverviewPanel;
+export default AppkubeServiceAvailablityPanel;
