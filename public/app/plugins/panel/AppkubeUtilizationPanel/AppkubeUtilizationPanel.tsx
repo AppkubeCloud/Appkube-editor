@@ -52,19 +52,19 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
           <div className="info">
             <span className="name">Current Usage</span>
             <span className="percantage" title={data.CurrentUsage}>
-              {Math.round(data.CurrentUsage)}GB
+              {Math.round(data.CurrentUsage)} GB
             </span>
           </div>
           <div className="info">
             <span className="name">Average Usage</span>
             <span className="percantage" title={data.AverageUsage}>
-              {Math.round(data.AverageUsage)}GB
+              {Math.round(data.AverageUsage)} GB
             </span>
           </div>
           <div className="info">
             <span className="name">Max Usage</span>
             <span className="percantage" title={data.MaxUsage}>
-              {Math.round(data.MaxUsage)}GB
+              {Math.round(data.MaxUsage)} GB
             </span>
           </div>
         </div>
@@ -96,8 +96,8 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
           </div>
           <div className="info">
             <span className="name">Data Transferred</span>
-            <span className="percantage" title={data.DataTrasferred}>
-              {Math.round(data.DataTrasferred)} GB
+            <span className="percantage" title={data.DataTransferred}>
+              {Math.round(data.DataTransferred)} MB
             </span>
           </div>
         </div>
