@@ -8,10 +8,10 @@ class AppkubeTablePanel extends PureComponent<PanelProps> {
     return (
       <div className="notifications-table-panel">
         <div className="notifications-panel-heading">
-          <span className="d-block title">{this.props.options.tableTitle}</span>
+          <span className="d-block title">{this.props.options.panelTitle}</span>
           <button>Filter</button>
         </div>
-        <p className="subtitle">{this.props.options.tableDescription}</p>
+        <p className="subtitle">{this.props.options.panelDescription}</p>
         <div className="common-table">
           <table cellPadding={0} cellSpacing={0}>
             <thead>

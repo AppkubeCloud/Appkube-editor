@@ -4,7 +4,7 @@
   "id": "appkubeTablePanel",
 
   "info": {
-    "description": "A list of recent alerts and notifications related to the instance's availability",
+    "description": "alerts_and_notifications_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"

@@ -66,6 +66,7 @@ import * as AppkubeErrorOnRequestPanel from 'app/plugins/panel/AppkubeErrorOnReq
 import * as AppkubeExecutionTimePanel from 'app/plugins/panel/AppkubeExecutionTimePanel/module';
 import * as AppkubeFlowCountPanel from 'app/plugins/panel/AppkubeFlowCountPanel/module';
 import * as AppkubeFunctionByProductsPanel from 'app/plugins/panel/AppkubeFunctionByProductsPanel/module';
+import * as AppkubeImageBadgePanel from 'app/plugins/panel/AppkubeImageBadgePanel/module';
 import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
 import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
@@ -93,7 +94,6 @@ import * as AppkubeTopResourcesRequestCountPanel from 'app/plugins/panel/Appkube
 import * as AppkubeTopSecurityRulesTriggredPanel from 'app/plugins/panel/AppkubeTopSecurityRulesTriggredPanel/module';
 import * as AppkubeTopUsedFunctionPanel from 'app/plugins/panel/AppkubeTopUsedFunctionPanel/module';
 import * as AppkubeTotalCostPanel from 'app/plugins/panel/AppkubeTotalCostPanel/module';
-import * as AppkubeTotalFunctionsPanel from 'app/plugins/panel/AppkubeTotalFunctionsPanel/module';
 import * as AppkubeUsedFunctionTablePanel from 'app/plugins/panel/AppkubeUsedFunctionTablePanel/module';
 import * as AppkubeUtilizationPanel from 'app/plugins/panel/AppkubeUtilizationPanel/module';
 import * as AppkubeWiseCostPanel from 'app/plugins/panel/AppkubeWiseCostPanel/module';
@@ -208,7 +208,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeTablePanel/module': AppkubeTablePanel,
   'app/plugins/panel/AppkubeCompliancePanel/module': AppkubeCompliancePanel,
   'app/plugins/panel/AppkubeTotalCostPanel/module': AppkubeTotalCostPanel,
-  'app/plugins/panel/AppkubeTotalFunctionsPanel/module': AppkubeTotalFunctionsPanel,
+  'app/plugins/panel/AppkubeImageBadgePanel/module': AppkubeImageBadgePanel,
   'app/plugins/panel/AppkubeTopUsedFunctionPanel/module': AppkubeTopUsedFunctionPanel,
   'app/plugins/panel/AppkubeResoursesPanel/module': AppkubeResoursesPanel,
   'app/plugins/panel/AppkubeTopFailureFunctionsPanel/module': AppkubeTopFailureFunctionsPanel,

@@ -1,6 +1,5 @@
 export interface tablePanelOptions {
-    title: string;
-    tableTitle: string;
-   tableDescription:string;
-  }
+    panelTitle: string;
+    panelDescription: string;
+}
   

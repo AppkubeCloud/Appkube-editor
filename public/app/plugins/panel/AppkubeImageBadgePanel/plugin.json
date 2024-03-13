@@ -1,10 +1,10 @@
 {
   "type": "panel",
-  "name": "Appkube Total Functions Panel",
-  "id": "appkubeTotalFunctionsPanel",
+  "name": "Appkube Image Badge Panel",
+  "id": "appkubeImageBadgePanel",
 
   "info": {
-    "description": "Appkube Total Functions Panel",
+    "description": "Appkube Image Badge Panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"
