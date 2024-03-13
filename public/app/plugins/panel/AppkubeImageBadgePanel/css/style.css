@@ -1,5 +1,11 @@
 .image-badge-panel {
 	display: flex;
+	width: 100%;
+	min-width: 960px;
+	max-width: 1200px;
+}
+.image-badge-panel .badge-box {
+	display: flex;
 	width: 240px;
 	margin-right: 15px;
 	margin-bottom: 15px;
@@ -7,7 +13,7 @@
 	border-radius: 5px;
 	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
 }
-.image-badge-panel .badge-circle {
+.image-badge-panel .badge-box .badge-circle {
 	display: inline-flex;
 	width: 56px;
 	height: 56px;
@@ -18,16 +24,16 @@
 	border-radius: 15px;
 	background-color: #8676FF;
 }
-.image-badge-panel .badge-circle img {
+.image-badge-panel .badge-box .badge-circle img {
 	max-width: 100%;
 	height: auto;
 }
-.image-badge-panel .badge-contents {
+.image-badge-panel .badge-box .badge-contents {
 	display: inline-flex;
 	flex-wrap: wrap;
 	width: calc(100% - 76px);
 }
-.image-badge-panel .badge-contents span {
+.image-badge-panel .badge-box .badge-contents span {
 	display: block;
 	width: 100%;
 	white-space: nowrap;
@@ -39,7 +45,7 @@
 	font-weight: 400;
 	padding-top: 3px;
 }
-.image-badge-panel .badge-contents strong {
+.image-badge-panel .badge-box .badge-contents strong {
 	display: flex;
 	width: 100%;
 	font-size: 20px;
