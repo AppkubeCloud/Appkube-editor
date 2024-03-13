@@ -29,9 +29,7 @@ class AppkubeTablePanel extends PureComponent<PanelProps> {
           <span className="d-block title">{this.props.options.tableTitle}</span>
           <button>Filter</button>
         </div>
-        <p className="subtitle">
-        {this.props.options.tableDescription}
-        </p>
+        <p className="subtitle">{this.props.options.tableDescription}</p>
         <div className="common-table">
           <table cellPadding={0} cellSpacing={0}>
             <thead>

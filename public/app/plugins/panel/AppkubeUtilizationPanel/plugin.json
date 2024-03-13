@@ -4,7 +4,7 @@
   "id": "appkubeUtilizationPanel",
 
   "info": {
-    "description": "Appkube Utilization Panel",
+    "description": "cpu_utilization_panel, storage_utilization_panel, network_utilization_panel, memory_utilization_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"
