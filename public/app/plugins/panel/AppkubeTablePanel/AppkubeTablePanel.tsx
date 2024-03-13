@@ -4,7 +4,25 @@ import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
 class AppkubeTablePanel extends PureComponent<PanelProps> {
-  render() {
+
+  renderTable = (series: any) => {
+    const data = JSON.parse(series[0].meta.custom.data);
+    const tableBodyJSX: any[] = [];
+    data.forEach((tableRow: any) => {
+      tableBodyJSX.push(
+      <tr>
+        <td>
+          <div className="table-details">{tableRow.Timestamp}</div>
+        </td>
+        <td>
+          <div className="table-details">{tableRow.Alert}</div>
+        </td>
+        <td>
+          <div className="table-details">{tableRow.Description}</div>
+        </td>
+      </tr>
+      )
+    })
     return (
       <div className="notifications-table-panel">
         <div className="notifications-panel-heading">
@@ -28,44 +46,22 @@ class AppkubeTablePanel extends PureComponent<PanelProps> {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div className="table-details">2023-11-06 09:45 AM</div>
-                </td>
-                <td>
-                  <div className="table-details">Instance was stopped and then started</div>
-                </td>
-                <td>
-                  <div className="table-details">Instance was stopped and then started. No issues detected.</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="table-details">2023-11-08 9:30 AM</div>
-                </td>
-                <td>
-                  <div className="table-details">High CPU Utilization (Threshold: 90%) for 5 minutes</div>
-                </td>
-                <td>
-                  <div className="table-details">Instance performance may be impacted</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="table-details">2023-11-10 11:30 AM</div>
-                </td>
-                <td>
-                  <div className="table-details">Disk Space Running Low (Threshold: 10 GB)</div>
-                </td>
-                <td>
-                  <div className="table-details">Consider cleaning up or expanding storage</div>
-                </td>
-              </tr>
+              {tableBodyJSX}
             </tbody>
           </table>
         </div>
       </div>
     );
+  }
+  
+  render() {
+    const { data } = this.props;
+    if (data && data.series && data.series[0].meta?.custom?.data) {
+      const { series } = data;
+      return <div className="notifications-table-panel">{this.renderTable(series)}</div>;
+    } else {
+      return <div>No data available</div>;
+    }
   }
 }
 
