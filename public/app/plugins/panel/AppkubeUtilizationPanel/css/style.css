@@ -3,13 +3,12 @@
 	align-items: center;
 	height: 100%;
 	width: 100%;
-	min-width: 930px;
-	max-width: 1200px;
 }
 .appkube-utilization-panel .utilization-card {
 	display: inline-flex;
 	flex-wrap: wrap;
-	width: 300px;
+	width: 350px;
+	min-width: 350px;
 	height: 175px;
 	margin: 13px 10px 12px;
 	background: #fff;
