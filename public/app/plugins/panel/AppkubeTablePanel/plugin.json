@@ -2,9 +2,8 @@
   "type": "panel",
   "name": "Appkube Table Panel",
   "id": "appkubeTablePanel",
-
   "info": {
-    "description": "alerts_and_notifications_panel",
+    "description": "alerts_and_notifications_panel, node_event_logs_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"
