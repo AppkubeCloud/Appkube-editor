@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { v4 } from 'uuid';
 
 import { PanelProps } from '@grafana/data';
 import './css/style.css';
@@ -12,7 +13,7 @@ class AppkubeTablePanel extends PureComponent<PanelProps> {
       const keys = Object.keys(data[0]);
       const headJSX = keys.map((key) => {
         return (
-          <th>
+          <th key={v4()}>
             <div className="table-header">{key}</div>
           </th>
         );
@@ -20,13 +21,13 @@ class AppkubeTablePanel extends PureComponent<PanelProps> {
       data.forEach((tableRow: any) => {
         const rows = keys.map((key) => {
           return (
-            <td>
+            <td key={v4()}>
               <div className="table-details">{tableRow[key]}</div>
             </td>
           );
         });
         tableBodyJSX.push(
-          <tr>
+          <tr key={v4()}>
             {rows}
           </tr>
         )
