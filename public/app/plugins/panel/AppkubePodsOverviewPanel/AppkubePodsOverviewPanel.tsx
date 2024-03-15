@@ -5,28 +5,10 @@ import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
 interface DataItem {
-  age_group: string;
-  population: number;
+  percentage: number;
 }
 
-interface DataPoint {
-  age_group: string;
-  population: number;
-}
-let data: DataPoint[] = [
-  {
-    age_group: 'Running pods (65%)',
-    population: 60,
-  },
-  {
-    age_group: 'Pending pods (25%)',
-    population: 25,
-  },
-  {
-    age_group: 'Failed pods (10%)',
-    population: 10,
-  },
-];
+let data: any;
 let width = 300;
 let height = 300;
 
@@ -39,26 +21,67 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
 
   private thickness = 25;
 
-  componentDidMount() {
-    this.drawChart();
-  }
+  // componentDidMount() {
+  //   this.drawChart();
+  // }
 
   componentDidUpdate() {
-    this.drawChart();
+    this.manipulateData(data);
   }
 
-  drawChart() {
-    // const { width, height } = this.props;
+  manipulateData = (data: any) => {
+    const dataArray: any[] = [];
+    let total: number = 0;
+    for (const property in data) {
+      total = total + data[property];
+    }
+    for (const property in data) {
+      dataArray.push({[property]: data[property], percentage: (100 * data[property]) / total})
+    }
+    setTimeout(() => this.drawChart(dataArray), 500);
+    // this.drawChart(dataArray);
+  }
 
+  drawChart(data: any) {
     const svg = d3.select(this.svgRef.current).attr('width', 300).attr('height', 300);
 
     svg.selectAll('*').remove(); // Clear previous elements
 
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.6;
-    const colors = ['#53ca43', '#f9d33d', '#ff2d2e'];
-    const color = d3.scaleOrdinal<string>(colors).domain(data.map((d: { age_group: any }) => d.age_group));
-    const pie = d3.pie<DataItem>().value((d: { population: any }) => d.population);
+    const colors = [
+      '#F9D33D',
+      '#FF2D2E',
+      '#53CA43',
+      '#FE708D',
+      '#8676FF',
+      '#88E143',
+      '#991BF9',
+      '#FF708B',
+      '#00B929',
+      '#FAA14C',
+      '#F9629A',
+      '#A145FF',
+      '#9283FF',
+      '#2B5AFF',
+      '#FA6298',
+      '#FF7E7E',
+      '#669AFF',
+      '#E8A5FF',
+      '#F8A243',
+      '#01F1E3',
+      '#FE2E2F',
+      '#FA71A3',
+      '#FAAB5D',
+      '#F9D751',
+      '#7E49FC',
+      '#FF8198',
+      '#FFBA69',
+      '#3247E5',
+      '#438A26',
+      '#CF0E5B'
+    ];
+    const pie = d3.pie<DataItem>().value((d: { percentage: any }) => d.percentage);
     const arc = d3
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
@@ -74,12 +97,12 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d: any, i: any) => color(i))
+      .attr('fill', (d: any, i: any) => colors[i])
       .attr('stroke', 'white')
       .style('stroke-width', 0)
       .style('stroke', '#FFFFFF')
       .style('border-radius', '50%')
-      .style('fill', (d: any, i: any) => color(i))
+      .style('fill', (d: any, i: any) => colors[i])
       .attr('clip-path', (d: any, i: any) => `url(#clip${i})`);
 
     const legend = svg
@@ -100,34 +123,103 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       });
 
     lg.append('rect')
-      .attr('fill', (d: { data: { age_group: any } }) => color(d.data.age_group))
+      .attr('fill', (d: { data: { percentage: any } },  i: any) => colors[i])
       .attr('x', -300)
       .attr('y', 100 - 7)
       .attr('width', 15)
       .attr('height', 5)
       .append('title')
-      .html((d: { data: { age_group: any } }) => d.data.age_group);
+      .html((d: { data: { percentage: any } }) => d.data.percentage);
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
       .style('font-size', '12px')
       .attr('x', -270)
       .attr('y', 100)
-      .text((d: { data: { age_group: any } }) => d.data.age_group)
+      .text((d: { data: any }) => {
+        let dataTitle: string = "";
+        if(d.data.Cpu_Usage) {
+          dataTitle = "CPU Usage";
+        } else if (d.data.Memory_Usage) {
+          dataTitle = "Memory Usage";
+        } else {
+          dataTitle = "Storage Available";
+        }
+        return `${dataTitle} : (${Math.floor(d.data.percentage)}%)`}
+      )
       .append('title');
   }
-  render() {
+
+  renderGraph = (apiData: any) => {
+    data = apiData;
+    if(data) {
+      this.manipulateData(data);
+      return (
+      <svg
+        ref={this.svgRef}
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+      ></svg>
+    );
+    } else {
+      return <div>No Data Available!</div>
+    }
+  };
+
+  renderError = (cardTitle: any, error: string) => {
     return (
-      <div className="pods-overview-panel">
-        <div className="heading">Pods Overview</div>
-        <svg
-          ref={this.svgRef}
-          viewBox={`0 0 ${width} ${height}`}
-          preserveAspectRatio="xMidYMid meet"
-        ></svg>
+      <div className="utilization-card">
+        <div className="card-title">
+          <div className="icon">
+          </div>
+          <span className="name">{cardTitle || 'Error'}</span>
+        </div>
+        <div className="error-message">
+          <span>{error ? error : 'There is some error'}</span>
+        </div>
       </div>
     );
+  };
+
+  renderFrames = (series: any) => {
+    const retData: any = [];
+    for (let i = 0; i < series.length; i++) {
+      const iSer = series[i];
+      let cardJSX: any = [];
+      if (iSer && iSer.meta && iSer.meta.custom && iSer.meta.custom) {
+        const { query, data, error } = iSer.meta.custom;
+        if (query.queryString === 'node_capacity_panel') {
+          if (error) {
+            cardJSX = this.renderError(this.props.options.overviewTitle, error);
+          } else {
+            if (data) {
+              cardJSX = this.renderGraph(JSON.parse(data));
+            } else {
+              cardJSX = this.renderError(this.props.options.overviewTitle, '');
+            }
+          }
+        }
+      else {
+        cardJSX = this.renderError('', '');
+      }
+      retData.push(cardJSX);
+    }
+    return retData;
+  };
+  };
+
+  render() {
+  const {data} = this.props;
+  if (data && data.series && data.series.length > 0) {
+    const { series } = data;
+    return  <div className="pods-overview-panel">
+    <div className="heading">{this.props.options.overviewTitle}</div>
+    {this.renderFrames(series)}
+    </div>;
+  } else {
+    return <div>No data available</div>;
   }
+  };
 }
 
 export default AppkubePodsOverviewPanel;
