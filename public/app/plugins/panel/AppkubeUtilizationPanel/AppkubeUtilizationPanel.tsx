@@ -96,8 +96,8 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
           </div>
           <div className="info">
             <span className="name">Data Transferred</span>
-            <span className="percantage" title={data.DataTransferred}>
-              {Math.round(data.DataTransferred)} MB
+            <span className="percantage" title={data.DataTrasferred}>
+              {Math.round(data.DataTrasferred)} MB
             </span>
           </div>
         </div>
