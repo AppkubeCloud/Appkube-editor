@@ -5,10 +5,40 @@ import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
 interface DataItem {
+  [key: string] : string | number;
   percentage: number;
 }
 
-let data: any;
+interface apiData {
+  Cpu_Usage: number;
+  Memory_Usage: number;
+  Storage_Avail: number;
+}
+
+interface chartData {
+  data: DataItem;
+  endAngle: number;
+  index: number;
+  padAngle: number;
+  startAngle: number;
+  value: number;
+}
+
+interface Series {
+  name: string;
+  refId: string;
+  meta: {
+    custom: {
+      data: string;
+      error: string;
+      query: {
+        queryString: string;
+      };
+    };
+  };
+}
+
+let data: apiData;
 let width = 300;
 let height = 300;
 
@@ -21,28 +51,22 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
 
   private thickness = 25;
 
-  // componentDidMount() {
-  //   this.drawChart();
-  // }
-
-  componentDidUpdate() {
-    this.manipulateData(data);
-  }
-
-  manipulateData = (data: any) => {
-    const dataArray: any[] = [];
+  manipulateData = (data: apiData) => {
+    const dataArray: DataItem[] = [];
     let total: number = 0;
     for (const property in data) {
-      total = total + data[property];
+      total = total + data[property as keyof apiData];
     }
     for (const property in data) {
-      dataArray.push({[property]: data[property], percentage: (100 * data[property]) / total})
+      dataArray.push({
+        [property]: data[property as keyof apiData], 
+        percentage: (100 * data[property as keyof apiData]) / total
+      })
     }
     setTimeout(() => this.drawChart(dataArray), 500);
-    // this.drawChart(dataArray);
   }
 
-  drawChart(data: any) {
+  drawChart(data: DataItem[]) {
     const svg = d3.select(this.svgRef.current).attr('width', 300).attr('height', 300);
 
     svg.selectAll('*').remove(); // Clear previous elements
@@ -81,7 +105,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       '#438A26',
       '#CF0E5B'
     ];
-    const pie = d3.pie<DataItem>().value((d: { percentage: any }) => d.percentage);
+    const pie = d3.pie<DataItem>().value((d: { percentage: number }) => d.percentage);
     const arc = d3
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
@@ -97,13 +121,13 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d: any, i: any) => colors[i])
+      .attr('fill', (d: chartData, i: number) => colors[i])
       .attr('stroke', 'white')
       .style('stroke-width', 0)
       .style('stroke', '#FFFFFF')
       .style('border-radius', '50%')
-      .style('fill', (d: any, i: any) => colors[i])
-      .attr('clip-path', (d: any, i: any) => `url(#clip${i})`);
+      .style('fill', (d: chartData, i: number) => colors[i])
+      .attr('clip-path', (d: chartData, i: number) => `url(#clip${i})`);
 
     const legend = svg
       .append('g')
@@ -116,27 +140,27 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .enter()
       .append('g')
       .attr('class', 'legendGroup')
-      .attr('transform', (d: any, i: number) => {
+      .attr('transform', (d: chartData, i: number) => {
         const xOff = (i % 1) * 200;
         const yOff = Math.floor(i / 1) * 20;
         return `translate(${xOff},${yOff})`;
       });
 
     lg.append('rect')
-      .attr('fill', (d: { data: { percentage: any } },  i: any) => colors[i])
+      .attr('fill', (d: chartData,  i: number) => colors[i])
       .attr('x', -300)
       .attr('y', 100 - 7)
       .attr('width', 15)
       .attr('height', 5)
       .append('title')
-      .html((d: { data: { percentage: any } }) => d.data.percentage);
+      .html((d: chartData) => String(d.data.percentage));
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
       .style('font-size', '12px')
       .attr('x', -270)
       .attr('y', 100)
-      .text((d: { data: any }) => {
+      .text((d: { data: DataItem }) => {
         let dataTitle: string = "";
         if(d.data.Cpu_Usage) {
           dataTitle = "CPU Usage";
@@ -150,7 +174,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .append('title');
   }
 
-  renderGraph = (apiData: any) => {
+  renderGraph = (apiData: apiData) => {
     data = apiData;
     if(data) {
       this.manipulateData(data);
@@ -166,7 +190,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     }
   };
 
-  renderError = (cardTitle: any, error: string) => {
+  renderError = (cardTitle: string, error: string) => {
     return (
       <div className="utilization-card">
         <div className="card-title">
@@ -181,45 +205,53 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     );
   };
 
-  renderFrames = (series: any) => {
-    const retData: any = [];
-    for (let i = 0; i < series.length; i++) {
-      const iSer = series[i];
-      let cardJSX: any = [];
-      if (iSer && iSer.meta && iSer.meta.custom && iSer.meta.custom) {
-        const { query, data, error } = iSer.meta.custom;
-        if (query.queryString === 'node_capacity_panel') {
-          if (error) {
-            cardJSX = this.renderError(this.props.options.overviewTitle, error);
+  renderFrames = (series: Series[]) => {
+    const retData: React.ReactNode[] = [];
+    for (const iSer of series) {
+      const { data, error, query } = iSer.meta.custom;
+      if (query.queryString === 'node_capacity_panel') {
+        if (error) {
+          retData.push(this.renderError(this.props.options.overviewTitle, error));
+        } else {
+          if (data) {
+            const parsedData: apiData = JSON.parse(data);
+            retData.push(this.renderGraph(parsedData));
           } else {
-            if (data) {
-              cardJSX = this.renderGraph(JSON.parse(data));
-            } else {
-              cardJSX = this.renderError(this.props.options.overviewTitle, '');
-            }
+            retData.push(this.renderError(this.props.options.overviewTitle, ''));
           }
         }
-      else {
-        cardJSX = this.renderError('', '');
+      } else {
+        retData.push(this.renderError('', ''));
       }
-      retData.push(cardJSX);
     }
     return retData;
   };
-  };
 
   render() {
-  const {data} = this.props;
-  if (data && data.series && data.series.length > 0) {
-    const { series } = data;
-    return  <div className="pods-overview-panel">
-    <div className="heading">{this.props.options.overviewTitle}</div>
-    {this.renderFrames(series)}
-    </div>;
-  } else {
-    return <div>No data available</div>;
+    const { data } = this.props;
+    if (data && data.series && data.series.length > 0) {
+      const seriesData: Series[] = data.series.map((seriesItem) => ({
+        name: seriesItem.name || '',
+        refId: seriesItem.refId || '',
+        meta: {
+          custom: {
+            data: seriesItem.meta?.custom?.data || '',
+            error: seriesItem.meta?.custom?.error || '',
+            query: { queryString: seriesItem.meta?.custom?.query?.queryString || '' }
+          }
+        },
+      }));
+  
+      return (
+        <div className="pods-overview-panel">
+          <div className="heading">{this.props.options.overviewTitle}</div>
+          {this.renderFrames(seriesData)}
+        </div>
+      );
+    } else {
+      return <div>No data available</div>;
+    }
   }
-  };
 }
 
 export default AppkubePodsOverviewPanel;
