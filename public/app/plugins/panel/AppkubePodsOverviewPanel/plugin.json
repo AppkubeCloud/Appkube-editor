@@ -4,7 +4,7 @@
   "id": "appkubePodsOverviewPanel",
 
   "info": {
-    "description": "Appkube Pods Overview Panel",
+    "description": "node_capacity_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"
