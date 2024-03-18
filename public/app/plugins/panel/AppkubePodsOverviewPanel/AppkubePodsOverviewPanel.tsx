@@ -2,20 +2,22 @@ import * as d3 from 'd3';
 import React, { PureComponent, createRef } from 'react';
 
 import { PanelProps } from '@grafana/data';
+
 import './css/style.css';
+import ErrorImg from './img/error.svg';
 
 interface DataItem {
-  [key: string] : string | number;
+  [key: string]: string | number;
   percentage: number;
 }
 
-interface apiData {
+interface ApiData {
   Cpu_Usage: number;
   Memory_Usage: number;
   Storage_Avail: number;
 }
 
-interface chartData {
+interface ChartData {
   data: DataItem;
   endAngle: number;
   index: number;
@@ -38,7 +40,7 @@ interface Series {
   };
 }
 
-let data: apiData;
+let data: ApiData;
 let width = 300;
 let height = 300;
 
@@ -51,16 +53,16 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
 
   private thickness = 25;
 
-  manipulateData = (data: apiData) => {
+  manipulateData = (data: ApiData) => {
     const dataArray: DataItem[] = [];
-    let total: number = 0;
+    let total = 0;
     for (const property in data) {
-      total = total + data[property as keyof apiData];
+      total = total + data[property as keyof ApiData];
     }
     for (const property in data) {
       dataArray.push({
-        [property]: data[property as keyof apiData], 
-        percentage: (100 * data[property as keyof apiData]) / total
+        [property]: data[property as keyof ApiData],
+        percentage: (100 * data[property as keyof ApiData]) / total
       })
     }
     setTimeout(() => this.drawChart(dataArray), 500);
@@ -121,13 +123,13 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d: chartData, i: number) => colors[i])
+      .attr('fill', (d: ChartData, i: number) => colors[i])
       .attr('stroke', 'white')
       .style('stroke-width', 0)
       .style('stroke', '#FFFFFF')
       .style('border-radius', '50%')
-      .style('fill', (d: chartData, i: number) => colors[i])
-      .attr('clip-path', (d: chartData, i: number) => `url(#clip${i})`);
+      .style('fill', (d: ChartData, i: number) => colors[i])
+      .attr('clip-path', (d: ChartData, i: number) => `url(#clip${i})`);
 
     const legend = svg
       .append('g')
@@ -140,20 +142,20 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .enter()
       .append('g')
       .attr('class', 'legendGroup')
-      .attr('transform', (d: chartData, i: number) => {
+      .attr('transform', (d: ChartData, i: number) => {
         const xOff = (i % 1) * 200;
         const yOff = Math.floor(i / 1) * 20;
         return `translate(${xOff},${yOff})`;
       });
 
     lg.append('rect')
-      .attr('fill', (d: chartData,  i: number) => colors[i])
+      .attr('fill', (d: ChartData, i: number) => colors[i])
       .attr('x', -300)
       .attr('y', 100 - 7)
       .attr('width', 15)
       .attr('height', 5)
       .append('title')
-      .html((d: chartData) => String(d.data.percentage));
+      .html((d: ChartData) => String(d.data.percentage));
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
@@ -161,45 +163,44 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       .attr('x', -270)
       .attr('y', 100)
       .text((d: { data: DataItem }) => {
-        let dataTitle: string = "";
-        if(d.data.Cpu_Usage) {
+        let dataTitle = "";
+        if (d.data.Cpu_Usage) {
           dataTitle = "CPU Usage";
         } else if (d.data.Memory_Usage) {
           dataTitle = "Memory Usage";
         } else {
           dataTitle = "Storage Available";
         }
-        return `${dataTitle} : (${Math.floor(d.data.percentage)}%)`}
+        return `${dataTitle} : (${Math.floor(d.data.percentage)}%)`
+      }
       )
       .append('title');
   }
 
-  renderGraph = (apiData: apiData) => {
+  renderGraph = (apiData: ApiData) => {
     data = apiData;
-    if(data) {
+    if (data) {
       this.manipulateData(data);
       return (
-      <svg
-        ref={this.svgRef}
-        viewBox={`0 0 ${width} ${height}`}
-        preserveAspectRatio="xMidYMid meet"
-      ></svg>
-    );
+        <svg
+          ref={this.svgRef}
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio="xMidYMid meet"
+        ></svg>
+      );
     } else {
       return <div>No Data Available!</div>
     }
   };
 
-  renderError = (cardTitle: string, error: string) => {
+  renderError = () => {
     return (
       <div className="utilization-card">
-        <div className="card-title">
-          <div className="icon">
-          </div>
-          <span className="name">{cardTitle || 'Error'}</span>
-        </div>
-        <div className="error-message">
-          <span>{error ? error : 'There is some error'}</span>
+        <div className="error-message-box">
+          <span className="icon">
+            <img src={ErrorImg} alt="" width="48" height="48" />
+          </span>
+          <span className="name">{'There is some error'}</span>
         </div>
       </div>
     );
@@ -211,17 +212,17 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
       const { data, error, query } = iSer.meta.custom;
       if (query.queryString === 'node_capacity_panel') {
         if (error) {
-          retData.push(this.renderError(this.props.options.overviewTitle, error));
+          retData.push(this.renderError());
         } else {
           if (data) {
-            const parsedData: apiData = JSON.parse(data);
+            const parsedData: ApiData = JSON.parse(data);
             retData.push(this.renderGraph(parsedData));
           } else {
-            retData.push(this.renderError(this.props.options.overviewTitle, ''));
+            retData.push(this.renderError());
           }
         }
       } else {
-        retData.push(this.renderError('', ''));
+        retData.push(this.renderError());
       }
     }
     return retData;
@@ -241,7 +242,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
           }
         },
       }));
-  
+
       return (
         <div className="pods-overview-panel">
           <div className="heading">{this.props.options.overviewTitle}</div>
