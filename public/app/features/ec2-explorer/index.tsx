@@ -97,7 +97,7 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
         <div className="aws-topology-container">
           <div className="aws-top-header-container">
             <div className="page-info d-flex align-items-center">
-              <div className="page-name d-flex align-items-center justify-content-between">
+              <div className="page-name active d-flex align-items-center justify-content-between">
                 <span>VPC-Clu..1_Ec2</span>
                 <i className="fa-solid fa-xmark"></i>
               </div>

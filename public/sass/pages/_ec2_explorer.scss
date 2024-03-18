@@ -11,30 +11,42 @@
     border-radius: 6px 6px 0px 0px;
 
     .page-info {
-      padding: 8px 15px;
+      padding: 10px 10px;
 
       .page-name {
-        padding: 4px 8px;
-        background-color: #416bff33;
-        height: 18px;
-        width: 108px;
+        padding: 4px 7px;
+        background-color: rgba(240, 244, 255, 1);
+        height: 20px;
+        width: 110px;
         margin-right: 5px;
         border-radius: 4px;
         cursor: pointer;
         justify-content: space-between;
 
         span {
-          font-size: 9px;
-          line-height: 12px;
+          font-size: 11px;
+          line-height: 19px;
           color: #8676ff;
-          font-weight: 600;
+          font-weight: 500;
         }
 
         i {
-          font-size: 11px;
+          font-size: 10px;
           color: #8676ff;
 
           &:hover {
+            color: #ffffff;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0px;
+        }
+
+        &.active {
+          background-color: rgba(217, 225, 255, 1);
+
+          i { 
             color: #ffffff;
           }
         }
