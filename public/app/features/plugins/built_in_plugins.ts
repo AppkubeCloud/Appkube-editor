@@ -71,6 +71,7 @@ import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceSt
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
 import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
 import * as AppkubeMultilineChartPanel from 'app/plugins/panel/AppkubeMultilineChartPanel/module';
+import * as AppkubeNetworkCostingPanel from 'app/plugins/panel/AppkubeNetworkCostingPanel/module';
 import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
 import * as AppkubeNumberZoneChartPanel from 'app/plugins/panel/AppkubeNumberZoneChartPanel/module';
 import * as AppkubeOverallBucketCompliancePanel from 'app/plugins/panel/AppkubeOverallBucketCompliancePanel/module';
@@ -255,6 +256,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeFunctionByProductsPanel/module': AppkubeFunctionByProductsPanel,
   'app/plugins/panel/AppkubeErrorAndWarningPanel/module': AppkubeErrorAndWarningPanel,
   'app/plugins/panel/AppkubeServiceAvailablityPanel/module': AppkubeServiceAvailablityPanel,
+  'app/plugins/panel/AppkubeNetworkCostingPanel/module': AppkubeNetworkCostingPanel,
 };
 
 export default builtInPlugins;

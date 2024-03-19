@@ -1,0 +1,46 @@
+.network-costing-panel {
+	width: 100%;
+	display: block;
+}
+.network-costing-panel .heading {
+	width: 100%;
+	display: block;
+	font-size: 16px;
+	color: #383874;
+	line-height: 20px;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+.network-costing-panel .sub-heading {
+	width: 100%;
+	display: block;
+	font-size: 11px;
+	color: #383874;
+	line-height: 18px;
+	font-weight: 400;
+	margin-top: 5px;
+}
+.network-costing-panel .costing-container {
+	display: block;
+	width: 100%;
+	padding-top: 20px;
+}
+.network-costing-panel .costing-container .costing-table {
+	display: inline-block;
+	vertical-align: top;
+	width: 350px;
+}
+.network-costing-panel .costing-container .costing-table table {
+	width: 100%;
+}
+.network-costing-panel .costing-container .costing-table table tr th,
+.network-costing-panel .costing-container .costing-table table tr td {
+	padding-bottom: 7px;
+	font-size: 13px;
+	line-height: 18px;
+}
+.network-costing-panel .costing-container .costing-chart {
+	display: inline-block;
+	vertical-align: top;
+	width: 300px;
+}

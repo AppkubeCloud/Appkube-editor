@@ -1,0 +1,17 @@
+{
+  "type": "panel",
+  "name": "Appkube Network Costing Panel",
+  "id": "appkubeNetworkCostingPanel",
+
+  "info": {
+    "description": "Appkube Network Costing Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}
