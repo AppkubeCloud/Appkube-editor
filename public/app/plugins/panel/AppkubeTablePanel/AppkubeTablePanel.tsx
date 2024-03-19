@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import { v4 } from 'uuid';
 
 import { PanelProps } from '@grafana/data';
+
 import './css/style.css';
+import ErrorImg from './img/error.svg';
 
 class AppkubeTablePanel extends PureComponent<PanelProps> {
 
@@ -54,7 +56,12 @@ class AppkubeTablePanel extends PureComponent<PanelProps> {
         </div>
       );
     } else {
-      return <div style={{ height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>There is some error!</div>
+      return <div className="error-message-box">
+        <span className="icon">
+          <img src={ErrorImg} alt="" width="48" height="48" />
+        </span>
+        <span className="name">{'There is some error'}</span>
+      </div>
     }
 
   }

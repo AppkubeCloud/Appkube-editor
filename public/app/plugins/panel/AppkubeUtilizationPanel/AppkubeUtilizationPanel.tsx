@@ -4,6 +4,7 @@ import { PanelProps } from '@grafana/data';
 
 import './css/style.css';
 import { imageJSON } from './ds';
+import ErrorImg from './img/error.svg';
 
 class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
   renderCPUUtilizationData = (data: any) => {
@@ -39,7 +40,7 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
     );
   };
 
-  memoryUtilizationData= (data: any) => {
+  memoryUtilizationData = (data: any) => {
     return (
       <div className="utilization-card">
         <div className="card-title">
@@ -116,55 +117,52 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
         const { query, data, error } = iSer.meta.custom;
         if (query.queryString === 'cpu_utilization_panel') {
           if (error) {
-            cardJSX = this.renderError('CPU Utilization', error);
+            cardJSX = this.renderError();
           } else {
             if (data) {
               cardJSX = this.renderCPUUtilizationData(JSON.parse(data));
             } else {
-              cardJSX = this.renderError('CPU Utilization', '');
+              cardJSX = this.renderError();
             }
           }
-        } else if (query.queryString==='memory_utilization_panel'){
+        } else if (query.queryString === 'memory_utilization_panel') {
           if (error) {
-            cardJSX = this.renderError('Memory Utilization', error);
+            cardJSX = this.renderError();
           } else {
             if (data) {
               cardJSX = this.memoryUtilizationData(JSON.parse(data));
             } else {
-              cardJSX = this.renderError('Memory Utilization', '');
+              cardJSX = this.renderError();
             }
           }
         } else if (query.queryString === "network_utilization_panel") {
-          if(error) {
-            cardJSX = this.renderError("Network Utilization", error);
+          if (error) {
+            cardJSX = this.renderError();
           } else {
-            if(data) {
+            if (data) {
               cardJSX = this.renderNetworkUtilizationData(JSON.parse(data));
             } else {
-              cardJSX = this.renderError("Network Utilization", "");
+              cardJSX = this.renderError();
             }
           }
         }
       }
       else {
-        cardJSX = this.renderError('', '');
+        cardJSX = this.renderError();
       }
       retData.push(cardJSX);
     }
     return retData;
   };
 
-  renderError = (cardTitle: any, error: string) => {
+  renderError = () => {
     return (
       <div className="utilization-card">
-        <div className="card-title">
-          <div className="icon">
-            <img src={imageJSON.error} alt="" />
-          </div>
-          <span className="name">{cardTitle || 'Error'}</span>
-        </div>
-        <div className="error-message">
-          <span>{error ? error : 'There is some error'}</span>
+        <div className="error-message-box">
+          <span className="icon">
+            <img src={ErrorImg} alt="" width="48" height="48" />
+          </span>
+          <span className="name">{'There is some error'}</span>
         </div>
       </div>
     );
