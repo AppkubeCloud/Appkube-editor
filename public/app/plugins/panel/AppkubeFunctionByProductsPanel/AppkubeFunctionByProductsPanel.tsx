@@ -37,7 +37,7 @@ let data: DataPoint[] = [
   },
 ];
 let width = 450;
-let height = 350;
+let height = 300;
 
 class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
@@ -70,7 +70,7 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
       .outerRadius(radius * 0.6);
-    const graphGroup = svg.append('g').attr('transform', `translate(${width / 4}, ${height / 2})`);
+    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2})`);
     const arcs = graphGroup.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'donut-arc');
     arcs
       .append('path')
@@ -85,7 +85,7 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${width / 1.2}, ${height / 2.4})`);
+      .attr('transform', `translate(${width / 1.2}, ${height / 1.2})`);
 
     const lg = legendGroup
       .selectAll<SVGGElement, d3.PieArcDatum<DataItem>>('g')
@@ -98,18 +98,18 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
     lg.append('rect')
       .attr('fill', (d: { data: { product_group: any } }) => color(d.data.product_group))
       .attr('x', -80)
-      .attr('y', -7)
-      .attr('width', 15)
-      .attr('height', 15)
+      .attr('y', -150)
+      .attr('width', 12)
+      .attr('height', 12)
       .append('title')
       .html((d: { data: { product_group: any } }) => d.data.product_group);
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
-      .style('font-size', '13px')
+      .style('font-size', '14px')
       .style('color', '#a8a8c2')
       .attr('x', -55)
-      .attr('y', 5)
+      .attr('y', -140)
       .text((d: { data: { product_group: any } }) => d.data.product_group)
       .append('title');
   }
@@ -128,7 +128,6 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
             ref={this.svgRef}
             viewBox={`0 0 ${width} ${height}`}
             preserveAspectRatio="xMidYMid meet"
-            style={{ height: '100%', maxWidth: '100%', maxHeight: '450' }}
           ></svg>
         </div>
       </div>
