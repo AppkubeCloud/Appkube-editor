@@ -8,8 +8,8 @@ interface Data {
   NetDividend: string;
 }
 const margin = { top: 10, right: 0, bottom: 30, left: 30 };
-const width = 800;
-let height = 350;
+let width = 880;
+let height = 300;
 let data_earning: Data[] = [
   {
     Year: '2020',
@@ -62,35 +62,35 @@ const MultiColorStackTwo: React.FC = () => {
     const yAxis = d3.axisLeft(yScale);
     const stack = d3.stack<Data, string>().keys(categories);
     stack(data_earning);
-    const svg = d3.select(ref.current).attr('width', 900).attr('height', 500);
+    const svg = d3.select(ref.current).attr('width', 980).attr('height', 300);
     const chartData = stack(data_earning);
-    const groups = svg
-      .append('g')
-      .selectAll('g')
-      .data(chartData)
-      .join('g')
-      .style('fill', (d, i) => colors(d.key || ''));
-    groups
-      .selectAll('rect')
-      .data((d) => d)
-      .join('rect')
-      .attr('class', 'main-bar')
-      .attr('x', (d) => xScale(d.data.Year) || 0)
-      .attr('y', (d) => yScale(d[1]) || 0)
-      .attr('height', (d) => (yScale(d[0]) || 0) - (yScale(d[1]) || 0))
-      .attr('width', xScale.bandwidth() || 0);
     svg
       .selectAll('.narrow-bar')
       .data(data_earning)
       .enter()
       .append('rect')
       .attr('class', 'narrow-bar')
-      .attr('x', (d) => (xScale(d.Year) ? xScale(d.Year)! + 10 : 0))
-      .attr('y', (d) => yScale(topHighOfArray) - 10) // Adjust the position of the narrow bars
+      .attr('x', (d: any) => (xScale(d.Year) ? xScale(d.Year)! + 26 : 0))
+      .attr('y', (d: any) => yScale(topHighOfArray) - 15) // Adjust the position of the narrow bars
       .attr('width', xScale.bandwidth())
       .attr('height', narrowBarsize)
       .attr('width', 7)
       .attr('fill', '#e9ebfb');
+    const groups = svg
+      .append('g')
+      .selectAll('g')
+      .data(chartData)
+      .join('g')
+      .style('fill', (d: { key: any; }) => colors(d.key || ''));
+    groups
+      .selectAll('rect')
+      .data((d: any) => d)
+      .join('rect')
+      .attr('class', 'main-bar')
+      .attr('x', (d: any) => (xScale(d.data.Year) ? xScale(d.data.Year)! + 22 : 0))
+      .attr('y', (d: any) => yScale(d[1]) || 0)
+      .attr('height', (d: any) => (yScale(d[0]) || 0) - (yScale(d[1]) || 0))
+      .attr('width', 15);
     svg
       .append('g')
       .attr('transform', `translate(0,${height - margin.bottom})`)
@@ -99,7 +99,7 @@ const MultiColorStackTwo: React.FC = () => {
   }, []);
   return (
     <div className="chart">
-      <svg ref={ref} width={'100%'} height={height} style={{ marginTop: 100 }}></svg>
+      <svg ref={ref} width={width} height={height}></svg>
     </div>
   );
 };

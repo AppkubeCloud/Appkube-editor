@@ -1,35 +1,14 @@
-.number-zone-chart-panel {
+.authentication-chart-panel {
 	width: 100%;
 	display: block;
 }
-.number-zone-chart-panel .number-zone-chart-inner-panel {
-	width: 100%;
-	padding: 12px;
-}
-.number-zone-chart-panel .heading {
+.authentication-chart-panel .heading {
 	width: 100%;
 	display: flex;
-	margin-bottom: 30px;
-	align-items: center;
-}
-.number-zone-chart-panel .heading span {
-	display: inline-flex;
-	font-size: 14px;
+	font-size: 18px;
 	color: #383874;
-	line-height: 18px;
-	font-weight: 700;
+	line-height: 22px;
+	font-weight: 600;
+	margin-bottom: 30px;
 }
 
-.number-zone-chart-panel .heading .buttons {
-	display: inline-flex;
-	margin-left: auto;
-	width: auto;
-}
-.number-zone-chart-panel .heading .buttons button {
-	float: right;
-	border: none;
-	padding: 0;
-	margin-left: 5px;
-	margin-right: 5px;
-	background-color: transparent;
-}
