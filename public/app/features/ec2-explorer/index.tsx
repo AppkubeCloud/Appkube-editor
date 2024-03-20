@@ -36,23 +36,57 @@ interface LocalState {
   showSlaModal: boolean;
   activeTab: number;
   elementId: string;
+  elementIds: string[] | undefined;
 };
 
 class EC2Explorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
     super(props);
-    let elementId = this.findParam("var-elementId", location.href);
-    if (!elementId) {
-      alert("Please add element id");
-    }
     this.state = {
       value: 0,
       showConfigurationModal: false,
       showHostedServiceModal: false,
       showSlaModal: false,
       activeTab: 0,
-      elementId
+      elementId: "",
+      elementIds: []
     };
+  }
+
+  componentDidMount = () => {
+    const elementId = this.findParam("var-elementId", location.href);
+    const elementIds: null | string[] | undefined = JSON.parse(
+      localStorage.getItem("ec2explorerElementIds") || '[]'
+    );
+    this.setState({ elementId: elementId });
+    if (!elementId && !elementIds?.length) {
+      alert("Please add element id");
+    } else {
+      if(elementIds?.length) {
+        const currentId = elementIds.filter((item) => item === elementId);
+        if(currentId.length) {
+          this.getElementIdData(currentId[0]);
+        } else {
+          this.getElementIdData(elementId);
+        }
+      } else {
+        this.getElementIdData(elementId);
+      }
+    }
+  }
+
+  getElementIdData = (elementId: string) => {
+    let elementIds: null | string[] | undefined = JSON.parse(
+      localStorage.getItem("ec2explorerElementIds") || '[]'
+    );
+    elementIds!.push(elementId);
+    elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
+    if(elementIds && elementIds.length) {
+      localStorage.setItem("ec2explorerElementIds", JSON.stringify(elementIds));
+    } else {
+      localStorage.setItem("ec2explorerElementIds", JSON.stringify([this.state.elementId]));
+    }
+    this.setState({elementIds: elementIds});
   }
 
   setActiveTab = (value: number) => {
@@ -90,25 +124,57 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
     return results == null ? "" : results[1];
   }
 
+  removeElementId = (id: string) => {
+    let elementIds = this.state.elementIds?.filter((item) => item !== id);
+    localStorage.setItem("ec2explorerElementIds", JSON.stringify(elementIds));
+    this.setState({ elementIds });
+  }
+
+  changeQueryID = (item: string) => {
+    let params = new URLSearchParams(location.search);
+    params.set('var-elementId', item);
+    window.location.search = params.toString();
+  }
+
+  renderTabs = (elementIds: string[]) => {
+    const JSX: JSX.Element[] = [];
+    let elementId = this.findParam("var-elementId", location.href);
+    elementIds.forEach((item) => {
+      JSX.push(
+        <div 
+        className={`${elementId === item ? 'active': ''} 
+        page-name  
+        d-flex 
+        align-items-center 
+        justify-content-between`}
+        onClick={(e) => {
+          if(item !== elementId) {
+            e.stopPropagation();
+            this.changeQueryID(item);
+          }
+        }}>
+          <span>{item}</span>
+          <i className="fa-solid fa-xmark"
+          onClick={(e) => {
+            if(elementIds.length > 1 && item !== elementId) {
+              e.stopPropagation();
+              this.removeElementId(item);
+            }
+          }}></i>
+        </div>
+      )
+    });
+    return JSX;
+  }
+
   render() {
-    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId } = this.state;
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds } = this.state;
     return (
       <>
         <div className="aws-topology-container">
           <div className="aws-top-header-container">
             <div className="page-info d-flex align-items-center">
-              <div className="page-name active d-flex align-items-center justify-content-between">
-                <span>VPC-Clu..1_Ec2</span>
-                <i className="fa-solid fa-xmark"></i>
-              </div>
-              <div className="page-name d-flex align-items-center justify-content-between">
-                <span>VPC-Clu..1_Ec2</span>
-                <i className="fa-solid fa-xmark"></i>
-              </div>
-              <div className="page-name d-flex align-items-center justify-content-between">
-                <span>VPC-Clu..1_Ec2</span>
-                <i className="fa-solid fa-xmark"></i>
-              </div>
+              {this.renderTabs(elementIds as string[])}
             </div>
           </div>
           {/* This is needed for data source to detect the element. don't change id */}
