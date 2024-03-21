@@ -9,11 +9,11 @@ class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
     return (
       <div className="instance-panel">
         <div className="instance-panel-heading">
-          <span className="title">Instance Status</span>
+          <span className="title">{this.props.options.instanceTitle}</span>
           <button>Filter</button>
         </div>
         <p className="subtitle">
-          {`'Check the overall health of the EC2 instance, including its status (e.g., running, topped) and any system-level issues'`}
+          {this.props.options.instanceDescription}
         </p>
         <div className="instance-panel-contents">
           <div className="instance-panel-left width-50 d-flex align-items-center">
