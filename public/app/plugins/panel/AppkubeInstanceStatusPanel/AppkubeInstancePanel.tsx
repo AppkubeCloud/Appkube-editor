@@ -3,11 +3,87 @@ import React, { PureComponent } from 'react';
 import { PanelProps } from '@grafana/data';
 
 import './css/style.css';
+import ErrorImg from './img/error.svg';
+
+interface Series {
+  name: string;
+  refId: string;
+  meta: {
+    custom: {
+      data: string;
+      error: string;
+      query: {
+        queryString: string;
+      };
+    };
+  };
+}
 
 class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
-  render() {
+
+  renderData = (series: Series[]) => {
+    const retData: React.ReactNode[] = [];
+    const {data, error} = series[0].meta.custom;
+    if (error) {
+      retData.push(this.renderError());
+    } else {
+      if (JSON.parse(data)[0]) {
+        let instanceData = JSON.parse(data)[0];
+        retData.push(
+          <>
+            <div className="instance-name">
+              <span className="d-block info">Instance ID</span>
+              <span className="d-block info">Instance Type</span>
+              <span className="d-block info">Availability Zone</span>
+              <span className="d-block info">System Checks</span>
+              <span className="d-block info">Custom Alerts</span>
+            </div>
+            <div className="instance-number">
+              <span className="d-block details">{instanceData.InstanceID}</span>
+              <span className="d-block details">{instanceData.InstanceType}</span>
+              <span className="d-block details">{instanceData.AvailabilityZone}</span>
+              <span className="d-block details">{instanceData.SystemChecksStatus}</span>
+              <span className="d-block details">{!instanceData.CustomAlert ? "No Alerts" : instanceData.CustomAlert}</span>
+            </div>
+          </>
+        );
+      } else {
+        retData.push(this.renderError());
+      }
+    }
+    return retData;
+  };
+
+  renderError = () => {
     return (
-      <div className="instance-panel">
+      <div className="utilization-card">
+        <div className="error-message-box">
+          <span className="icon">
+            <img src={ErrorImg} alt="" width="48" height="48" />
+          </span>
+          <span className="name">{'There is some error'}</span>
+        </div>
+      </div>
+    );
+  };
+
+  render() {
+    const { data } = this.props;
+    if (data && data.series && data.series.length > 0 && data?.series[0]?.meta?.custom?.data[0]) {
+      const seriesData: Series[] = data.series.map((seriesItem) => ({
+        name: seriesItem.name || '',
+        refId: seriesItem.refId || '',
+        meta: {
+          custom: {
+            data: seriesItem.meta?.custom?.data || '',
+            error: seriesItem.meta?.custom?.error || '',
+            query: { queryString: seriesItem.meta?.custom?.query?.queryString || '' }
+          }
+        },
+      }));
+
+      return (
+        <div className="instance-panel">
         <div className="instance-panel-heading">
           <span className="title">{this.props.options.instanceTitle}</span>
           <button>Filter</button>
@@ -46,25 +122,16 @@ class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
           </div>
           <div className="instance-panel-right">
             <div className="right-contents">
-              <div className="instance-name">
-                <span className="d-block info">Instance ID</span>
-                <span className="d-block info">Instance Type</span>
-                <span className="d-block info">Availability Zone</span>
-                <span className="d-block info">System Checks</span>
-                <span className="d-block info">Custom Alerts</span>
-              </div>
-              <div className="instance-number">
-                <span className="d-block details">i-1234</span>
-                <span className="d-block details">t2.micro</span>
-                <span className="d-block details">us-east-1a</span>
-                <span className="d-block details">Passed</span>
-                <span className="d-block details">No Alerts</span>
-              </div>
+            {this.renderData(seriesData)}
+              
             </div>
           </div>
         </div>
       </div>
-    );
+      );
+    } else {
+      return <div>No data available</div>;
+    }
   }
 }
 
