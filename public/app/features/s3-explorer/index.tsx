@@ -55,7 +55,7 @@ class S3Explorer extends Component<any, any> {
         <div className="tabs-container">
           <div className="tabs">
             <ul>
-              <li>
+            <li>
                 <button className={value === 0 ? 'active' : ''} onClick={(e) => this.setActiveTab(0)}>
                   Development
                 </button>

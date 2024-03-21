@@ -34,7 +34,6 @@ interface LocalState {
   showConfigurationModal: boolean;
   showHostedServiceModal: boolean;
   showSlaModal: boolean;
-  activeTab: number;
   elementId: string;
   elementIds: string[] | undefined;
 };
@@ -47,7 +46,6 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
       showConfigurationModal: false,
       showHostedServiceModal: false,
       showSlaModal: false,
-      activeTab: 0,
       elementId: "",
       elementIds: []
     };
