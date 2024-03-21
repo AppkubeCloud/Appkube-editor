@@ -27,10 +27,48 @@ class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
     if (error) {
       retData.push(this.renderError());
     } else {
-      if (JSON.parse(data)[0]) {
-        let instanceData = JSON.parse(data)[0];
+      if (JSON.parse(data)) {
+        let instanceData = JSON.parse(data);
         retData.push(
           <>
+            <div className="instance-panel-heading">
+            <span className="title">{this.props.options.instanceTitle}</span>
+            <button>Filter</button>
+           </div>
+        <p className="subtitle">
+          {this.props.options.instanceDescription}
+        </p>
+        <div className="instance-panel-contents">
+          <div className="instance-panel-left width-50 d-flex align-items-center">
+            <div className="progress-bar">
+              <svg>
+                <circle cx="60" cy="60" r="46"></circle>
+                <circle cx="60" cy="60" r="49"></circle>
+              </svg>
+              <div className="bar-chart ">
+                <span className="low"></span>
+                <span className="medium"></span>
+                <span className="high"></span>
+              </div>
+              <div className="number">
+                <h4>
+                  {instanceData.HealthPercentage}<sup className="percantage"> %</sup>
+                </h4>
+              </div>
+            </div>
+            <div className="running-status">
+              <span className="d-block">Instance Status</span>
+              <div className="d-flex align-items-center">
+                <span className="run">{instanceData.State}</span>
+                <div className="d-flex align-items-center">
+                  <i className="fa-solid fa-caret-up"></i>
+                  <span className="d-block percantage">10%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="instance-panel-right">
+            <div className="right-contents">
             <div className="instance-name">
               <span className="d-block info">Instance ID</span>
               <span className="d-block info">Instance Type</span>
@@ -45,7 +83,10 @@ class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
               <span className="d-block details">{instanceData.SystemChecksStatus}</span>
               <span className="d-block details">{!instanceData.CustomAlert ? "No Alerts" : instanceData.CustomAlert}</span>
             </div>
-          </>
+            </div>
+          </div>
+        </div>
+        </>
         );
       } else {
         retData.push(this.renderError());
@@ -69,7 +110,7 @@ class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
 
   render() {
     const { data } = this.props;
-    if (data && data.series && data.series.length > 0 && data?.series[0]?.meta?.custom?.data[0]) {
+    if (data && data.series && data.series.length > 0 && data?.series[0]?.meta?.custom?.data) {
       const seriesData: Series[] = data.series.map((seriesItem) => ({
         name: seriesItem.name || '',
         refId: seriesItem.refId || '',
@@ -84,50 +125,8 @@ class AppkubeInstanceStatusPanel extends PureComponent<PanelProps> {
 
       return (
         <div className="instance-panel">
-        <div className="instance-panel-heading">
-          <span className="title">{this.props.options.instanceTitle}</span>
-          <button>Filter</button>
+          {this.renderData(seriesData)}
         </div>
-        <p className="subtitle">
-          {this.props.options.instanceDescription}
-        </p>
-        <div className="instance-panel-contents">
-          <div className="instance-panel-left width-50 d-flex align-items-center">
-            <div className="progress-bar">
-              <svg>
-                <circle cx="60" cy="60" r="46"></circle>
-                <circle cx="60" cy="60" r="49"></circle>
-              </svg>
-              <div className="bar-chart ">
-                <span className="low"></span>
-                <span className="medium"></span>
-                <span className="high"></span>
-              </div>
-              <div className="number">
-                <h4>
-                  70<sup className="percantage"> %</sup>
-                </h4>
-              </div>
-            </div>
-            <div className="running-status">
-              <span className="d-block">Instance Status</span>
-              <div className="d-flex align-items-center">
-                <span className="run">Running</span>
-                <div className="d-flex align-items-center">
-                  <i className="fa-solid fa-caret-up"></i>
-                  <span className="d-block percantage">10%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="instance-panel-right">
-            <div className="right-contents">
-            {this.renderData(seriesData)}
-              
-            </div>
-          </div>
-        </div>
-      </div>
       );
     } else {
       return <div>No data available</div>;
