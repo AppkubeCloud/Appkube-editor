@@ -39,7 +39,7 @@ class S3Explorer extends Component<any, any> {
   };
 
   render() {
-    const { value, showFiltersModal, elementIds } = this.state;
+    const { value, showFiltersModal } = this.state;
     return (
       <div className="eks-explorer-container">
         <div className="header">
