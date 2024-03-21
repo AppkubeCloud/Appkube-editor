@@ -14,9 +14,12 @@ class S3Explorer extends Component<any, any> {
       slaPopUpOpen: false,
       showFiltersModal: false,
       value: 0,
+      elementId: "",
+      elementIds: []
     };
     this.popupRef = React.createRef();
   }
+
   setActiveTab = (value: any) => {
     this.setState({
       value,
@@ -36,7 +39,7 @@ class S3Explorer extends Component<any, any> {
   };
 
   render() {
-    const { value, showFiltersModal } = this.state;
+    const { value, showFiltersModal, elementIds } = this.state;
     return (
       <div className="eks-explorer-container">
         <div className="header">
