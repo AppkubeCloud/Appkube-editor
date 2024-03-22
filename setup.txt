@@ -1,0 +1,139 @@
+Appkube editor to build on ubuntu machine
+		1. with root user
+			1.1 go to root
+				cd /
+			1.1 provide 777 permission to /opt directory
+			chmod 777 opt/ -R
+		2. with ubuntu user
+			2.1 configure or install go	(version 19)
+				2.1.1 	create directory /opt/software
+						mkdir -p /opt/software
+				2.2.2 	go to /opt/software
+						cd /opt/software
+				2.3.3 	download go lang (go version 1.19) in /opt/software directory
+						wget https://golang.org/dl/go1.19.1.linux-amd64.tar.gz
+				2.4.4 	untar downloaded tar file in /opt/software
+						tar -xf go1.19.1.linux-amd64.tar.gz
+							above command untar all go file in go directory like  /opt/software/go
+				2.5.5 	rename the go directory to go19
+						mv go go19
+				2.6.6 	create gopath folder inside Go (/opt/software/go19)
+						mkdir -p /opt/software/go19/gopath
+				2.7.7	add below environemnt variables in ubuntu user's .bashrc file
+						cd ~/
+						nano .bashrc
+						export GOBIN=/opt/software/go19/bin
+						export GOPATH=/opt/software/go19/gopath
+						export GOROOT=/opt/software/go19
+						export PATH=$PATH:$GOBIN:$GOROOT:$GOPATH
+				2.8.8 	source .bashrc
+				2.9.9 	test the go configuration with below command
+						go version
+							go version go1.19.1 linux/amd64 (if above command response is this, it means go is successfully configured)
+			2.2	install nvm (node version manager)
+				2.2.1	install nvm (node version manager)
+						curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+				2.2.2	To use nvm, you must first source your .bashrc file
+						source ~/.bashrc
+				2.2.3	test nvm installed or not. any of run below command
+						nvm list-remote
+							above command will display list of available node versions
+						nvm -v
+							command output - 0.39.3
+			2.3	install node
+				2.3.1	install a version (16.17.0) of Node with nvm with below command
+						nvm install v16.17.0
+				2.3.2	verify node installation
+						node -v
+							command output (v16.17.0) it means this node version 16.17.0 is successfully installed
+			2.4	install yarn
+				2.4.1	install yarn with npm. run below command
+						npm install -g yarn
+				2.4.2	verify yarn installation
+						yarn -v
+							command output (1.22.22 or something similar to this). it means yarn installed successfully
+			2.5 install tdm_gcc
+				2.5.1	install tdm gcc with below command
+						sudo apt update
+						sudo apt install build-essential
+				2.5.2	verify tdm gcc installation
+						gcc -v
+							command output (information with gcc version 9.4.0). gcc installation successful
+			2.6 configure appkube-editor
+				2.6.1	create directory /opt/mycode
+						mkdir -p /opt/mycode
+				2.6.2	go to /opt/mycode
+						cd /opt/mycode
+				2.6.3	git clone appkube-editor from https://github.com/AppkubeCloud/Appkube-editor.git
+						git clone https://github.com/AppkubeCloud/Appkube-editor.git
+				2.6.4	go to /opt/mycode/Appkube-editor
+						cd /opt/mycode/Appkube-editor
+				2.6.5	check default.init for database configurations
+						cd /opt/mycode/Appkube-editor/conf
+						nano defaults.ini
+							change the database configuration as below or as per given cofigurations
+							type = postgres
+							host = postgresql.ch8wfucynpvq.us-east-1.rds.amazonaws.com:5431
+							name = grafana9
+							user = postgres
+							# If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
+							password = Synect!ks2023
+			2.7	compile back-end (go server)
+				2.7.1	go to appkube-editor root directory
+						cd /opt/mycode/Appkube-editor
+				2.7.2	install wire package
+						go install github.com/google/wire/cmd/wire@latest
+				2.7.3	execute wire gen tags command as below
+						wire gen -tags oss ./pkg/server/ ./pkg/cmd/grafana-cli/runner
+				2.7.4	execute go setup command
+						go run build.go setup
+				2.7.5	execute go build command
+						go run build.go build
+				2.7.6	verify back-end build. its bin directory should have 6 files as below
+						ll /opt/mycode/Appkube-editor/bin/linux-amd64
+						-rwxrwxr-x 1 ubuntu ubuntu 108802400 Mar 22 08:41 grafana*
+						-rwxrwxr-x 1 ubuntu ubuntu   1450919 Mar 22 08:41 grafana-cli*
+						-rw-rw-r-- 1 ubuntu ubuntu        33 Mar 22 08:41 grafana-cli.md5
+						-rwxrwxr-x 1 ubuntu ubuntu   1450919 Mar 22 08:41 grafana-server*
+						-rw-rw-r-- 1 ubuntu ubuntu        33 Mar 22 08:41 grafana-server.md5
+						-rw-rw-r-- 1 ubuntu ubuntu        33 Mar 22 08:41 grafana.md5
+			2.8 compile front-end (react ui)
+				2.8.1	go to appkube-editor root directory
+						cd /opt/mycode/Appkube-editor
+				2.8.2	install yarn
+						yarn install --immutable
+				2.8.3	build ui
+						yarn build or yarn dev
+			2.9 run appkube-editor
+				2.9.1	cd /opt/mycode/Appkube-editor
+						./bin/linux-amd64/grafana-server &
+				2.9.2	browser access
+						http://<public-server-ip>:3000
+		3. install mage node package to build appkube-cloud-datasource
+			3.1	go to /opt/mycode
+				cd /opt/mycode
+			3.2	open https://magefile.org/
+			3.3 git clone mage
+				git clone https://github.com/magefile/mage
+			3.4 cd /opt/mycode/mage
+			3.5 run below command to install mage plugin
+				go run bootstrap.go
+				source ~/.bashrc
+		4. configure appkube-cloud-datasource in appkube-editor
+			4.1	check appkube-editor plugin directory
+				go to /opt/mycode/Appkube-editor/conf
+				cd /opt/mycode/Appkube-editor/conf
+				nano defaults.ini
+					currently it is data/plugins. change if required. For now we are not changing it. keep it as it is.
+			4.2 create plugins directory in appkube-editor
+				mkdir -p /opt/mycode/Appkube-editor/data/plugins
+			4.3 get appkube-cloud-datasource from git into the plugins directory
+				cd /opt/mycode/Appkube-editor/data/plugins
+				git clone https://github.com/AppkubeCloud/appkube-cloud-datasource.git
+			4.4 go to appkube-cloud-datasource
+				cd /opt/mycode/Appkube-editor/data/plugins/appkube-cloud-datasource
+			4.5	run below command to build datasource back-end
+				mage -v
+		5. restart appkube-editor
+			cd /opt/mycode/Appkube-editor
+			./bin/linux-amd64/grafana-server &
