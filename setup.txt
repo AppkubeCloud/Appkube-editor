@@ -109,3 +109,31 @@ Appkube editor to build on ubuntu machine
 						./bin/linux-amd64/grafana-server &
 				2.9.2	browser access
 						http://<public-server-ip>:3000
+		3. install mage node package to build appkube-cloud-datasource
+			3.1	go to /opt/mycode
+				cd /opt/mycode
+			3.2	open https://magefile.org/
+			3.3 git clone mage
+				git clone https://github.com/magefile/mage
+			3.4 cd /opt/mycode/mage
+			3.5 run below command to install mage plugin
+				go run bootstrap.go
+				source ~/.bashrc
+		4. configure appkube-cloud-datasource in appkube-editor
+			4.1	check appkube-editor plugin directory
+				go to /opt/mycode/Appkube-editor/conf
+				cd /opt/mycode/Appkube-editor/conf
+				nano defaults.ini
+					currently it is data/plugins. change if required. For now we are not changing it. keep it as it is.
+			4.2 create plugins directory in appkube-editor
+				mkdir -p /opt/mycode/Appkube-editor/data/plugins
+			4.3 get appkube-cloud-datasource from git into the plugins directory
+				cd /opt/mycode/Appkube-editor/data/plugins
+				git clone https://github.com/AppkubeCloud/appkube-cloud-datasource.git
+			4.4 go to appkube-cloud-datasource
+				cd /opt/mycode/Appkube-editor/data/plugins/appkube-cloud-datasource
+			4.5	run below command to build datasource back-end
+				mage -v
+		5. restart appkube-editor
+			cd /opt/mycode/Appkube-editor
+			./bin/linux-amd64/grafana-server &
