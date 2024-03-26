@@ -185,15 +185,19 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
 
   renderGraph = (apiData: ApiData) => {
     data = apiData;
-    if (data) {
+    let total = 0;
+      for (const property in data) {
+        total = total + data[property as keyof ApiData];
+      }
+    if (data && total > 0) {
       this.manipulateData(data);
-      return (
-        <svg
-          ref={this.svgRef}
-          viewBox={`0 0 ${width} ${height}`}
-          preserveAspectRatio="xMidYMid meet"
-        ></svg>
-      );
+        return (
+          <svg
+            ref={this.svgRef}
+            viewBox={`0 0 ${width} ${height}`}
+            preserveAspectRatio="xMidYMid meet"
+          ></svg>
+        );
     } else {
       return <div>No Data Available!</div>
     }
