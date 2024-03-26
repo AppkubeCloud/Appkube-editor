@@ -820,3 +820,40 @@
     }
   }
 }
+
+.dashboard-panels-container {
+  .panel-header {
+    display: none;
+  }
+  .panel-info-corner {
+    display: none;
+  }
+  .react-resizable-handle {
+    display: none;
+  }
+  .panel-content {
+    padding: 20px 15px;
+    .utilization-card {
+      height: calc(100% - 20px);
+      .error-message-box {
+        padding-top: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .icon {
+          margin-top: auto;
+        }
+        .name {
+          margin-bottom: auto;
+        }
+      }
+    }
+  }
+  .panel-container {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6c49ac0d;
+  }
+}
