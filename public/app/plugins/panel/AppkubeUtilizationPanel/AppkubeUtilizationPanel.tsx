@@ -106,7 +106,38 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
     );
   };
 
-
+  renderStorageUtilizationData = (data: any) => {
+    return (
+      <div className="utilization-card">
+        <div className="card-title">
+          <div className="icon">
+            <img src={imageJSON.storage_utilization} alt="" />
+          </div>
+          <span className="name">Storage Utilization</span>
+        </div>
+        <div className="utilization-details">
+          <div className="info">
+            <span className="name">Root Volume Usage</span>
+            <span className="percantage" title={data.RootVolumeUsage}>
+              {data.RootVolumeUsage}%
+            </span>
+          </div>
+          <div className="info">
+            <span className="name">EBS Volume 1 Usage</span>
+            <span className="percantage" title={data.EbsVolume1Usage}>
+              {data.EbsVolume1Usage}%
+            </span>
+          </div>
+          <div className="info">
+            <span className="name">EBS Volume 2 Usage</span>
+            <span className="percantage" title={data.EbsVolume2Usage}>
+              {data.EbsVolume2Usage}%
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   renderFrames = (series: any) => {
     const retData: any = [];
@@ -141,6 +172,16 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
           } else {
             if (data) {
               cardJSX = this.renderNetworkUtilizationData(JSON.parse(data));
+            } else {
+              cardJSX = this.renderError();
+            }
+          }
+        } else if (query.queryString === "storage_utilization_panel") {
+          if (error) {
+            cardJSX = this.renderError();
+          } else {
+            if (data) {
+              cardJSX = this.renderStorageUtilizationData(JSON.parse(data));
             } else {
               cardJSX = this.renderError();
             }
