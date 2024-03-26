@@ -62,7 +62,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
     for (const property in data) {
       dataArray.push({
         [property]: data[property as keyof ApiData],
-        percentage: (100 * data[property as keyof ApiData]) / total
+        percentage: data[property as keyof ApiData] ? (100 * data[property as keyof ApiData]) / total : 0
       })
     }
     setTimeout(() => this.drawChart(dataArray), 500);
@@ -168,6 +168,12 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
           dataTitle = "CPU Usage";
         } else if (d.data.Memory_Usage) {
           dataTitle = "Memory Usage";
+        } else if (d.data.disk_pressure_avg) {
+          dataTitle = "Disk Pressure Average"
+        } else if (d.data.memory_pressure_avg) {
+          dataTitle = "Memory Pressure Average"
+        } else if (d.data.pid_pressure_avg) {
+          dataTitle = "PID Pressure Average"
         } else {
           dataTitle = "Storage Available";
         }
@@ -221,10 +227,22 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
             retData.push(this.renderError());
           }
         }
+      } else if(query.queryString === "node_condition_panel") {
+        if (error) {
+          retData.push(this.renderError());
+        } else {
+          if (data) {
+            const parsedData: ApiData = JSON.parse(data);
+            retData.push(this.renderGraph(parsedData));
+          } else {
+            retData.push(this.renderError());
+          }
+        }
       } else {
         retData.push(this.renderError());
       }
     }
+    
     return retData;
   };
 
