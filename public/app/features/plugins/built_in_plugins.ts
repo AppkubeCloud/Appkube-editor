@@ -72,6 +72,7 @@ import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetes
 import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
 import * as AppkubeMultilineChartPanel from 'app/plugins/panel/AppkubeMultilineChartPanel/module';
 import * as AppkubeNetworkCostingPanel from 'app/plugins/panel/AppkubeNetworkCostingPanel/module';
+import * as AppkubeNodeFailurePanel from 'app/plugins/panel/AppkubeNodeFailurePanel/module';
 import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
 import * as AppkubeNumberZoneChartPanel from 'app/plugins/panel/AppkubeNumberZoneChartPanel/module';
 import * as AppkubeOverallBucketCompliancePanel from 'app/plugins/panel/AppkubeOverallBucketCompliancePanel/module';
@@ -242,6 +243,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeTopProductsPanel/module': AppkubeTopProductsPanel,
   'app/plugins/panel/AppkubeSuccessFailedChartPanel/module': AppkubeSuccessFailedChartPanel,
   'app/plugins/panel/AppkubePodsOverviewPanel/module': AppkubePodsOverviewPanel,
+  'app/plugins/panel/AppkubeNodeFailurePanel/module': AppkubeNodeFailurePanel,
   'app/plugins/panel/AppkubeClusterOverviewPanel/module': AppkubeClusterOverviewPanel,
   'app/plugins/panel/AppkubeFlowCountPanel/module': AppkubeFlowCountPanel,
   'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module': AppkubeDataLifecycleManagementPanel,

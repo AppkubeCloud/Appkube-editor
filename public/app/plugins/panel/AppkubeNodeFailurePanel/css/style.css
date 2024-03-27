@@ -1,0 +1,97 @@
+.cost-highest-spend-target-panel {
+	display: block;
+	width: 100%;
+}
+.cost-highest-spend-target-inner {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 15px 15px;
+	border-radius: 7px;
+	background-color: #fff;
+	box-shadow: 0px 41.777610778808594px 33.422088623046875px 0px #6C49AC0D;
+}
+
+.cost-highest-spend-target-panel .header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 30px;
+}
+
+.cost-highest-spend-target-panel .header .heading {
+	display: inline-flex;
+	width: auto;
+	font-size: 20px;
+	line-height: 24px;
+	color: #383874;
+	font-weight: 600;
+}
+
+.cost-highest-spend-target-panel .header .buttons {
+	display: inline-flex;
+	width: auto;
+	margin-left: auto;
+}
+
+.cost-highest-spend-target-panel .header .buttons .icon {
+	display: inline-flex;
+	width: auto;
+	border: none;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: transparent;
+}
+
+.cost-highest-spend-target-panel .graph-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.cost-highest-spend-target-panel .graph-container .graph {
+	display: flex;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.cost-highest-spend-target-panel .graph-container .graph label {
+	display: inline-flex;
+	width: 10%;
+	line-height: 16px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #7E7E8F;
+}
+.cost-highest-spend-target-panel .graph-container .graph .line {
+	display: inline-flex;
+	width: 90%;
+}
+.cost-highest-spend-target-panel .graph-container .graph .line span {
+	display: inline-flex;
+	justify-content: flex-end;
+	text-align: right;
+	border-radius: 3px;
+	height: 16px;
+	padding-left: 15px;
+	padding-right: 15px;
+	line-height: 16px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #000000;
+}
+.cost-highest-spend-target-panel .lines-graph-container {
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
+	padding-top: 5px;
+	border-top: 1px solid #E2E2EA;
+}
+.cost-highest-spend-target-panel .lines-graph-container span {
+	display: inline-flex;
+	justify-content: center;
+	width: 8.3333333%;
+	line-height: 16px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #C6CBD9;
+}

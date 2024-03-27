@@ -1,0 +1,17 @@
+{
+  "type": "panel",
+  "name": "Appkube Node Failure Panel",
+  "id": "appkubeNodeFailurePanel",
+
+  "info": {
+    "description": "node_failure_panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}
