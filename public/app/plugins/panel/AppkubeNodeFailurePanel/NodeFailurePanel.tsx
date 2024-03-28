@@ -280,23 +280,23 @@ class NodeFailurePanel extends PureComponent<PanelProps> {
   manipulateData = (data: Data) => {
     let dataArray: DataItem[] = [];
     data['Node Failures'].map((item: any) => {
-    let date = new Date(item.timestamp);
-    const yyyy = date.getFullYear();
-    let mm = date.getMonth() + 1; // Months start at 0!
-    let dd = date.getDate();
-    dataArray.push({
-      timestamp: dd + '/' + mm + '/' + yyyy,
-      value: item.value
+      let date = new Date(item.timestamp);
+      const yyyy = date.getFullYear();
+      let mm = date.getMonth() + 1; // Months start at 0!
+      let dd = date.getDate();
+      dataArray.push({
+        timestamp: dd + '/' + mm + '/' + yyyy,
+        value: item.value
+      });
     });
-   });
-   return this.renderGraph(dataArray);
+    return this.renderGraph(dataArray);
   }
 
   generateEqualDistanceNumbers = (maxValue: number) => {
     const stepSize = Math.ceil(maxValue / 10); // Calculate step size based on maxValue
     const numbers = [];
     for (let i = stepSize; i <= maxValue; i += stepSize) {
-    numbers.push(i);
+      numbers.push(i);
     }
     if (numbers[numbers.length - 1] !== maxValue) {
       numbers.push(maxValue); // Ensure the maxValue is included in the array
@@ -316,67 +316,66 @@ class NodeFailurePanel extends PureComponent<PanelProps> {
       DatesJSX.push(
         <div className="graph">
           <label htmlFor="Lambda">{item.timestamp}</label>
-          <Tooltip content={String(item.value)} >
-            <>
-            {item.value > 0 ? <div className="line">
-              <span style={{ width: `${(100 * item.value) / maxNum}%`, 
-              backgroundColor: `${colors[i]}` }}
-              >
-              </span>
-              {item.value}
-            </div> : 
-            <div>0</div>
-            }
-          </>
-        </Tooltip>
-        </div>
+          {item.value > 0 ? <div className="line">
+            <span style={{
+              width: `${(100 * item.value) / maxNum}%`,
+              backgroundColor: `${colors[i]}`
+            }}
+            >
+              <Tooltip content={String(item.value)}><span>{item.value}</span></Tooltip>
+            </span>
+            <span className="item-value">{item.value}</span>
+          </div> :
+            <div className="item-value">0</div>
+          }
+        </div >
       )
     });
-    
+
     const xAxisNumbers = this.generateEqualDistanceNumbers(maxNum);
     JSX.push(
       <>
-      <div className="cost-highest-spend-target-panel">
-        <div className="cost-highest-spend-target-inner">
-          <div className="header">
-            <div className="heading">{this.props.options.title}</div>
-            <div className="buttons">
-              <button className="icon">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADNSURBVHgB7ZThDcIgEIWfxv92BNzAERjBDXQEN2g3KU7gCNZJiht0Az3iIQ0Ch7/tS760wONxSa8Af6eVsK6JA7Hl8YMwhOVxT9x5rihF3Ihnhp49/l0MG2dmHVVseG2sDfQbuoKni6r9aBMZNXHk0C5aa4jzbDzxHKRApwu+5Ta3EBQHKn4OCa8ldon5qRQoyUqGdeY0DVmKOBH7kkmjshUQukFJRt/QpQ/Q/nCw2NhXhMZWqJQzGuR/PRfapDbWXA4aoRKLd0sNWOT1As99PToFwXcPAAAAAElFTkSuQmCC"
-                  alt=""
-                />
-              </button>
-              <button className="icon">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADjSURBVHgB1VPRDYJADK3EARihbsIIjHAjsIG4gRvQDcQJZBMdwQ20l7SmXAp3xh95yUtK3+vjjjsA/h07UyMzJDoxH0mv1Ac985UwHYzoHF+vYgU+RuZB3pziLNrkDXqB0dgyj7CMqDXM64rns2WUlcV6cHyDaCTe2ZYtotiZZy/UhimCzBaBJKA2qyH4EWjqOmeuII/nN4E56DdDCVs6KBdxKDhhZHrkhHawcCi9WY0X5oUirFwbDbxA/jQ19FYSqEZcCUTz4qJ/uWHeYX7RFUG01hvcm5ocfXR6E/OU9Ag2gzffWkrwdvUaogAAAABJRU5ErkJggg=="
-                  alt=""
-                />
-              </button>
+        <div className="cost-highest-spend-target-panel">
+          <div className="cost-highest-spend-target-inner">
+            <div className="header">
+              <div className="heading">{this.props.options.title}</div>
+              <div className="buttons">
+                <button className="icon">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADNSURBVHgB7ZThDcIgEIWfxv92BNzAERjBDXQEN2g3KU7gCNZJiht0Az3iIQ0Ch7/tS760wONxSa8Af6eVsK6JA7Hl8YMwhOVxT9x5rihF3Ihnhp49/l0MG2dmHVVseG2sDfQbuoKni6r9aBMZNXHk0C5aa4jzbDzxHKRApwu+5Ta3EBQHKn4OCa8ldon5qRQoyUqGdeY0DVmKOBH7kkmjshUQukFJRt/QpQ/Q/nCw2NhXhMZWqJQzGuR/PRfapDbWXA4aoRKLd0sNWOT1As99PToFwXcPAAAAAElFTkSuQmCC"
+                    alt=""
+                  />
+                </button>
+                <button className="icon">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADjSURBVHgB1VPRDYJADK3EARihbsIIjHAjsIG4gRvQDcQJZBMdwQ20l7SmXAp3xh95yUtK3+vjjjsA/h07UyMzJDoxH0mv1Ac985UwHYzoHF+vYgU+RuZB3pziLNrkDXqB0dgyj7CMqDXM64rns2WUlcV6cHyDaCTe2ZYtotiZZy/UhimCzBaBJKA2qyH4EWjqOmeuII/nN4E56DdDCVs6KBdxKDhhZHrkhHawcCi9WY0X5oUirFwbDbxA/jQ19FYSqEZcCUTz4qJ/uWHeYX7RFUG01hvcm5ocfXR6E/OU9Ag2gzffWkrwdvUaogAAAABJRU5ErkJggg=="
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+            <div className="graph-container">
+              {DatesJSX}
+            </div>
+            <div className="lines-graph-container">
+              {xAxisNumbers.map((item) => {
+                return <span key={item}>{item}</span>
+              })}
             </div>
           </div>
-          <div className="graph-container">
-            {DatesJSX}
-          </div>
-          <div className="lines-graph-container">
-            {xAxisNumbers.map((item) => {
-              return <span key={item}>{item}</span>
-            })}
-          </div>
         </div>
-      </div>
       </>
     );
     return JSX;
   }
 
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
     return (
       <>
-      {JSON.parse(data?.series[0]?.meta?.custom?.data) ? 
-      this.manipulateData(JSON.parse(data?.series[0]?.meta?.custom?.data)) : 
-      <div>No Data Available!</div>}
+        {JSON.parse(data?.series[0]?.meta?.custom?.data) ?
+          this.manipulateData(JSON.parse(data?.series[0]?.meta?.custom?.data)) :
+          <div>No Data Available!</div>}
       </>
     );
   }
