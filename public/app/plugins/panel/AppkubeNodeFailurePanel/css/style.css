@@ -54,7 +54,7 @@
 }
 .cost-highest-spend-target-panel .graph-container .graph label {
 	display: inline-flex;
-	width: 10%;
+	width: 100px;
 	line-height: 16px;
 	font-size: 12px;
 	font-weight: 500;
@@ -64,7 +64,7 @@
 .cost-highest-spend-target-panel .graph-container .graph .line {
 	display: inline-flex;
 	justify-content: flex-start;
-	width: 90%;
+	width: calc(100% - 100px);
 	
 }
 .cost-highest-spend-target-panel .graph-container .graph .line span {
@@ -97,7 +97,7 @@
 }
 .cost-highest-spend-target-panel .graph-container .graph .item-value {
 	display: inline-flex;
-	width: 90%;
+	width: calc(100% - 100px);
 	line-height: 16px;
 	font-size: 12px;
 	font-weight: 500;
@@ -106,8 +106,8 @@
 
 .cost-highest-spend-target-panel .lines-graph-container {
 	display: flex;
-	width: calc(100% - 88px);
-	margin-left: 88px;
+	width: calc(100% - 100px);
+	margin-left: 100px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-top: 1px solid #E2E2EA;
