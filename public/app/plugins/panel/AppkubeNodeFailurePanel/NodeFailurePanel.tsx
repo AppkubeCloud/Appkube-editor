@@ -293,13 +293,15 @@ class NodeFailurePanel extends PureComponent<PanelProps> {
   }
 
   generateEqualDistanceNumbers = (maxValue: number) => {
-    const stepSize = Math.ceil(maxValue / 10); // Calculate step size based on maxValue
     const numbers = [];
-    for (let i = stepSize; i <= maxValue; i += stepSize) {
-      numbers.push(i);
-    }
-    if (numbers[numbers.length - 1] !== maxValue) {
-      numbers.push(maxValue); // Ensure the maxValue is included in the array
+    if (maxValue !== 0) {
+      const stepSize = Math.ceil(maxValue / 10); // Calculate step size based on maxValue
+      for (let i = stepSize; i <= maxValue; i += stepSize) {
+        numbers.push(i);
+      }
+      if (numbers[numbers.length - 1] !== maxValue) {
+        numbers.push(maxValue); // Ensure the maxValue is included in the array
+      }
     }
     return numbers;
   }
@@ -332,7 +334,7 @@ class NodeFailurePanel extends PureComponent<PanelProps> {
       )
     });
 
-    const xAxisNumbers = this.generateEqualDistanceNumbers(maxNum);
+    // const xAxisNumbers = this.generateEqualDistanceNumbers(maxNum);
     JSX.push(
       <>
         <div className="cost-highest-spend-target-panel">
@@ -357,11 +359,11 @@ class NodeFailurePanel extends PureComponent<PanelProps> {
             <div className="graph-container">
               {DatesJSX}
             </div>
-            <div className="lines-graph-container">
+            {/* <div className="lines-graph-container">
               {xAxisNumbers.map((item) => {
                 return <span key={item}>{item}</span>
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </>
