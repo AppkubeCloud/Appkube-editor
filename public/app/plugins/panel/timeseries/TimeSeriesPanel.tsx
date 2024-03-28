@@ -16,7 +16,11 @@ import { ThresholdControlsPlugin } from './plugins/ThresholdControlsPlugin';
 import { TimeSeriesOptions } from './types';
 import { getTimezones, prepareGraphableFields, regenerateLinksSupplier } from './utils';
 
-interface TimeSeriesPanelProps extends PanelProps<TimeSeriesOptions> {}
+interface TimeSeriesPanelProps extends PanelProps<TimeSeriesOptions> { }
+
+interface QueryEditorData {
+  selectedFrame: string;
+}
 
 export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
   data,
@@ -53,10 +57,16 @@ export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
   }
 
   const enableAnnotationCreation = Boolean(canAddAnnotations && canAddAnnotations());
-
+  const selectedFrame = (data.request?.targets[0] as unknown as QueryEditorData).selectedFrame;
+  let selectedFrames = [...frames];
+  if (selectedFrame) {
+    selectedFrames = frames.filter((frame: any) => {
+      return frame.name === selectedFrame;
+    });
+  }
   return (
     <TimeSeries
-      frames={frames}
+      frames={selectedFrames}
       structureRev={data.structureRev}
       timeRange={timeRange}
       timeZone={timezones}
