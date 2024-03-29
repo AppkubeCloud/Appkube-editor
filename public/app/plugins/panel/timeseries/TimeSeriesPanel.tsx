@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { v4 } from 'uuid';
 
 import { Field, PanelProps } from '@grafana/data';
 import { PanelDataErrorView } from '@grafana/runtime';
@@ -66,6 +67,7 @@ export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
   }
   return (
     <TimeSeries
+      key={v4()}
       frames={selectedFrames}
       structureRev={data.structureRev}
       timeRange={timeRange}
