@@ -4,7 +4,7 @@
   "id": "appkubeServiceAvailablityPanel",
 
   "info": {
-    "description": "Appkube Service Availablity Panel",
+    "description": "uptime_percentage_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"
