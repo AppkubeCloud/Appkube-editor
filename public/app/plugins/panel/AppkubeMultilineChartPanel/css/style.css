@@ -1,19 +1,15 @@
-.number-zone-chart-panel {
+.multiline-chart-panel {
 	width: 100%;
 	height: 100%;
 	display: block;
 }
-.number-zone-chart-panel .number-zone-chart-inner-panel {
-	width: 100%;
-	padding: 12px;
-}
-.number-zone-chart-panel .heading {
+.multiline-chart-panel .heading {
 	width: 100%;
 	display: flex;
 	margin-bottom: 30px;
 	align-items: center;
 }
-.number-zone-chart-panel .heading span {
+.multiline-chart-panel .heading span {
 	display: inline-flex;
 	font-size: 14px;
 	color: #383874;
@@ -21,12 +17,12 @@
 	font-weight: 700;
 }
 
-.number-zone-chart-panel .heading .buttons {
+.multiline-chart-panel .heading .buttons {
 	display: inline-flex;
 	margin-left: auto;
 	width: auto;
 }
-.number-zone-chart-panel .heading .buttons button {
+.multiline-chart-panel .heading .buttons button {
 	float: right;
 	border: none;
 	padding: 0;

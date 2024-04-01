@@ -1,10 +1,10 @@
 {
   "type": "panel",
-  "name": "Appkube Function By Products Panel",
-  "id": "appkubeFunctionByProductsPanel",
+  "name": "Appkube Function By Region Panel",
+  "id": "appkubeFunctionByRegionPanel",
 
   "info": {
-    "description": "Appkube Function By Products Panel",
+    "description": "Appkube Function By Region Panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"

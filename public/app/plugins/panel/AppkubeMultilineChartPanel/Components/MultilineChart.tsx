@@ -73,6 +73,18 @@ class MultilineChart extends Component<Props> {
       .x((d) => xScale(d.date)!)
       .y((d) => yScale(d.forecasted_spend)!);
 
+    const line4 = d3
+      .line<DataItem>()
+      .curve(d3.curveCardinal)
+      .x((d) => xScale(d.date)!)
+      .y((d) => yScale(d.forecasted_spend)!);
+
+    const line5 = d3
+      .line<DataItem>()
+      .curve(d3.curveCardinal)
+      .x((d) => xScale(d.date)!)
+      .y((d) => yScale(d.forecasted_spend)!);
+
     svg
       .append('g')
       .attr('transform', `translate(0,${height - margin.bottom})`)
@@ -101,7 +113,7 @@ class MultilineChart extends Component<Props> {
       .append('path')
       .datum(data)
       .attr('fill', 'none')
-      .attr('stroke', 'steelblue')
+      .attr('stroke', '#f9d33d')
       .attr('stroke-width', 2)
       .attr('d', line);
 
@@ -109,7 +121,7 @@ class MultilineChart extends Component<Props> {
       .append('path')
       .datum(data)
       .attr('fill', 'none')
-      .attr('stroke', 'green')
+      .attr('stroke', '#ff2d2e')
       .attr('stroke-width', 2)
       .attr('d', line2);
 
@@ -117,9 +129,23 @@ class MultilineChart extends Component<Props> {
       .append('path')
       .datum(data)
       .attr('fill', 'none')
-      .attr('stroke', 'red')
+      .attr('stroke', '#53ca43')
       .attr('stroke-width', 2)
       .attr('d', line3);
+    svg
+      .append('path')
+      .datum(data)
+      .attr('fill', 'none')
+      .attr('stroke', '#fe708d')
+      .attr('stroke-width', 2)
+      .attr('d', line4);
+    svg
+      .append('path')
+      .datum(data)
+      .attr('fill', 'none')
+      .attr('stroke', '#8676ff')
+      .attr('stroke-width', 2)
+      .attr('d', line5);
 
     const tooltip = d3
       .select('body')
@@ -181,7 +207,7 @@ class MultilineChart extends Component<Props> {
 
   render() {
     return (
-      <div className='multi-line-chart'>
+      <div className="multi-line-chart">
         <svg ref={this.svgRef} width="900" height="400"></svg>
       </div>
     );

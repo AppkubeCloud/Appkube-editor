@@ -65,7 +65,7 @@ import * as AppkubeErrorAndWarningPanel from 'app/plugins/panel/AppkubeErrorAndW
 import * as AppkubeErrorOnRequestPanel from 'app/plugins/panel/AppkubeErrorOnRequestPanel/module';
 import * as AppkubeExecutionTimePanel from 'app/plugins/panel/AppkubeExecutionTimePanel/module';
 import * as AppkubeFlowCountPanel from 'app/plugins/panel/AppkubeFlowCountPanel/module';
-import * as AppkubeFunctionByProductsPanel from 'app/plugins/panel/AppkubeFunctionByProductsPanel/module';
+import * as AppkubeFunctionByRegionPanel from 'app/plugins/panel/AppkubeFunctionByRegionPanel/module';
 import * as AppkubeImageBadgePanel from 'app/plugins/panel/AppkubeImageBadgePanel/module';
 import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
@@ -255,7 +255,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeAuthenticationChartPanel/module': AppkubeAuthenticationChartPanel,
   'app/plugins/panel/AppkubeWiseCostPanel/module': AppkubeWiseCostPanel,
   'app/plugins/panel/AppkubeClusterCapacityPanel/module': AppkubeClusterCapacityPanel,
-  'app/plugins/panel/AppkubeFunctionByProductsPanel/module': AppkubeFunctionByProductsPanel,
+  'app/plugins/panel/AppkubeFunctionByRegionPanel/module': AppkubeFunctionByRegionPanel,
   'app/plugins/panel/AppkubeErrorAndWarningPanel/module': AppkubeErrorAndWarningPanel,
   'app/plugins/panel/AppkubeServiceAvailablityPanel/module': AppkubeServiceAvailablityPanel,
   'app/plugins/panel/AppkubeNetworkCostingPanel/module': AppkubeNetworkCostingPanel,

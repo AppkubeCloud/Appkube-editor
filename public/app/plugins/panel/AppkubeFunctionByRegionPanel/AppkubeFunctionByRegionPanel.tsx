@@ -16,30 +16,38 @@ interface DataPoint {
 }
 let data: DataPoint[] = [
   {
-    product_group: 'Product 1 1,94,661',
-    population: 20,
+    product_group: 'ap-northeast-1',
+    population: 0,
   },
   {
-    product_group: 'Product 2 53917',
-    population: 15,
+    product_group: 'eu-west-1',
+    population: 24,
   },
   {
-    product_group: 'Product 3 26846',
-    population: 20,
+    product_group: 'eu-west-2',
+    population: 0,
   },
   {
-    product_group: 'Product 4 15326',
-    population: 30,
+    product_group: 'us-east-1',
+    population: 514,
   },
   {
-    product_group: 'Others 15326',
-    population: 15,
+    product_group: 'us-east-2',
+    population: 2,
+  },
+  {
+    product_group: 'us-west-1',
+    population: 47,
+  },
+  {
+    product_group: 'us-west-2',
+    population: 0,
   },
 ];
 let width = 450;
 let height = 300;
 
-class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
+class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
     super(props);
   }
@@ -63,7 +71,7 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
 
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.6;
-    const colors = ['#fa6298', '#8676ff', '#42cd7e', '#ffc941', '#ff9066'];
+    const colors = ['#fa6298', '#8676ff', '#42cd7e', '#ffc941', '#ff9066', '#FA6298', '#669AFF'];
     const color = d3.scaleOrdinal<string>(colors).domain(data.map((d: { product_group: any }) => d.product_group));
     const pie = d3.pie<DataItem>().value((d: { population: any }) => d.population);
     const arc = d3
@@ -71,17 +79,17 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
       .innerRadius(innerRadius - this.thickness)
       .outerRadius(radius * 0.6);
     const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2})`);
-    const arcs = graphGroup.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'donut-arc');
+    const arcs = graphGroup.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'donutarc');
     arcs
       .append('path')
       .attr('d', arc)
       .attr('fill', (d: any, i: any) => color(i))
       .attr('stroke', 'white')
-      .style('stroke-width', 0)
+      .style('strokewidth', 0)
       .style('stroke', '#FFFFFF')
-      .style('border-radius', '50%')
+      .style('borderradius', '50%')
       .style('fill', (d: any, i: any) => color(i))
-      .attr('clip-path', (d: any, i: any) => `url(#clip${i})`);
+      .attr('clippath', (d: any, i: any) => `url(#clip${i})`);
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
@@ -97,19 +105,19 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
 
     lg.append('rect')
       .attr('fill', (d: { data: { product_group: any } }) => color(d.data.product_group))
-      .attr('x', -80)
-      .attr('y', -150)
+      .attr('x', -110)
+      .attr('y', -170)
       .attr('width', 12)
       .attr('height', 12)
       .append('title')
       .html((d: { data: { product_group: any } }) => d.data.product_group);
 
     lg.append('text')
-      .style('font-family', '"Montserrat", sans-serif')
-      .style('font-size', '14px')
+      .style('fontfamily', '"Montserrat", sansserif')
+      .style('fontsize', '14px')
       .style('color', '#a8a8c2')
-      .attr('x', -55)
-      .attr('y', -140)
+      .attr('x', -90)
+      .attr('y', -160)
       .text((d: { data: { product_group: any } }) => d.data.product_group)
       .append('title');
   }
@@ -119,10 +127,10 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
     return (
       <div className="function-product-panel">
         <div className="function-product-inner-panel">
-          <div className="heading">Idel Function By Products</div>
+          <div className="heading">{this.props.options.panelTitle}</div>
           <div className="price">
-            <strong>6,71,246</strong>
-            <span>10%</span>
+            <strong>587</strong>
+            <span>2%</span>
           </div>
           <svg
             ref={this.svgRef}
@@ -135,4 +143,4 @@ class AppkubeFunctionByProductsPanel extends PureComponent<PanelProps> {
   }
 }
 
-export default AppkubeFunctionByProductsPanel;
+export default AppkubeFunctionByRegionPanel;
