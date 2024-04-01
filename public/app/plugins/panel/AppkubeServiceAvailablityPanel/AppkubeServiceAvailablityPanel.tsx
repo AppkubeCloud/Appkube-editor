@@ -5,24 +5,21 @@ import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
 interface DataItem {
-  age_group: string;
-  population: number;
+  label: string;
+  percentage: number;
 }
 
-interface DataPoint {
-  age_group: string;
-  population: number;
-}
-let data: DataPoint[] = [
+let data: DataItem[] = [
   {
-    age_group: 'Service Availablity',
-    population: 55,
+    label: 'Uptime Percentage',
+    percentage: 98,
   },
   {
-    age_group: 'Service Used',
-    population: 65,
+    label: 'Downtime Percentage',
+    percentage: 2,
   },
 ];
+
 let width = 300;
 let height = 300;
 
@@ -53,8 +50,8 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.6;
     const colors = ['#2b5aff', '#ff708b'];
-    const color = d3.scaleOrdinal<string>(colors).domain(data.map((d: { age_group: any }) => d.age_group));
-    const pie = d3.pie<DataItem>().value((d: { population: any }) => d.population);
+    const color = d3.scaleOrdinal<string>(colors).domain(data.map((d: { label: any }) => d.label));
+    const pie = d3.pie<DataItem>().value((d: { percentage: any }) => d.percentage);
     const arc = d3
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
@@ -96,26 +93,26 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
       });
 
     lg.append('rect')
-      .attr('fill', (d: { data: { age_group: any } }) => color(d.data.age_group))
+      .attr('fill', (d: { data: { label: any } }) => color(d.data.label))
       .attr('x', -300)
       .attr('y', 100 - 8)
       .attr('width', 10)
       .attr('height', 10)
       .append('title')
-      .html((d: { data: { age_group: any } }) => d.data.age_group);
+      .html((d: { data: { label: any } }) => d.data.label);
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
       .style('font-size', '12px')
       .attr('x', -280)
       .attr('y', 100)
-      .text((d: { data: { age_group: any } }) => d.data.age_group)
+      .text((d: { data: DataItem }) => `${d.data.label} (${d.data.percentage}%)`)
       .append('title');
   }
   render() {
     return (
       <div className="service-availablity-panel">
-        <div className="heading">Service Availablity</div>
+        <div className="heading">{this.props.options.title}</div>
         <svg
           ref={this.svgRef}
           viewBox={`0 0 ${width} ${height}`}
