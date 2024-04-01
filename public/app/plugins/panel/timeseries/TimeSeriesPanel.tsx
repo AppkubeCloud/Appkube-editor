@@ -58,7 +58,12 @@ export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
   }
 
   const enableAnnotationCreation = Boolean(canAddAnnotations && canAddAnnotations());
-  const selectedFrame = (data.request?.targets[0] as unknown as QueryEditorData).selectedFrame;
+  let selectedFrame = "";
+  if (data.request && data.request?.targets[0]) {
+    selectedFrame = (data.request?.targets[0] as unknown as QueryEditorData).selectedFrame;
+  } else if (localStorage.getItem("datasource-selected-frame")) {
+    selectedFrame = localStorage.getItem("datasource-selected-frame") as string;
+  }
   let selectedFrames = [...frames];
   if (selectedFrame) {
     selectedFrames = frames.filter((frame: any) => {
