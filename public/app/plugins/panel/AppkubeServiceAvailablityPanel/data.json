@@ -1,0 +1,23 @@
+{
+    "state": "Done",
+    "series": [
+        {
+            "name": "A",
+            "refId": "A",
+            "meta": {
+                "custom": {
+                    "data": "{\"uptimePercentage\":98}",
+                    "error": "",
+                    "query": {
+                        "data": "",
+                        "queryString": "uptime_percentage_panel"
+                    },
+                    "responseCodeFromServer": 200
+                }
+            },
+            "fields": [],
+            "first": [],
+            "length": 0
+        }
+    ]
+}
