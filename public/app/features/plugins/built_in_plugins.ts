@@ -58,14 +58,13 @@ import * as AppkubeCostHighestSpendProductsPanel from 'app/plugins/panel/Appkube
 import * as AppkubeCostOfAllProductsPanel from 'app/plugins/panel/AppkubeCostOfAllProductsPanel/module';
 import * as AppkubeCpuUtilizationPanel from 'app/plugins/panel/AppkubeCpuUtilizationPanel/module';
 import * as AppkubeDataLifecycleManagementPanel from 'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module';
-import * as AppkubeDonutChartPanel from 'app/plugins/panel/AppkubeDonutChartPanel/module';
+import * as AppkubeDoughnutPanel from 'app/plugins/panel/AppkubeDoughnutPanel/module';
 import * as AppkubeEksResourcesPanel from 'app/plugins/panel/AppkubeEksResourcesPanel/module';
 import * as AppkubeEndUsagePanel from 'app/plugins/panel/AppkubeEndUsagePanel/module';
 import * as AppkubeErrorAndWarningPanel from 'app/plugins/panel/AppkubeErrorAndWarningPanel/module';
 import * as AppkubeErrorOnRequestPanel from 'app/plugins/panel/AppkubeErrorOnRequestPanel/module';
 import * as AppkubeExecutionTimePanel from 'app/plugins/panel/AppkubeExecutionTimePanel/module';
 import * as AppkubeFlowCountPanel from 'app/plugins/panel/AppkubeFlowCountPanel/module';
-import * as AppkubeFunctionByRegionPanel from 'app/plugins/panel/AppkubeFunctionByRegionPanel/module';
 import * as AppkubeImageBadgePanel from 'app/plugins/panel/AppkubeImageBadgePanel/module';
 import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
@@ -251,11 +250,10 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeCpuUtilizationPanel/module': AppkubeCpuUtilizationPanel,
   'app/plugins/panel/AppkubeNumberZoneChartPanel/module': AppkubeNumberZoneChartPanel,
   'app/plugins/panel/AppkubeMultilineChartPanel/module': AppkubeMultilineChartPanel,
-  'app/plugins/panel/AppkubeDonutChartPanel/module': AppkubeDonutChartPanel,
+  'app/plugins/panel/AppkubeDoughnutPanel/module': AppkubeDoughnutPanel,
   'app/plugins/panel/AppkubeAuthenticationChartPanel/module': AppkubeAuthenticationChartPanel,
   'app/plugins/panel/AppkubeWiseCostPanel/module': AppkubeWiseCostPanel,
   'app/plugins/panel/AppkubeClusterCapacityPanel/module': AppkubeClusterCapacityPanel,
-  'app/plugins/panel/AppkubeFunctionByRegionPanel/module': AppkubeFunctionByRegionPanel,
   'app/plugins/panel/AppkubeErrorAndWarningPanel/module': AppkubeErrorAndWarningPanel,
   'app/plugins/panel/AppkubeServiceAvailablityPanel/module': AppkubeServiceAvailablityPanel,
   'app/plugins/panel/AppkubeNetworkCostingPanel/module': AppkubeNetworkCostingPanel,

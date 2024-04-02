@@ -1,10 +1,10 @@
 {
   "type": "panel",
-  "name": "Appkube Donut Chart Panel",
-  "id": "appkubeDonutChartPanel",
+  "name": "Appkube Doughnut Panel",
+  "id": "appkubeFunctionByRegionPanel",
 
   "info": {
-    "description": "Appkube Donut Chart Panel",
+    "description": "successful_and_failed_events_panel,node_capacity_panel,node_condition_panel,functions_by_region_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"

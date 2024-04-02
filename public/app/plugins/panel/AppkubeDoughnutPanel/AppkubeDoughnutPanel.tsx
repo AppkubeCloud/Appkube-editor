@@ -4,7 +4,7 @@ import React, { PureComponent, createRef } from 'react';
 import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
-import dummyData from './data.json';
+// import dummyData from './data.json';
 import ErrorImg from './img/error.svg';
 
 interface Series {
@@ -21,10 +21,10 @@ interface Series {
   };
 }
 
-interface Data {
-  state: string;
-  series: Series[]
-}
+// interface Data {
+//   state: string;
+//   series: Series[]
+// }
 
 interface DataItem {
   label: string;
@@ -35,12 +35,10 @@ interface ChartData {
   data: DataItem,
 }
 
-const data: Data = dummyData;
-
 let width = 450;
 let height = 300;
 
-class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
+class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
     super(props);
   }
@@ -208,6 +206,8 @@ class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
   }
 
   render() {
+    const { data } = this.props;
+    // const data = dummyData as Data;
     if (data && data.series && data.series.length > 0) {
       const seriesData: Series[] = data.series.map((seriesItem) => ({
         name: seriesItem.name || '',
@@ -231,4 +231,4 @@ class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
   }
 }
 
-export default AppkubeFunctionByRegionPanel;
+export default AppkubeDoughnutPanel;

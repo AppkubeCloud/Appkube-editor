@@ -1,0 +1,208 @@
+{
+    "results": {
+        "A": {
+            "status": 200,
+            "frames": [
+                {
+                    "schema": {
+                        "name": "A",
+                        "refId": "A",
+                        "meta": {
+                            "custom": {
+                                "data": [
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 69.33500000000001,
+                                        "Duration": 69.33500000000001
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 75.67,
+                                        "Duration": 75.67
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 72.98,
+                                        "Duration": 72.98
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 157097.03,
+                                        "Duration": 157097.03
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 399649.38,
+                                        "Duration": 399649.38
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 405867.88,
+                                        "Duration": 405867.88
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 437.28,
+                                        "Duration": 437.28
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 407.06,
+                                        "Duration": 407.06
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 413.76,
+                                        "Duration": 413.76
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 455.46,
+                                        "Duration": 455.46
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 418.16,
+                                        "Duration": 418.16
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 599160.48,
+                                        "Duration": 599160.48
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 3046.755,
+                                        "Duration": 3046.755
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 453.7,
+                                        "Duration": 453.7
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 432.25,
+                                        "Duration": 432.25
+                                    },
+                                    {
+                                        "FunctionName": "List-Org-Github",
+                                        "ResponseTime": 217.395,
+                                        "Duration": 217.395
+                                    }
+                                ],
+                                "duration": 517400,
+                                "error": "",
+                                "query": {
+                                    "alias": "",
+                                    "awsxUrl": "http://localhost:7000/awsx-api/getQueryOutput",
+                                    "cloudIdentifierId": "testfunction",
+                                    "cloudIdentifierName": "testfunction",
+                                    "columns": [],
+                                    "computed_columns": [],
+                                    "csv_options": {
+                                        "columns": "",
+                                        "comment": "",
+                                        "delimiter": "",
+                                        "relax_column_count": false,
+                                        "skip_empty_lines": false,
+                                        "skip_lines_with_error": false
+                                    },
+                                    "data": "",
+                                    "dataOverrides": null,
+                                    "dimensions": null,
+                                    "elementId": 9387,
+                                    "elementType": "LAMBDA",
+                                    "endTime": null,
+                                    "expression": "",
+                                    "filterExpression": "",
+                                    "filters": null,
+                                    "format": "",
+                                    "global_query_id": "",
+                                    "groq": "",
+                                    "hide": null,
+                                    "id": "",
+                                    "json_options": {
+                                        "columnar": false,
+                                        "root_is_not_array": false
+                                    },
+                                    "label": null,
+                                    "limit": null,
+                                    "logGroupNames": null,
+                                    "logGroups": null,
+                                    "matchExact": true,
+                                    "metricEditorMode": null,
+                                    "metricQueryType": 0,
+                                    "parser": "backend",
+                                    "prefixMatching": false,
+                                    "queryString": "execution_time_panel",
+                                    "query_mode": "",
+                                    "refId": "A",
+                                    "responseType": "JSON",
+                                    "root_selector": "",
+                                    "seriesCount": 0,
+                                    "serviceId": 0,
+                                    "source": "",
+                                    "sqlExpression": "",
+                                    "sqlite_query": "",
+                                    "startFromHead": false,
+                                    "startTime": null,
+                                    "statistics": null,
+                                    "statsGroups": null,
+                                    "summarizeBy": "",
+                                    "summarizeExpression": "",
+                                    "time": 0,
+                                    "timezoneUTCOffset": "",
+                                    "type": "url",
+                                    "uql": "",
+                                    "url": "http://localhost:7000/awsx-api/getQueryOutput?elementId=9387\u0026elementType=LAMBDA\u0026query=execution_time_panel",
+                                    "url_options": {
+                                        "body_content_type": "",
+                                        "body_form": null,
+                                        "body_graphql_query": "",
+                                        "body_type": "",
+                                        "data": "",
+                                        "headers": null,
+                                        "method": "Get",
+                                        "params": [
+                                            {
+                                                "key": "responseType",
+                                                "value": "json"
+                                            },
+                                            {
+                                                "key": "elementType",
+                                                "value": "LAMBDA"
+                                            },
+                                            {
+                                                "key": "elementId",
+                                                "value": "9387"
+                                            },
+                                            {
+                                                "key": "query",
+                                                "value": "execution_time_panel"
+                                            },
+                                            {
+                                                "key": "startTime",
+                                                "value": "2024-04-01T10:34:42+05:30"
+                                            },
+                                            {
+                                                "key": "endTime",
+                                                "value": "2024-04-01T16:34:42+05:30"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "responseCodeFromServer": 200
+                            },
+                            "executedQueryString": "###############\n## URL\n###############\n\nhttp://localhost:7000/awsx-api/getQueryOutput?elementId=9387\u0026elementId=9387\u0026elementType=LAMBDA\u0026elementType=LAMBDA\u0026endTime=2024-04-01T16%3A34%3A42%2B05%3A30\u0026query=execution_time_panel\u0026query=execution_time_panel\u0026responseType=json\u0026startTime=2024-04-01T10%3A34%3A42%2B05%3A30\n\n###############\n## Curl Command\n###############\n\ncurl -X 'GET' 'http://localhost:7000/awsx-api/getQueryOutput?elementId=9387\u0026elementId=9387\u0026elementType=LAMBDA\u0026elementType=LAMBDA\u0026endTime=2024-04-01T16%3A34%3A42%2B05%3A30\u0026query=execution_time_panel\u0026query=execution_time_panel\u0026responseType=json\u0026startTime=2024-04-01T10%3A34%3A42%2B05%3A30'"
+                        },
+                        "fields": []
+                    },
+                    "data": {
+                        "values": []
+                    }
+                }
+            ]
+        }
+    }
+}

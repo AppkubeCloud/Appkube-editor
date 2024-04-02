@@ -186,18 +186,18 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
   renderGraph = (apiData: ApiData) => {
     data = apiData;
     let total = 0;
-      for (const property in data) {
-        total = total + data[property as keyof ApiData];
-      }
+    for (const property in data) {
+      total = total + data[property as keyof ApiData];
+    }
     if (data && total > 0) {
       this.manipulateData(data);
-        return (
-          <svg
-            ref={this.svgRef}
-            viewBox={`0 0 ${width} ${height}`}
-            preserveAspectRatio="xMidYMid meet"
-          ></svg>
-        );
+      return (
+        <svg
+          ref={this.svgRef}
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio="xMidYMid meet"
+        ></svg>
+      );
     } else {
       return <div>No Data Available!</div>
     }
@@ -231,7 +231,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
             retData.push(this.renderError());
           }
         }
-      } else if(query.queryString === "node_condition_panel") {
+      } else if (query.queryString === "node_condition_panel") {
         if (error) {
           retData.push(this.renderError());
         } else {
@@ -246,7 +246,7 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
         retData.push(this.renderError());
       }
     }
-    
+
     return retData;
   };
 

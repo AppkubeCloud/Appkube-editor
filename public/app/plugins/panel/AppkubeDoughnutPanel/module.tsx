@@ -1,8 +1,8 @@
 import { PanelPlugin } from '@grafana/data';
 
-import AppkubeFunctionByRegionPanel from './AppkubeFunctionByRegionPanel';
+import AppkubeDoughnutPanel from './AppkubeDoughnutPanel';
 
-export const plugin = new PanelPlugin(AppkubeFunctionByRegionPanel).setPanelOptions((builder) => {
+export const plugin = new PanelPlugin(AppkubeDoughnutPanel).setPanelOptions((builder) => {
   builder.addTextInput({
     path: 'panelTitle',
     name: 'Panle Title',
