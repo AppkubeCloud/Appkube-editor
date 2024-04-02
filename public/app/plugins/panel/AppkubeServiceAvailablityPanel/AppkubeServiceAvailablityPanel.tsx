@@ -91,7 +91,7 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
       '#CF0E5B'
     ];
     const color = d3.scaleOrdinal<string>(colors).domain(chartData.map((d: DataItem) => d.label));
-    const pie = d3.pie<DataItem>().value((d: { percentage: any }) => d.percentage);
+    const pie = d3.pie<DataItem>().value((d: DataItem) => parseFloat(d.percentage));
     const arc = d3
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
