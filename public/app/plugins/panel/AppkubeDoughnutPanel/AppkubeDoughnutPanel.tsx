@@ -4,7 +4,7 @@ import React, { PureComponent, createRef } from 'react';
 import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
-// import dummyData from './data.json';
+import dummyData from './data.json';
 import ErrorImg from './img/error.svg';
 
 interface Series {
@@ -21,10 +21,10 @@ interface Series {
   };
 }
 
-// interface Data {
-//   state: string;
-//   series: Series[]
-// }
+interface Data {
+  state: string;
+  series: Series[]
+}
 
 interface DataItem {
   label: string;
@@ -48,13 +48,33 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   private thickness = 35;
 
   drawChart(chartData: DataItem[]) {
+    
+    let caluTotal = 0;
+    chartData.forEach(e => {
+      caluTotal = caluTotal + parseFloat(e.percentage);
+    })
+    chartData = chartData.map(e => {
+      return {
+        label: e.label,
+        percentage: ((parseFloat(e.percentage) / caluTotal) * 100).toFixed(2),
+        value: e.percentage
+      }
+    })
     const svg = d3.select(this.svgRef.current).attr('width', width).attr('height', height);
 
     svg.selectAll('*').remove();
 
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.6;
-    const colors = ['#fa6298', '#8676ff', '#42cd7e', '#ffc941', '#ff9066', '#FA6298', '#669AFF', '#2b59ff',
+    const colors = [
+      '#fa6298',
+      '#8676ff',
+      '#42cd7e',
+      '#ffc941',
+      '#ff9066',
+      '#FA6298',
+      '#669AFF',
+      '#2b59ff',
       '#ff708b',
       '#53CA43',
       '#FE708D',
@@ -84,27 +104,32 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       '#FF8198',
       '#FFBA69',
       '#3247E5',
-      '#438A26'];
-    const color = d3.scaleOrdinal<string>(colors).domain(colors.map((item) => item));
+      '#438A26'
+    ];
+    // const color = d3.scaleOrdinal<string>(colors).domain(colors.map((item) => item));
     const pie = d3.pie<DataItem>().value((d: DataItem) => {
       return parseFloat(d.percentage)
     });
+    // const pie = d3.pie<DataItem>().value((d: { percentage: string }) => d.percentage);
     const arc = d3
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
       .outerRadius(radius * 0.6);
     const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2})`);
     const arcs = graphGroup.selectAll('.arc').data(pie(chartData)).enter().append('g').attr('class', 'donutarc');
+    
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d: ChartData, i: number) => colors[i])
+      // .attr('fill', (d: ChartData, i: number) => colors[i])
       .attr('stroke', 'white')
       .style('strokewidth', 0)
       .style('stroke', '#FFFFFF')
       .style('borderradius', '50%')
       .style('fill', (d: ChartData, i: number) => colors[i])
-      .attr('clippath', (d: ChartData, i: number) => `url(#clip${i})`);
+      .attr('clippath', (d: ChartData, i: number) => `url(#clip${i})`)
+      .append('title')
+      .html((d: ChartData) => `${d.data.percentage}%`);
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
@@ -119,13 +144,13 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .attr('transform', (d: ChartData, i: number) => `translate(0, ${i * 20})`);
 
     lg.append('rect')
-      .attr('fill', (d: ChartData) => color(d.data.label))
+      .attr('fill', (d: ChartData, i: number) => colors[i])
       .attr('x', -110)
       .attr('y', -170)
       .attr('width', 12)
       .attr('height', 12)
       .append('title')
-      .html((d: ChartData) => d.data.label);
+      .html((d: ChartData) => `${d.data.percentage}%`);
 
     lg.append('text')
       .style('fontfamily', '"Montserrat", sansserif')
@@ -133,7 +158,10 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .style('color', '#a8a8c2')
       .attr('x', -90)
       .attr('y', -160)
-      .text((d: ChartData) => d.data.label)
+      // .text((d: ChartData) => d.data.label)
+      .text((d: { data: DataItem }) => {
+        return `${d.data.label} : (${d.data.percentage}%)`
+      })
       .append('title');
   }
 
@@ -206,8 +234,8 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   }
 
   render() {
-    const { data } = this.props;
-    // const data = dummyData as Data;
+    // const { data } = this.props;
+    const data = dummyData as Data;
     if (data && data.series && data.series.length > 0) {
       const seriesData: Series[] = data.series.map((seriesItem) => ({
         name: seriesItem.name || '',
