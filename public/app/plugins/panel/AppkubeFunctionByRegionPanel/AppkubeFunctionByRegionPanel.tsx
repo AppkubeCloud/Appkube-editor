@@ -56,37 +56,37 @@ class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
 
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.6;
-    const colors = ['#fa6298', '#8676ff', '#42cd7e', '#ffc941', '#ff9066', '#FA6298', '#669AFF','#2b59ff',
-    '#ff708b',
-    '#53CA43',
-    '#FE708D',
-    '#F9D33D',
-    '#FF2D2E',
-    '#8676FF',
-    '#88E143',
-    '#991BF9',
-    '#FF708B',
-    '#00B929',
-    '#FAA14C',
-    '#F9629A',
-    '#A145FF',
-    '#9283FF',
-    '#2B5AFF',
-    '#FA6298',
-    '#FF7E7E',
-    '#669AFF',
-    '#E8A5FF',
-    '#F8A243',
-    '#01F1E3',
-    '#FE2E2F',
-    '#FA71A3',
-    '#FAAB5D',
-    '#F9D751',
-    '#7E49FC',
-    '#FF8198',
-    '#FFBA69',
-    '#3247E5',
-    '#438A26'];
+    const colors = ['#fa6298', '#8676ff', '#42cd7e', '#ffc941', '#ff9066', '#FA6298', '#669AFF', '#2b59ff',
+      '#ff708b',
+      '#53CA43',
+      '#FE708D',
+      '#F9D33D',
+      '#FF2D2E',
+      '#8676FF',
+      '#88E143',
+      '#991BF9',
+      '#FF708B',
+      '#00B929',
+      '#FAA14C',
+      '#F9629A',
+      '#A145FF',
+      '#9283FF',
+      '#2B5AFF',
+      '#FA6298',
+      '#FF7E7E',
+      '#669AFF',
+      '#E8A5FF',
+      '#F8A243',
+      '#01F1E3',
+      '#FE2E2F',
+      '#FA71A3',
+      '#FAAB5D',
+      '#F9D751',
+      '#7E49FC',
+      '#FF8198',
+      '#FFBA69',
+      '#3247E5',
+      '#438A26'];
     const color = d3.scaleOrdinal<string>(colors).domain(colors.map((item) => item));
     const pie = d3.pie<DataItem>().value((d: DataItem) => {
       return parseFloat(d.percentage)
@@ -145,22 +145,20 @@ class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
       const iSer = series[i];
       let cardJSX: JSX.Element | null = null;
       if (iSer && iSer.meta && iSer.meta.custom) {
-        const { query, data, error } = iSer.meta.custom;
-        if (query.queryString === 'functions_by_region_panel') {
-          if (error) {
-            cardJSX = <>{this.renderError()}</>;
+        const { data, error } = iSer.meta.custom;
+        if (error) {
+          cardJSX = <>{this.renderError()}</>;
+        } else {
+          if (data) {
+            cardJSX = <>{this.renderData(JSON.parse(data))}</>;
           } else {
-            if (data) {
-              cardJSX = <>{this.renderData(JSON.parse(data))}</>;
-            } else {
-              cardJSX = <>{this.renderError()}</>;
-            }
+            cardJSX = <>{this.renderError()}</>;
           }
-      }
-    } else {
+        }
+      } else {
         cardJSX = this.renderError();
       }
-      if(cardJSX) {
+      if (cardJSX) {
         retData.push(cardJSX);
       }
     }
@@ -192,7 +190,7 @@ class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
       this.drawChart(chartData);
     }, 500)
     return <>
-    <div className="function-product-panel">
+      <div className="function-product-panel">
         <div className="function-product-inner-panel">
           <div className="heading">{this.props.options.panelTitle}</div>
           {/* <div className="price">
@@ -205,7 +203,7 @@ class AppkubeFunctionByRegionPanel extends PureComponent<PanelProps> {
             preserveAspectRatio="xMidYMid meet"
           ></svg>
         </div>
-    </div>
+      </div>
     </>;
   }
 
