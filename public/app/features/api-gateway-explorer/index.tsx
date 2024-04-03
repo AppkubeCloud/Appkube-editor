@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { backendSrv } from 'app/core/services/backend_srv';
+import { DashboardSearchItem } from 'app/features/search/types';
+
 import Availability from './Components/Availability';
 import Compliance from './Components/Compliance';
 import ConfigurationModal from './Components/ConfigurationModal';
@@ -35,9 +38,11 @@ interface LocalState {
   showSlaModal: boolean;
   elementId: string;
   elementIds: string[] | undefined;
+  dashboardIDs: Record<string, string>;
 };
 
 const APIGATEWAY_EXPLORER_ELEMENTS_IDS = "apigatewayexplorerElementIds";
+const DASHBOARD_NAMES = ["api-gateway-performance", "api-gateway-availability", "api-gateway-reliability", "api-gateway-endUsage", "api-gateway-security", "api-gateway-compliance"];
 
 class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
@@ -48,11 +53,34 @@ class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
       showHostedServiceModal: false,
       showSlaModal: false,
       elementId: "",
-      elementIds: []
+      elementIds: [],
+      dashboardIDs: {
+        "api-gateway-performance": "",
+        "api-gateway-availability": "",
+        "api-gateway-reliability": "",
+        "api-gateway-endUsage": "",
+        "api-gateway-security": "",
+        "api-gateway-compliance": "",
+      }
     };
   }
 
   componentDidMount = () => {
+    backendSrv.search({ type: 'dash-db', limit: 1000 }).then((result: DashboardSearchItem[]) => {
+      if (result && result.length > 0) {
+        const dashIDs: Record<string, string> = {};
+        result.forEach((db) => {
+          if (DASHBOARD_NAMES.indexOf(db.title) !== -1) {
+            dashIDs[db.title] = db.uid;
+          }
+        });
+        this.setState({
+          dashboardIDs: dashIDs
+        });
+      } else {
+        alert("There are no dashboards available");
+      }
+    });
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
       localStorage.getItem(APIGATEWAY_EXPLORER_ELEMENTS_IDS) || '[]'
@@ -61,9 +89,9 @@ class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
     if (!elementId && !elementIds?.length) {
       alert("Please add element id");
     } else {
-      if(elementIds?.length) {
+      if (elementIds?.length) {
         const currentId = elementIds.filter((item) => item === elementId);
-        if(currentId.length) {
+        if (currentId.length) {
           this.getElementIdData(currentId[0]);
         } else {
           this.getElementIdData(elementId);
@@ -80,12 +108,12 @@ class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
     );
     elementIds!.push(elementId);
     elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
-    if(elementIds && elementIds.length) {
+    if (elementIds && elementIds.length) {
       localStorage.setItem(APIGATEWAY_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     } else {
       localStorage.setItem(APIGATEWAY_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
     }
-    this.setState({elementIds: elementIds});
+    this.setState({ elementIds: elementIds });
   }
 
   setActiveTab = (value: number) => {
@@ -140,26 +168,26 @@ class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
     let elementId = this.findParam("var-elementId", location.href);
     elementIds.forEach((item) => {
       JSX.push(
-        <div 
-        className={`${elementId === item ? 'active': ''} 
+        <div
+          className={`${elementId === item ? 'active' : ''} 
         page-name  
         d-flex 
         align-items-center 
         justify-content-between`}
-        onClick={(e) => {
-          if(item !== elementId) {
-            e.stopPropagation();
-            this.changeQueryID(item);
-          }
-        }}>
+          onClick={(e) => {
+            if (item !== elementId) {
+              e.stopPropagation();
+              this.changeQueryID(item);
+            }
+          }}>
           <span>{item}</span>
           <i className="fa-solid fa-xmark"
-          onClick={(e) => {
-            if(elementIds.length > 1 && item !== elementId) {
-              e.stopPropagation();
-              this.removeElementId(item);
-            }
-          }}></i>
+            onClick={(e) => {
+              if (elementIds.length > 1 && item !== elementId) {
+                e.stopPropagation();
+                this.removeElementId(item);
+              }
+            }}></i>
         </div>
       )
     });
@@ -167,7 +195,7 @@ class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
   }
 
   render() {
-    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds } = this.state;
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds, dashboardIDs } = this.state;
     return (
       <>
         <div className="aws-topology-container">
@@ -308,17 +336,17 @@ class ApiGateWayExplorer extends Component<Record<string, string>, LocalState> {
             </div>
             <div className="tabs-content">
               {value === 0 ? (
-                <Performance />
+                <Performance dashId={dashboardIDs["api-gateway-performance"]} />
               ) : value === 1 ? (
-                <Availability />
+                <Availability dashId={dashboardIDs["api-gateway-availability"]} />
               ) : value === 2 ? (
-                <Reliability />
+                <Reliability dashId={dashboardIDs["api-gateway-reliability"]} />
               ) : value === 3 ? (
-                <EndUsage />
+                <EndUsage dashId={dashboardIDs["api-gateway-endUsage"]} />
               ) : value === 4 ? (
-                <Security />
+                <Security dashId={dashboardIDs["api-gateway-security"]} />
               ) : value === 5 ? (
-                <Compliance />
+                <Compliance dashId={dashboardIDs["api-gateway-compliance"]} />
               ) : (
                 <></>
               )}
