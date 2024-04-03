@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { backendSrv } from 'app/core/services/backend_srv';
+import { DashboardSearchItem } from 'app/features/search/types';
+
 import Availability from './Components/Availability';
 import Compliance from './Components/Compliance';
 import ConfigurationModal from './Components/ConfigurationModal';
@@ -35,9 +38,11 @@ interface LocalState {
   showSlaModal: boolean;
   elementId: string;
   elementIds: string[] | undefined;
+  dashboardIDs: Record<string,string>
 };
 
 const LAMBDA_EXPLORER_ELEMENTS_IDS = "lambdaexplorerElementIds";
+const DASHBOARD_NAMES = ["lambda-performance", "lambda-availability", "lambda-reliability", "lambda-endUsage", "lambda-security", "lambda-compliance"];
 
 class LambdaExplorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
@@ -48,11 +53,34 @@ class LambdaExplorer extends Component<Record<string, string>, LocalState> {
       showHostedServiceModal: false,
       showSlaModal: false,
       elementId: "",
-      elementIds: []
+      elementIds: [],
+      dashboardIDs: {
+        "lambda-performance": "",
+        "lambda-availability": "",
+        "lambda-reliability": "",
+        "lambda-endUsage": "",
+        "lambda-security": "",
+        "lambda-compliance": "",
+      }
     };
   }
 
   componentDidMount = () => {
+    backendSrv.search({ type: 'dash-db', limit: 1000 }).then((result: DashboardSearchItem[]) => {
+      if (result && result.length > 0) {
+        const dashIDs: Record<string, string> = {};
+        result.forEach((db) => {
+          if (DASHBOARD_NAMES.indexOf(db.title) !== -1) {
+            dashIDs[db.title] = db.uid;
+          }
+        });
+        this.setState({
+          dashboardIDs: dashIDs
+        });
+      } else {
+        alert("There are no dashboards available");
+      }
+    });
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
       localStorage.getItem(LAMBDA_EXPLORER_ELEMENTS_IDS) || '[]'
@@ -167,7 +195,7 @@ class LambdaExplorer extends Component<Record<string, string>, LocalState> {
   }
 
   render() {
-    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds } = this.state;
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds, dashboardIDs } = this.state;
     return (
       <>
         <div className="aws-topology-container">
@@ -254,18 +282,18 @@ class LambdaExplorer extends Component<Record<string, string>, LocalState> {
               </ul>
             </div>
             <div className="tabs-content">
-              {value === 0 ? (
-                <Performance />
+            {value === 0 ? (
+                <Performance dashId={dashboardIDs["lambda-performance"]}/>
               ) : value === 1 ? (
-                <Availability />
+                <Availability dashId={dashboardIDs["lambda-availability"]}/>
               ) : value === 2 ? (
-                <Reliability />
+                <Reliability dashId={dashboardIDs["lambda-reliability"]}/>
               ) : value === 3 ? (
-                <EndUsage />
+                <EndUsage dashId={dashboardIDs["lambda-endUsage"]}/>
               ) : value === 4 ? (
-                <Security />
+                <Security dashId={dashboardIDs["lambda-security"]}/>
               ) : value === 5 ? (
-                <Compliance />
+                <Compliance dashId={dashboardIDs["lambda-compliance"]}/>
               ) : (
                 <></>
               )}
