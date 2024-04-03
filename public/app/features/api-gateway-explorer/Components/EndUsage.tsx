@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import CustomDashboardLoader from 'app/features/custom-dashboard-loader';
 
-class DataProtection extends Component {
+class EndUsage extends Component {
   constructor(props: any) {
     super(props);
     this.state = {};
@@ -17,4 +17,4 @@ class DataProtection extends Component {
   }
 }
 
-export default DataProtection;
+export default EndUsage;

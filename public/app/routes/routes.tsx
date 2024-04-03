@@ -462,6 +462,27 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
+      path: '/rds-explorer',
+      pageClass: 'page-rds-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/rds-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/ecs-explorer',
+      pageClass: 'page-ecs-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/ecs-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/apigateway-explorer',
+      pageClass: 'page-api-gateway-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/api-gateway-explorer')),
+      chromeless: true,
+    },
+    {
       path: '/dashboard/snapshots',
       component: SafeDynamicImport(
         () => import(/* webpackChunkName: "SnapshotListPage" */ 'app/features/manage-dashboards/SnapshotListPage')

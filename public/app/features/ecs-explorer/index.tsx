@@ -11,7 +11,6 @@ import Reliability from './Components/Reliability';
 import Security from './Components/Security';
 import SlaModal from './Components/SlaModal';
 
-
 const images = {
   awsIcon: '/public/img/ec2-explorer/aws.png',
   hostedIcon: '/public/img/ec2-explorer/hosted.png',
@@ -38,9 +37,9 @@ interface LocalState {
   elementIds: string[] | undefined;
 };
 
-const NLB_EXPLORER_ELEMENTS_IDS = "nlbexplorerElementIds";
+const ECS_EXPLORER_ELEMENTS_IDS = "ecsexplorerElementIds";
 
-class NLBExplorer extends Component<Record<string, string>, LocalState> {
+class ECSExplorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
     super(props);
     this.state = {
@@ -56,7 +55,7 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
   componentDidMount = () => {
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem(NLB_EXPLORER_ELEMENTS_IDS) || '[]'
+      localStorage.getItem(ECS_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     this.setState({ elementId: elementId });
     if (!elementId && !elementIds?.length) {
@@ -77,14 +76,14 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
 
   getElementIdData = (elementId: string) => {
     let elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem(NLB_EXPLORER_ELEMENTS_IDS) || '[]'
+      localStorage.getItem(ECS_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     elementIds!.push(elementId);
     elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
     if (elementIds && elementIds.length) {
-      localStorage.setItem(NLB_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
+      localStorage.setItem(ECS_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     } else {
-      localStorage.setItem(NLB_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
+      localStorage.setItem(ECS_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
     }
     this.setState({ elementIds: elementIds });
   }
@@ -126,7 +125,7 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
 
   removeElementId = (id: string) => {
     let elementIds = this.state.elementIds?.filter((item) => item !== id);
-    localStorage.setItem(NLB_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
+    localStorage.setItem(ECS_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     this.setState({ elementIds });
   }
 
@@ -211,7 +210,7 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
                 <i className="fa-solid fa-chevron-right"></i>
               </li>
               <li className="active">
-                <Link to="/">NLB</Link>
+                <Link to="/">ECS</Link>
               </li>
             </ul>
             <div className="alerts d-flex align-items-center">
@@ -334,4 +333,4 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
   }
 }
 
-export default NLBExplorer;
+export default ECSExplorer;

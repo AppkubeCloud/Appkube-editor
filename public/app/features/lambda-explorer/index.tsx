@@ -1,170 +1,283 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import FiltersModal from './Components/FiltersModal';
+import Availability from './Components/Availability';
+import Compliance from './Components/Compliance';
+import ConfigurationModal from './Components/ConfigurationModal';
+import EndUsage from './Components/EndUsage';
+import HostedServiceModal from './Components/HostedServiceModal';
+import Performance from './Components/Performance';
+import Reliability from './Components/Reliability';
+import Security from './Components/Security';
+import SlaModal from './Components/SlaModal';
 
-const images: any = {
-  slaIcon: '/public/img/lambda/sla.png',
+const images = {
+  awsIcon: '/public/img/ec2-explorer/aws.png',
+  hostedIcon: '/public/img/ec2-explorer/hosted.png',
+  costIcon: '/public/img/ec2-explorer/cost.svg',
+  configurationIcon: '/public/img/ec2-explorer/configuration.png',
+  organizationIcon: '/public/img/ec2-explorer/organization .png',
+  intanceIcon: '/public/img/ec2-explorer/intance.png',
+  cpuIcon: '/public/img/ec2-explorer/cpu.png',
+  memoryIcon: '/public/img/ec2-explorer/memory-card.png',
+  networkIcon: '/public/img/ec2-explorer/network.png',
+  storageIcon: '/public/img/ec2-explorer/storage.png',
+  hrmsIcon: '/public/img/ec2-explorer/hrms.png',
+  procurementIcon: '/public/img/ec2-explorer/procurement.png',
+  serviceDeskIcon: '/public/img/ec2-explorer/service-desk.png',
+  statusIcon: '/public/img/ec2-explorer/status.png',
 };
 
-class LambdaExplorer extends Component<any, any> {
-  popupRef: any;
-  constructor(props: any) {
+interface LocalState {
+  value: number;
+  showConfigurationModal: boolean;
+  showHostedServiceModal: boolean;
+  showSlaModal: boolean;
+  elementId: string;
+  elementIds: string[] | undefined;
+};
+
+const LAMBDA_EXPLORER_ELEMENTS_IDS = "lambdaexplorerElementIds";
+
+class LambdaExplorer extends Component<Record<string, string>, LocalState> {
+  constructor(props: Record<string, string>) {
     super(props);
     this.state = {
-      slaPopUpOpen: false,
-      showFiltersModal: false,
       value: 0,
+      showConfigurationModal: false,
+      showHostedServiceModal: false,
+      showSlaModal: false,
+      elementId: "",
+      elementIds: []
     };
-    this.popupRef = React.createRef();
   }
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }
-
-  handleClickOutside = (event: { target: any }) => {
-    if (this.popupRef.current && !this.popupRef.current.contains(event.target)) {
-      this.setState({ slaPopUpOpen: false });
+  componentDidMount = () => {
+    const elementId = this.findParam("var-elementId", location.href);
+    const elementIds: null | string[] | undefined = JSON.parse(
+      localStorage.getItem(LAMBDA_EXPLORER_ELEMENTS_IDS) || '[]'
+    );
+    this.setState({ elementId: elementId });
+    if (!elementId && !elementIds?.length) {
+      alert("Please add element id");
+    } else {
+      if (elementIds?.length) {
+        const currentId = elementIds.filter((item) => item === elementId);
+        if (currentId.length) {
+          this.getElementIdData(currentId[0]);
+        } else {
+          this.getElementIdData(elementId);
+        }
+      } else {
+        this.getElementIdData(elementId);
+      }
     }
-  };
+  }
 
-  toggleSla = () => {
-    this.setState((prevState: { slaPopUpOpen: any }) => ({
-      slaPopUpOpen: !prevState.slaPopUpOpen,
-    }));
-  };
+  getElementIdData = (elementId: string) => {
+    let elementIds: null | string[] | undefined = JSON.parse(
+      localStorage.getItem(LAMBDA_EXPLORER_ELEMENTS_IDS) || '[]'
+    );
+    elementIds!.push(elementId);
+    elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
+    if (elementIds && elementIds.length) {
+      localStorage.setItem(LAMBDA_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
+    } else {
+      localStorage.setItem(LAMBDA_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
+    }
+    this.setState({ elementIds: elementIds });
+  }
 
-  toggleFiltersModal = () => {
-    this.setState({
-      showFiltersModal: !this.state.showFiltersModal,
-    });
-  };
-
-  setActiveTab = (value: any) => {
+  setActiveTab = (value: number) => {
     this.setState({
       value,
     });
   };
 
-  render() {
-    const { showFiltersModal, value } = this.state;
-    return (
-      <div className="lambda-explorer-container">
-        <div className="header">
-          <span className="title">Lambda</span>
-          <div className="header-btns">
-            <button className="filter-btn" onClick={this.toggleFiltersModal}>
-              <i className="fa-solid fa-sliders"></i> Filters
-            </button>
-            <button className="sla-btn" onClick={this.toggleSla}>
-              <i className="fa-solid fa-gear"></i>SLA
-              <i className="fa-solid fa-caret-down"></i>
-            </button>
-            {this.state.slaPopUpOpen && (
-              <>
-                <div ref={this.popupRef} className="sla-popup">
-                  <ul>
-                    <li className="sla-name">
-                      <button className="active">
-                        <img src={images.slaIcon} alt="" />
-                        <span className="name">Performance</span>
-                      </button>
-                    </li>
-                    <li className="sla-name">
-                      <button>
-                        <img src={images.slaIcon} alt="" />
-                        <span className="name">Reliablity</span>
-                      </button>
-                    </li>
-                    <li className="sla-name">
-                      <button>
-                        <img src={images.slaIcon} alt="" />
-                        <span className="name">Availiablity</span>
-                      </button>
-                    </li>
-                    <li className="sla-name">
-                      <button>
-                        <img src={images.slaIcon} alt="" />
-                        <span className="name">End Usage</span>
-                      </button>
-                    </li>
-                    <li className="sla-name">
-                      <button>
-                        <img src={images.slaIcon} alt="" />
-                        <span className="name">Security</span>
-                      </button>
-                    </li>
-                    <li className="sla-name">
-                      <button>
-                        <img src={images.slaIcon} alt="" />
-                        <span className="name">Cost</span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <div className="sla-shadow" onClick={this.toggleSla}></div>
-              </>
-            )}
-          </div>
+  toggleConfigurationModal = () => {
+    this.setState({
+      showConfigurationModal: !this.state.showConfigurationModal,
+    });
+  };
+
+  toggleHostedServiceModal = () => {
+    this.setState({
+      showHostedServiceModal: !this.state.showHostedServiceModal,
+    });
+  };
+
+  toggleSlaModal = () => {
+    this.setState({
+      showSlaModal: !this.state.showSlaModal,
+    });
+  };
+
+  findParam = (paramName: string, url: string) => {
+    if (!url) {
+      url = location.href;
+    }
+    paramName = paramName.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    const regexS = "[\\?&]" + paramName + "=([^&#]*)";
+    const regex = new RegExp(regexS);
+    const results = regex.exec(url);
+    return results == null ? "" : results[1];
+  }
+
+  removeElementId = (id: string) => {
+    let elementIds = this.state.elementIds?.filter((item) => item !== id);
+    localStorage.setItem(LAMBDA_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
+    this.setState({ elementIds });
+  }
+
+  changeQueryID = (item: string) => {
+    let params = new URLSearchParams(location.search);
+    params.set('var-elementId', item);
+    window.location.search = params.toString();
+  }
+
+  renderTabs = (elementIds: string[]) => {
+    const JSX: JSX.Element[] = [];
+    let elementId = this.findParam("var-elementId", location.href);
+    elementIds.forEach((item) => {
+      JSX.push(
+        <div
+          className={`${elementId === item ? 'active' : ''} 
+        page-name  
+        d-flex 
+        align-items-center 
+        justify-content-between`}
+          onClick={(e) => {
+            if (item !== elementId) {
+              e.stopPropagation();
+              this.changeQueryID(item);
+            }
+          }}>
+          <span>{item}</span>
+          <i className="fa-solid fa-xmark"
+            onClick={(e) => {
+              if (elementIds.length > 1 && item !== elementId) {
+                e.stopPropagation();
+                this.removeElementId(item);
+              }
+            }}></i>
         </div>
-        <div className="tabs-container">
-          <div className="tabs">
+      )
+    });
+    return JSX;
+  }
+
+  render() {
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds } = this.state;
+    return (
+      <>
+        <div className="aws-topology-container">
+          <div className="aws-top-header-container">
+            <div className="page-info d-flex align-items-center">
+              {this.renderTabs(elementIds as string[])}
+            </div>
+          </div>
+          {/* This is needed for data source to detect the element. don't change id */}
+          <input style={{ display: "none" }} id="elementId" value={elementId as string} />
+          <div className="aws-container d-flex justify-content-between align-items-center">
+            <div className="name d-flex align-items-center">
+              <div className="icon">
+                <img src={images.awsIcon} alt="" />
+              </div>
+              <span>Amazon Web Services</span>
+            </div>
+            <div className="toggle-icon">
+              <i className="fa-solid fa-caret-down"></i>
+            </div>
+          </div>
+          <div className="breadCrumb-container d-flex justify-content-between align-items-center">
             <ul>
               <li>
-                <button className={value === 0 ? 'active' : ''} onClick={(e) => this.setActiveTab(0)}>
-                  All Product
-                </button>
+                <Link to="/">AWS (6579077475645)</Link>
               </li>
               <li>
-                <button className={value === 1 ? 'active' : ''} onClick={(e) => this.setActiveTab(1)}>
-                  Product 1
-                </button>
+                <i className="fa-solid fa-chevron-right"></i>
               </li>
               <li>
-                <button className={value === 2 ? 'active' : ''} onClick={(e) => this.setActiveTab(2)}>
-                  Product 2
-                </button>
+                <Link to="/">VPC 1</Link>
               </li>
               <li>
-                <button className={value === 3 ? 'active' : ''} onClick={(e) => this.setActiveTab(3)}>
-                  Product 3
-                </button>
+                <i className="fa-solid fa-chevron-right"></i>
+              </li>
+              <li>
+                <Link to="/">App Service</Link>
+              </li>
+              <li>
+                <i className="fa-solid fa-chevron-right"></i>
+              </li>
+              <li className="active">
+                <Link to="/">LAMBDA</Link>
               </li>
             </ul>
+            <div className="alerts d-flex align-items-center">
+              <span>Alerts</span>
+              <i className="fa-solid fa-bell"></i>
+            </div>
           </div>
-          <div className="right-part">
-            <div className="time-duration-conatiner">
+          <div className="aws-panel-tabs">
+            <div className="manage-dashboard-tabs">
               <ul>
-                <li>Today</li>
-                <li>1W</li>
-                <li className="active">1M</li>
-                <li>3M</li>
-                <li>Custom</li>
+                <li>
+                  <button className={value === 0 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(0)}>
+                    Performance
+                  </button>
+                </li>
+                <li>
+                  <button className={value === 1 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(1)}>
+                    Availability
+                  </button>
+                </li>
+                <li>
+                  <button className={value === 2 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(2)}>
+                    Reliability
+                  </button>
+                </li>
+                <li>
+                  <button className={value === 3 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(3)}>
+                    EndUsage
+                  </button>
+                </li>
+                <li>
+                  <button className={value === 4 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(4)}>
+                    Security
+                  </button>
+                </li>
+                <li>
+                  <button className={value === 5 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(5)}>
+                    Compliance
+                  </button>
+                </li>
               </ul>
             </div>
-            <button className="go-event-btn">Go To Events</button>
+            <div className="tabs-content">
+              {value === 0 ? (
+                <Performance />
+              ) : value === 1 ? (
+                <Availability />
+              ) : value === 2 ? (
+                <Reliability />
+              ) : value === 3 ? (
+                <EndUsage />
+              ) : value === 4 ? (
+                <Security />
+              ) : value === 5 ? (
+                <Compliance />
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         </div>
-        <div className="tabs-content-container">
-          {value === 0 ? (
-            'All Product'
-          ) : value === 1 ? (
-            'Product 1'
-          ) : value === 2 ? (
-            'Product 2'
-          ) : value === 3 ? (
-            'Product 3'
-          ) : (
-            <></>
-          )}
-        </div>
-        <FiltersModal isOpen={showFiltersModal} toggleFiltersModal={this.toggleFiltersModal} />
-      </div>
+        <ConfigurationModal isOpen={showConfigurationModal} toggleConfigurationModal={this.toggleConfigurationModal} />
+        <HostedServiceModal isOpen={showHostedServiceModal} toggleHostedServiceModal={this.toggleHostedServiceModal} />
+        <SlaModal isOpen={showSlaModal} toggleSlaModal={this.toggleSlaModal} />
+      </>
     );
   }
 }
+
 export default LambdaExplorer;

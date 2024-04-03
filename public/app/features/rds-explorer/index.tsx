@@ -11,7 +11,6 @@ import Reliability from './Components/Reliability';
 import Security from './Components/Security';
 import SlaModal from './Components/SlaModal';
 
-
 const images = {
   awsIcon: '/public/img/ec2-explorer/aws.png',
   hostedIcon: '/public/img/ec2-explorer/hosted.png',
@@ -38,9 +37,9 @@ interface LocalState {
   elementIds: string[] | undefined;
 };
 
-const NLB_EXPLORER_ELEMENTS_IDS = "nlbexplorerElementIds";
+const RDS_EXPLORER_ELEMENTS_IDS = "rdsexplorerElementIds";
 
-class NLBExplorer extends Component<Record<string, string>, LocalState> {
+class RDSExplorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
     super(props);
     this.state = {
@@ -56,15 +55,15 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
   componentDidMount = () => {
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem(NLB_EXPLORER_ELEMENTS_IDS) || '[]'
+      localStorage.getItem(RDS_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     this.setState({ elementId: elementId });
     if (!elementId && !elementIds?.length) {
       alert("Please add element id");
     } else {
-      if (elementIds?.length) {
+      if(elementIds?.length) {
         const currentId = elementIds.filter((item) => item === elementId);
-        if (currentId.length) {
+        if(currentId.length) {
           this.getElementIdData(currentId[0]);
         } else {
           this.getElementIdData(elementId);
@@ -77,16 +76,16 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
 
   getElementIdData = (elementId: string) => {
     let elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem(NLB_EXPLORER_ELEMENTS_IDS) || '[]'
+      localStorage.getItem(RDS_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     elementIds!.push(elementId);
     elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
-    if (elementIds && elementIds.length) {
-      localStorage.setItem(NLB_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
+    if(elementIds && elementIds.length) {
+      localStorage.setItem(RDS_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     } else {
-      localStorage.setItem(NLB_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
+      localStorage.setItem(RDS_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
     }
-    this.setState({ elementIds: elementIds });
+    this.setState({elementIds: elementIds});
   }
 
   setActiveTab = (value: number) => {
@@ -126,7 +125,7 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
 
   removeElementId = (id: string) => {
     let elementIds = this.state.elementIds?.filter((item) => item !== id);
-    localStorage.setItem(NLB_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
+    localStorage.setItem(RDS_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     this.setState({ elementIds });
   }
 
@@ -141,26 +140,26 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
     let elementId = this.findParam("var-elementId", location.href);
     elementIds.forEach((item) => {
       JSX.push(
-        <div
-          className={`${elementId === item ? 'active' : ''} 
+        <div 
+        className={`${elementId === item ? 'active': ''} 
         page-name  
         d-flex 
         align-items-center 
         justify-content-between`}
-          onClick={(e) => {
-            if (item !== elementId) {
-              e.stopPropagation();
-              this.changeQueryID(item);
-            }
-          }}>
+        onClick={(e) => {
+          if(item !== elementId) {
+            e.stopPropagation();
+            this.changeQueryID(item);
+          }
+        }}>
           <span>{item}</span>
           <i className="fa-solid fa-xmark"
-            onClick={(e) => {
-              if (elementIds.length > 1 && item !== elementId) {
-                e.stopPropagation();
-                this.removeElementId(item);
-              }
-            }}></i>
+          onClick={(e) => {
+            if(elementIds.length > 1 && item !== elementId) {
+              e.stopPropagation();
+              this.removeElementId(item);
+            }
+          }}></i>
         </div>
       )
     });
@@ -211,7 +210,7 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
                 <i className="fa-solid fa-chevron-right"></i>
               </li>
               <li className="active">
-                <Link to="/">NLB</Link>
+                <Link to="/">RDS</Link>
               </li>
             </ul>
             <div className="alerts d-flex align-items-center">
@@ -334,4 +333,4 @@ class NLBExplorer extends Component<Record<string, string>, LocalState> {
   }
 }
 
-export default NLBExplorer;
+export default RDSExplorer;

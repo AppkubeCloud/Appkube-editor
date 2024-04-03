@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Availability from './Components/Availability';
 import Compliance from './Components/Compliance';
 import ConfigurationModal from './Components/ConfigurationModal';
-import DataProtection from './Components/DataProtection';
 import EndUsage from './Components/EndUsage';
 import HostedServiceModal from './Components/HostedServiceModal';
 import Performance from './Components/Performance';
@@ -62,9 +61,9 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
     if (!elementId && !elementIds?.length) {
       alert("Please add element id");
     } else {
-      if(elementIds?.length) {
+      if (elementIds?.length) {
         const currentId = elementIds.filter((item) => item === elementId);
-        if(currentId.length) {
+        if (currentId.length) {
           this.getElementIdData(currentId[0]);
         } else {
           this.getElementIdData(elementId);
@@ -81,12 +80,12 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
     );
     elementIds!.push(elementId);
     elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
-    if(elementIds && elementIds.length) {
+    if (elementIds && elementIds.length) {
       localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     } else {
       localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
     }
-    this.setState({elementIds: elementIds});
+    this.setState({ elementIds: elementIds });
   }
 
   setActiveTab = (value: number) => {
@@ -141,26 +140,26 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
     let elementId = this.findParam("var-elementId", location.href);
     elementIds.forEach((item) => {
       JSX.push(
-        <div 
-        className={`${elementId === item ? 'active': ''} 
+        <div
+          className={`${elementId === item ? 'active' : ''} 
         page-name  
         d-flex 
         align-items-center 
         justify-content-between`}
-        onClick={(e) => {
-          if(item !== elementId) {
-            e.stopPropagation();
-            this.changeQueryID(item);
-          }
-        }}>
+          onClick={(e) => {
+            if (item !== elementId) {
+              e.stopPropagation();
+              this.changeQueryID(item);
+            }
+          }}>
           <span>{item}</span>
           <i className="fa-solid fa-xmark"
-          onClick={(e) => {
-            if(elementIds.length > 1 && item !== elementId) {
-              e.stopPropagation();
-              this.removeElementId(item);
-            }
-          }}></i>
+            onClick={(e) => {
+              if (elementIds.length > 1 && item !== elementId) {
+                e.stopPropagation();
+                this.removeElementId(item);
+              }
+            }}></i>
         </div>
       )
     });
@@ -305,11 +304,6 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
                     Compliance
                   </button>
                 </li>
-                <li>
-                  <button className={value === 6 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(6)}>
-                    DataProtection
-                  </button>
-                </li>
               </ul>
             </div>
             <div className="tabs-content">
@@ -325,8 +319,6 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
                 <Security />
               ) : value === 5 ? (
                 <Compliance />
-              ) : value === 6 ? (
-                <DataProtection />
               ) : (
                 <></>
               )}
