@@ -38,7 +38,7 @@ interface LocalState {
   showSlaModal: boolean;
   elementId: string;
   elementIds: string[] | undefined;
-  dashboardIDs: Record<string,string>
+  dashboardIDs: Record<string,string>;
 };
 
 const LAMBDA_EXPLORER_ELEMENTS_IDS = "lambdaexplorerElementIds";

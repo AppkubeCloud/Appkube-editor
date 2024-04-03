@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { backendSrv } from 'app/core/services/backend_srv';
+import { DashboardSearchItem } from 'app/features/search/types';
+
 import Availability from './Components/Availability';
 import Compliance from './Components/Compliance';
 import ConfigurationModal from './Components/ConfigurationModal';
@@ -35,9 +38,11 @@ interface LocalState {
   showSlaModal: boolean;
   elementId: string;
   elementIds: string[] | undefined;
+  dashboardIDs: Record<string,string>;
 };
 
 const RDS_EXPLORER_ELEMENTS_IDS = "rdsexplorerElementIds";
+const DASHBOARD_NAMES = ["rds-performance", "rds-availability", "rds-reliability", "rds-endUsage", "rds-security", "rds-compliance"];
 
 class RDSExplorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
@@ -48,11 +53,34 @@ class RDSExplorer extends Component<Record<string, string>, LocalState> {
       showHostedServiceModal: false,
       showSlaModal: false,
       elementId: "",
-      elementIds: []
+      elementIds: [],
+      dashboardIDs: {
+        "rds-performance": "",
+        "rds-availability": "",
+        "rds-reliability": "",
+        "rds-endUsage": "",
+        "rds-security": "",
+        "rds-compliance": "",
+      }
     };
   }
 
   componentDidMount = () => {
+    backendSrv.search({ type: 'dash-db', limit: 1000 }).then((result: DashboardSearchItem[]) => {
+      if (result && result.length > 0) {
+        const dashIDs: Record<string, string> = {};
+        result.forEach((db) => {
+          if (DASHBOARD_NAMES.indexOf(db.title) !== -1) {
+            dashIDs[db.title] = db.uid;
+          }
+        });
+        this.setState({
+          dashboardIDs: dashIDs
+        });
+      } else {
+        alert("There are no dashboards available");
+      }
+    });
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
       localStorage.getItem(RDS_EXPLORER_ELEMENTS_IDS) || '[]'
@@ -167,7 +195,7 @@ class RDSExplorer extends Component<Record<string, string>, LocalState> {
   }
 
   render() {
-    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds } = this.state;
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds, dashboardIDs } = this.state;
     return (
       <>
         <div className="aws-topology-container">
@@ -307,18 +335,18 @@ class RDSExplorer extends Component<Record<string, string>, LocalState> {
               </ul>
             </div>
             <div className="tabs-content">
-              {value === 0 ? (
-                <Performance />
+            {value === 0 ? (
+                <Performance dashId={dashboardIDs["rds-performance"]}/>
               ) : value === 1 ? (
-                <Availability />
+                <Availability dashId={dashboardIDs["rds-availability"]}/>
               ) : value === 2 ? (
-                <Reliability />
+                <Reliability dashId={dashboardIDs["rds-reliability"]}/>
               ) : value === 3 ? (
-                <EndUsage />
+                <EndUsage dashId={dashboardIDs["rds-endUsage"]}/>
               ) : value === 4 ? (
-                <Security />
+                <Security dashId={dashboardIDs["rds-security"]}/>
               ) : value === 5 ? (
-                <Compliance />
+                <Compliance dashId={dashboardIDs["rds-compliance"]}/>
               ) : (
                 <></>
               )}
