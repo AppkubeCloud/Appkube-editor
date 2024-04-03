@@ -29,6 +29,7 @@ interface Data {
 interface DataItem {
   label: string;
   percentage: string;
+  value?: string;
 }
 
 interface ChartData {
@@ -48,18 +49,6 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   private thickness = 35;
 
   drawChart(chartData: DataItem[]) {
-    
-    let caluTotal = 0;
-    chartData.forEach(e => {
-      caluTotal = caluTotal + parseFloat(e.percentage);
-    })
-    chartData = chartData.map(e => {
-      return {
-        label: e.label,
-        percentage: ((parseFloat(e.percentage) / caluTotal) * 100).toFixed(2),
-        value: e.percentage
-      }
-    })
     const svg = d3.select(this.svgRef.current).attr('width', width).attr('height', height);
 
     svg.selectAll('*').remove();
@@ -106,7 +95,6 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       '#3247E5',
       '#438A26'
     ];
-    // const color = d3.scaleOrdinal<string>(colors).domain(colors.map((item) => item));
     const pie = d3.pie<DataItem>().value((d: DataItem) => {
       return parseFloat(d.percentage)
     });
@@ -129,7 +117,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .style('fill', (d: ChartData, i: number) => colors[i])
       .attr('clippath', (d: ChartData, i: number) => `url(#clip${i})`)
       .append('title')
-      .html((d: ChartData) => `${d.data.percentage}%`);
+      .html((d: ChartData) => `${d.data.label}: ${d.data.value}`);
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
@@ -158,9 +146,8 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .style('color', '#a8a8c2')
       .attr('x', -90)
       .attr('y', -160)
-      // .text((d: ChartData) => d.data.label)
       .text((d: { data: DataItem }) => {
-        return `${d.data.label} : (${d.data.percentage}%)`
+        return `${d.data.label}: (${d.data.percentage}%)`
       })
       .append('title');
   }
@@ -205,13 +192,25 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   };
 
   renderData = (data: DataItem[]) => {
-    const chartData: DataItem[] = [];
+    let chartData: DataItem[] = [];
     for (const property in data) {
       chartData.push({
         label: `${property}`,
         percentage: `${data[property]}`
       });
     }
+    let caluTotal = 0;
+    chartData.forEach(e => {
+      caluTotal = caluTotal + parseFloat(e.percentage);
+    })
+    chartData = chartData.map(e => {
+      return {
+        label: e.label,
+        percentage: ((parseFloat(e.percentage) / caluTotal) * 100).toFixed(2),
+        value: e.percentage
+      }
+    })
+
     setTimeout(() => {
       this.drawChart(chartData);
     }, 500)
