@@ -38,6 +38,8 @@ interface LocalState {
   elementIds: string[] | undefined;
 };
 
+const EC2_EXPLORER_ELEMENTS_IDS = "ec2explorerElementIds";
+
 class EC2Explorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
     super(props);
@@ -54,7 +56,7 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
   componentDidMount = () => {
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem("ec2explorerElementIds") || '[]'
+      localStorage.getItem(EC2_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     this.setState({ elementId: elementId });
     if (!elementId && !elementIds?.length) {
@@ -75,14 +77,14 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
 
   getElementIdData = (elementId: string) => {
     let elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem("ec2explorerElementIds") || '[]'
+      localStorage.getItem(EC2_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     elementIds!.push(elementId);
     elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
     if(elementIds && elementIds.length) {
-      localStorage.setItem("ec2explorerElementIds", JSON.stringify(elementIds));
+      localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     } else {
-      localStorage.setItem("ec2explorerElementIds", JSON.stringify([this.state.elementId]));
+      localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
     }
     this.setState({elementIds: elementIds});
   }
@@ -124,7 +126,7 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
 
   removeElementId = (id: string) => {
     let elementIds = this.state.elementIds?.filter((item) => item !== id);
-    localStorage.setItem("ec2explorerElementIds", JSON.stringify(elementIds));
+    localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     this.setState({ elementIds });
   }
 
