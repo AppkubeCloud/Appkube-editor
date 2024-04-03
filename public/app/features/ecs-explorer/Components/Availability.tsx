@@ -6,7 +6,7 @@ interface LocalProps {
   dashId: string
 };
 
-class DataProtection extends Component<LocalProps> {
+class Availability extends Component<LocalProps> {
   constructor(props: LocalProps) {
     super(props);
     this.state = {};
@@ -25,4 +25,4 @@ class DataProtection extends Component<LocalProps> {
   }
 }
 
-export default DataProtection;
+export default Availability;

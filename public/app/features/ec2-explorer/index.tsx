@@ -7,7 +7,6 @@ import { DashboardSearchItem } from 'app/features/search/types';
 import Availability from './Components/Availability';
 import Compliance from './Components/Compliance';
 import ConfigurationModal from './Components/ConfigurationModal';
-import DataProtection from './Components/DataProtection';
 import EndUsage from './Components/EndUsage';
 import HostedServiceModal from './Components/HostedServiceModal';
 import Performance from './Components/Performance';
@@ -333,11 +332,6 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
                     Compliance
                   </button>
                 </li>
-                <li>
-                  <button className={value === 6 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(6)}>
-                    DataProtection
-                  </button>
-                </li>
               </ul>
             </div>
             <div className="tabs-content">
@@ -353,8 +347,6 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
                 <Security dashId={dashboardIDs["ec2-security"]}/>
               ) : value === 5 ? (
                 <Compliance dashId={dashboardIDs["ec2-compliance"]}/>
-              ) : value === 6 ? (
-                <DataProtection dashId={dashboardIDs["ec2-performance"]}/>
               ) : (
                 <></>
               )}
