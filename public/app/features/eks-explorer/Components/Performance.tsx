@@ -2,18 +2,26 @@ import React, { Component } from 'react';
 
 import CustomDashboardLoader from 'app/features/custom-dashboard-loader';
 
-class Performance extends Component {
-  constructor(props: Record<string, string>) {
+interface LocalProps {
+  dashId: string
+};
+
+class Performance extends Component<LocalProps> {
+  constructor(props: LocalProps) {
     super(props);
     this.state = {};
   }
 
   render() {
-    return (
-      <div className="dashboard-panels-container">
-        <CustomDashboardLoader uid={'OvHGEgJSk'} slug="new-dashboard" />
-      </div>
-    );
+    return <>
+      {
+        this.props.dashId ?
+          <div className="dashboard-panels-container">
+            <CustomDashboardLoader uid={this.props.dashId} slug="new-dashboard" />
+          </div> :
+          <div>Please wait till dashboard loads...</div>
+      }
+    </>
   }
 }
 
