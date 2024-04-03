@@ -476,7 +476,7 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
-      path: '/apigateway-explorer',
+      path: '/ag-explorer',
       pageClass: 'page-api-gateway-explorer sidemenu-hidden',
       routeName: DashboardRoutes.Normal,
       component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/api-gateway-explorer')),
