@@ -4,14 +4,85 @@ import { PanelProps } from '@grafana/data';
 
 import './css/style.css';
 import OverviewChart from './Components/OverviewChart';
+// import dummyData from './data.json';
+import ErrorImg from './img/error.svg';
+
+interface Series {
+  name: string;
+  refId: string;
+  meta: {
+    custom: {
+      data: string;
+      error: string;
+      query: {
+        queryString: string;
+      };
+    };
+  };
+}
+
+interface DataItem {
+  name: string;
+  upPerc: number;
+  downPerc: number;
+}
 
 class AppkubeClusterOverviewPanel extends PureComponent<PanelProps> {
-  render() {
+
+  renderFrames = (series: Series[]) => {
+    const retData: JSX.Element[] = [];
+    for (let i = 0; i < series.length; i++) {
+      const iSer = series[i];
+      let cardJSX: JSX.Element | null = null;
+      if (iSer && iSer.meta && iSer.meta.custom) {
+        const { data, error } = iSer.meta.custom;
+        if (error) {
+          cardJSX = <>{this.renderError()}</>;
+        } else {
+          if (data) {
+            cardJSX = this.renderData(JSON.parse(data));
+          } else {
+            cardJSX = <>{this.renderError()}</>;
+          }
+        }
+      } else {
+        cardJSX = this.renderError();
+      }
+      if (cardJSX) {
+        retData.push(cardJSX);
+      }
+    }
+    return retData;
+  };
+
+  renderError = () => {
+    return (
+      <div className="utilization-card">
+        <div className="error-message-box">
+          <span className="icon">
+            <img src={ErrorImg} alt="" width="48" height="48" />
+          </span>
+          <span className="name">{'There is some error'}</span>
+        </div>
+      </div>
+    );
+  };
+
+  renderData = (data: any) => {
+    const chartData: DataItem[] = [];
+    for(let item in data) {
+      chartData.push({
+        name: item,
+        upPerc: data[item].uptimePercentage,
+        downPerc: data[item].downtimePercentage
+      });
+    }
+
     return (
       <div className="cluster-overview-panel">
         <div className="cluster-overview-inner-panel">
           <div className="heading">
-            <span>Cluster Overview</span>
+            <span>{this.props.options.title}</span>
             <div className="time-periods">
               <ul>
                 <li>Today</li>
@@ -36,16 +107,37 @@ class AppkubeClusterOverviewPanel extends PureComponent<PanelProps> {
               </button>
             </div>
           </div>
-          <OverviewChart />
+          <OverviewChart data={chartData}/>
           <div className="cluster-count">
             <ul>
-              <li className="node">Node Count</li>
-              <li className="pod">Pod Count</li>
+              <li className="node">Up Time Percentage</li>
+              <li className="pod">Down Time Percentage</li>
             </ul>
           </div>
         </div>
       </div>
     );
+  };
+
+  render() {
+    // const data = dummyData;
+    const {data} = this.props;
+    if (data && data.series && data.series.length > 0) {
+      const seriesData: Series[] = data.series.map((seriesItem) => ({
+        name: seriesItem.name || '',
+        refId: seriesItem.refId || '',
+        meta: {
+          custom: {
+            data: seriesItem.meta?.custom?.data || '',
+            error: seriesItem.meta?.custom?.error || '',
+            query: { queryString: seriesItem.meta?.custom?.query?.queryString || '' },
+          },
+        },
+      }));
+      return <>{this.renderFrames(seriesData)}</>;
+    } else {
+      return <div>No data available</div>;
+    }
   }
 }
 

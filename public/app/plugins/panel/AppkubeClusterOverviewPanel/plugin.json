@@ -4,7 +4,7 @@
   "id": "appkubeClusterOverviewPanel",
 
   "info": {
-    "description": "Appkube Cluster Overview Panel",
+    "description": "uptime_of_deployment_stages",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"

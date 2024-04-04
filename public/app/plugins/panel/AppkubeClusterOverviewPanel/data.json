@@ -1,0 +1,23 @@
+{
+    "state": "Done",
+    "series": [
+        {
+            "name": "A",
+            "refId": "A",
+            "meta": {
+                "custom": {
+                    "data": "{\"dev\":{\"uptimePercentage\":92.55813953488372,\"downtimePercentage\":7.441860465116278}}",
+                    "error": "",
+                    "query": {
+                        "data": "",
+                        "queryString": "execution_time_panel"
+                    },
+                    "responseCodeFromServer": 200
+                }
+            },
+            "fields": [],
+            "first": [],
+            "length": 0
+        }
+    ]
+}
