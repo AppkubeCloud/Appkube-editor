@@ -33,9 +33,9 @@ const FlowCountChart: React.FC<{ data: BarChartData[] }> = (props) => {
         .call(d3.axisBottom(xScale).tickSize(0))
         .call((g) => g.select('.domain').remove())
         .selectAll<SVGTextElement, string>('text')
-        .style('text-anchor', 'end')
-        .attr('dx', '1.4em')
-        .attr('dy', '0.50em')
+        .style('text-anchor', 'center')
+        .attr('dx', '0.2em')
+        .attr('dy', '1.2em')
         .attr('font-size', '10px');
     const yAxis = (g: d3.Selection<SVGGElement, unknown, null, undefined>) =>
       g
@@ -52,8 +52,8 @@ const FlowCountChart: React.FC<{ data: BarChartData[] }> = (props) => {
       .enter()
       .append('rect')
       .attr('class', 'narrow-bar')
-      .attr('x', (d) => (xScale(d.month)! + 25))
-      .attr('y', (d) => yScale(d.value) - 110) // Adjust the position of the narrow bars
+      .attr('x', (d) => xScale(d.month)! + 50)
+      .attr('y', (d) => yScale(d.value) - 100) // Adjust the position of the narrow bars
       .attr('height', 100)
       .attr('width', 4)
       .attr('fill', '#e2e2ea');
@@ -63,8 +63,8 @@ const FlowCountChart: React.FC<{ data: BarChartData[] }> = (props) => {
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('x', (d) => (xScale(d.month)! + 23))
-      .attr('y', (d) => yScale(d.value) - 10)
+      .attr('x', (d) => xScale(d.month)! + 48)
+      .attr('y', (d) => yScale(d.value) - 0)
       .attr('width', 8)
       .attr('height', (d) => height - yScale(d.value))
       .attr('fill', '#53ca43');
