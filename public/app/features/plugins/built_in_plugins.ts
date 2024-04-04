@@ -76,7 +76,6 @@ import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNod
 import * as AppkubeNumberZoneChartPanel from 'app/plugins/panel/AppkubeNumberZoneChartPanel/module';
 import * as AppkubeOverallBucketCompliancePanel from 'app/plugins/panel/AppkubeOverallBucketCompliancePanel/module';
 import * as AppkubePerfomancePanel from 'app/plugins/panel/AppkubePerfomancePanel/module';
-import * as AppkubePodsOverviewPanel from 'app/plugins/panel/AppkubePodsOverviewPanel/module';
 import * as AppkubeRegionWiseStoragePanel from 'app/plugins/panel/AppkubeRegionWiseStoragePanel/module';
 import * as AppkubeResoursesPanel from 'app/plugins/panel/AppkubeResoursesPanel/module';
 import * as AppkubeResponseTimePanel from 'app/plugins/panel/AppkubeResponseTimePanel/module';
@@ -241,7 +240,6 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeRegionWiseStoragePanel/module': AppkubeRegionWiseStoragePanel,
   'app/plugins/panel/AppkubeTopProductsPanel/module': AppkubeTopProductsPanel,
   'app/plugins/panel/AppkubeSuccessFailedChartPanel/module': AppkubeSuccessFailedChartPanel,
-  'app/plugins/panel/AppkubePodsOverviewPanel/module': AppkubePodsOverviewPanel,
   'app/plugins/panel/AppkubeNodeFailurePanel/module': AppkubeNodeFailurePanel,
   'app/plugins/panel/AppkubeClusterOverviewPanel/module': AppkubeClusterOverviewPanel,
   'app/plugins/panel/AppkubeFlowCountPanel/module': AppkubeFlowCountPanel,

@@ -31,7 +31,7 @@ let data: DataPoint[] = [
 let width = 300;
 let height = 200;
 
-class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
+class AppkubeWiseCostPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
     super(props);
   }
@@ -141,4 +141,4 @@ class AppkubePodsOverviewPanel extends PureComponent<PanelProps> {
   }
 }
 
-export default AppkubePodsOverviewPanel;
+export default AppkubeWiseCostPanel;
