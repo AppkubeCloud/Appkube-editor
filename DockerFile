@@ -1,0 +1,32 @@
+# Base image
+FROM editor-setup-zk:latest
+
+# Set shell to bash
+SHELL ["/bin/bash", "-c"]
+
+# Switch to ubuntu user
+USER ubuntu
+
+# Set shell to bash
+SHELL ["/bin/bash", "-c"]
+WORKDIR /opt/mycode/Appkube-editor/conf
+RUN sed -i 's/host = 127\.0\.0\.1:5432/host = postgresql.ch8wfucynpvq.us-east-1.rds.amazonaws.com:5431/' defaults.ini \
+&& sed -i 's/password = postgres/password = Synect!ks2023/' defaults.ini
+
+# Go to appkube-editor root directory
+WORKDIR /opt/mycode/Appkube-editor
+
+# Compile backend (go server)
+RUN go run build.go setup && go run build.go build
+
+# Install yarn and run yarn install --immutable
+RUN /bin/bash -c "source /home/ubuntu/.nvm/nvm.sh && npm install -g yarn && yarn install --immutable"
+
+# Build UI
+RUN /bin/bash -c "source /home/ubuntu/.nvm/nvm.sh && yarn build"
+
+RUN chmod -R +x /opt/mycode/Appkube-editor/data
+WORKDIR /opt/mycode/Appkube-editor
+EXPOSE 3000
+# Run appkube-editor
+CMD ["/opt/mycode/Appkube-editor/bin/linux-amd64/grafana-server"]
