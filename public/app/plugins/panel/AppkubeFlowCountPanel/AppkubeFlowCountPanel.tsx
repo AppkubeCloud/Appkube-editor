@@ -4,7 +4,7 @@ import { PanelProps } from '@grafana/data';
 
 import './css/style.css';
 import FlowCountChart from './Components/FlowCountChart';
-import dummyData from './data.json';
+// import dummyData from './data.json';
 import ErrorImg from './img/error.svg';
 
 interface Series {
@@ -111,7 +111,8 @@ class AppkubeFlowCountPanel extends PureComponent<PanelProps> {
   };
 
   render() {
-    const data = dummyData;
+    // const data = dummyData;
+    const {data} = this.props;
     if (data && data.series && data.series.length > 0) {
       const seriesData: Series[] = data.series.map((seriesItem) => ({
         name: seriesItem.name || '',

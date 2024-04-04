@@ -4,7 +4,7 @@
   "id": "appkubeFlowCountPanel",
 
   "info": {
-    "description": "Appkube Flow Count Panel",
+    "description": "resource_deleted_panel,resources_created_panel,resource_updated_panel",
     "author": {
       "name": "Grafana Labs",
       "url": "https://grafana.com"
