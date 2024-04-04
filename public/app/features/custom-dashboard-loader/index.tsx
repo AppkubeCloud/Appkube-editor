@@ -13,11 +13,13 @@ import { GrafanaContext, GrafanaContextType } from 'app/core/context/GrafanaCont
 // import { getNavModel } from 'app/core/selectors/navModel';
 import { PanelModel } from 'app/features/dashboard/state';
 import { dashboardWatcher } from 'app/features/live/dashboard/dashboardWatcher';
+import { updateTimeZoneForSession } from 'app/features/profile/state/reducers';
 // import { getPageNavFromSlug, getRootContentNavModel } from 'app/features/storage/StorageFolderPage';
 import { DashboardRoutes, StoreState, DashboardInitPhase, DashboardInitError } from 'app/types';
 import { PanelEditEnteredEvent, PanelEditExitedEvent } from 'app/types/events';
 
 // import { DashNav } from '../dashboard/components/DashNav';
+import { DashNavTimeControls } from '../dashboard/components/DashNav/DashNavTimeControls';
 import { DashboardFailed } from '../dashboard/components/DashboardLoading/DashboardFailed';
 import { DashboardLoading } from '../dashboard/components/DashboardLoading/DashboardLoading';
 import { DashboardPrompt } from '../dashboard/components/DashboardPrompt/DashboardPrompt';
@@ -336,6 +338,8 @@ export class CustomDashboardLoader extends PureComponent<Props, State> {
                     scrollTop={updateScrollTop}
                 >
                     <DashboardPrompt dashboard={dashboard} />
+
+                    <DashNavTimeControls dashboard={dashboard} onChangeTimeZone={updateTimeZoneForSession} key="time-controls" />
 
                     {initError && <DashboardFailed />}
                     {/* {showSubMenu && (
