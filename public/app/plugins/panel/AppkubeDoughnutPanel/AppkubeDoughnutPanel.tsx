@@ -4,7 +4,6 @@ import React, { PureComponent, createRef } from 'react';
 import { PanelProps } from '@grafana/data';
 import './css/style.css';
 
-import dummyData from './data.json';
 import ErrorImg from './img/error.svg';
 
 interface Series {
@@ -19,11 +18,6 @@ interface Series {
       };
     };
   };
-}
-
-interface Data {
-  state: string;
-  series: Series[]
 }
 
 interface DataItem {
@@ -233,8 +227,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   }
 
   render() {
-    // const { data } = this.props;
-    const data = dummyData as Data;
+    const { data } = this.props;
     if (data && data.series && data.series.length > 0) {
       const seriesData: Series[] = data.series.map((seriesItem) => ({
         name: seriesItem.name || '',
