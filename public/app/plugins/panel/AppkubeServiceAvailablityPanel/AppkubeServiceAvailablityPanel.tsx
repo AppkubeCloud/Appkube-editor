@@ -29,7 +29,6 @@ interface Data {
 interface DataItem {
   label: string;
   percentage: string;
-  value?: string;
 }
 
 interface ChartData {
@@ -116,7 +115,7 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
       .style('fill', (d: ChartData, i: number) => colors[i])
       .attr('clip-path', (d: ChartData, i: number) => `url(#clip${i})`)
       .append('title')
-      .html((d: ChartData) => `${d.data.label}: ${d.data.value}`);
+      .html((d: ChartData) => `${d.data.label}: ${d.data.percentage}`);
 
     const legend = svg
       .append('g')

@@ -88,7 +88,7 @@ export class DashNavTimeControls extends Component<Props> {
     const hideIntervalPicker = dashboard.panelInEdit?.isEditing;
 
     return (
-      <>
+      <div className="dash-nev-time-controls">
         <TimePickerWithHistory
           value={timePickerValue}
           onChange={this.onChangeTimePicker}
@@ -110,7 +110,7 @@ export class DashNavTimeControls extends Component<Props> {
           tooltip={t('dashboard.toolbar.refresh', 'Refresh dashboard')}
           noIntervalPicker={hideIntervalPicker}
         />
-      </>
+      </div>
     );
   }
 }
