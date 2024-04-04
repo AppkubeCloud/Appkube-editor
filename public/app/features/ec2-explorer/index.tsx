@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { backendSrv } from 'app/core/services/backend_srv';
+import { DashboardSearchItem } from 'app/features/search/types';
+
 import Availability from './Components/Availability';
 import Compliance from './Components/Compliance';
 import ConfigurationModal from './Components/ConfigurationModal';
-import DataProtection from './Components/DataProtection';
 import EndUsage from './Components/EndUsage';
 import HostedServiceModal from './Components/HostedServiceModal';
 import Performance from './Components/Performance';
@@ -36,7 +38,11 @@ interface LocalState {
   showSlaModal: boolean;
   elementId: string;
   elementIds: string[] | undefined;
+  dashboardIDs: Record<string,string>
 };
+
+const EC2_EXPLORER_ELEMENTS_IDS = "ec2explorerElementIds";
+const DASHBOARD_NAMES = ["ec2-performance", "ec2-availability", "ec2-reliability", "ec2-endUsage", "ec2-security", "ec2-compliance"];
 
 class EC2Explorer extends Component<Record<string, string>, LocalState> {
   constructor(props: Record<string, string>) {
@@ -47,22 +53,45 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
       showHostedServiceModal: false,
       showSlaModal: false,
       elementId: "",
-      elementIds: []
+      elementIds: [],
+      dashboardIDs: {
+        "ec2-performance": "",
+        "ec2-availability": "",
+        "ec2-reliability": "",
+        "ec2-endUsage": "",
+        "ec2-security": "",
+        "ec2-compliance": "",
+      }
     };
   }
 
   componentDidMount = () => {
+    backendSrv.search({ type: 'dash-db', limit: 1000 }).then((result: DashboardSearchItem[]) => {
+      if (result && result.length > 0) {
+        const dashIDs: Record<string, string> = {};
+        result.forEach((db) => {
+          if (DASHBOARD_NAMES.indexOf(db.title) !== -1) {
+            dashIDs[db.title] = db.uid;
+          }
+        });
+        this.setState({
+          dashboardIDs: dashIDs
+        });
+      } else {
+        alert("There are no dashboards available");
+      }
+    });
     const elementId = this.findParam("var-elementId", location.href);
     const elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem("ec2explorerElementIds") || '[]'
+      localStorage.getItem(EC2_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     this.setState({ elementId: elementId });
     if (!elementId && !elementIds?.length) {
       alert("Please add element id");
     } else {
-      if(elementIds?.length) {
+      if (elementIds?.length) {
         const currentId = elementIds.filter((item) => item === elementId);
-        if(currentId.length) {
+        if (currentId.length) {
           this.getElementIdData(currentId[0]);
         } else {
           this.getElementIdData(elementId);
@@ -75,16 +104,16 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
 
   getElementIdData = (elementId: string) => {
     let elementIds: null | string[] | undefined = JSON.parse(
-      localStorage.getItem("ec2explorerElementIds") || '[]'
+      localStorage.getItem(EC2_EXPLORER_ELEMENTS_IDS) || '[]'
     );
     elementIds!.push(elementId);
     elementIds = elementIds?.filter((value, index) => elementIds?.indexOf(value) === index);
-    if(elementIds && elementIds.length) {
-      localStorage.setItem("ec2explorerElementIds", JSON.stringify(elementIds));
+    if (elementIds && elementIds.length) {
+      localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     } else {
-      localStorage.setItem("ec2explorerElementIds", JSON.stringify([this.state.elementId]));
+      localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify([this.state.elementId]));
     }
-    this.setState({elementIds: elementIds});
+    this.setState({ elementIds: elementIds });
   }
 
   setActiveTab = (value: number) => {
@@ -124,7 +153,7 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
 
   removeElementId = (id: string) => {
     let elementIds = this.state.elementIds?.filter((item) => item !== id);
-    localStorage.setItem("ec2explorerElementIds", JSON.stringify(elementIds));
+    localStorage.setItem(EC2_EXPLORER_ELEMENTS_IDS, JSON.stringify(elementIds));
     this.setState({ elementIds });
   }
 
@@ -139,26 +168,26 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
     let elementId = this.findParam("var-elementId", location.href);
     elementIds.forEach((item) => {
       JSX.push(
-        <div 
-        className={`${elementId === item ? 'active': ''} 
+        <div
+          className={`${elementId === item ? 'active' : ''} 
         page-name  
         d-flex 
         align-items-center 
         justify-content-between`}
-        onClick={(e) => {
-          if(item !== elementId) {
-            e.stopPropagation();
-            this.changeQueryID(item);
-          }
-        }}>
+          onClick={(e) => {
+            if (item !== elementId) {
+              e.stopPropagation();
+              this.changeQueryID(item);
+            }
+          }}>
           <span>{item}</span>
           <i className="fa-solid fa-xmark"
-          onClick={(e) => {
-            if(elementIds.length > 1 && item !== elementId) {
-              e.stopPropagation();
-              this.removeElementId(item);
-            }
-          }}></i>
+            onClick={(e) => {
+              if (elementIds.length > 1 && item !== elementId) {
+                e.stopPropagation();
+                this.removeElementId(item);
+              }
+            }}></i>
         </div>
       )
     });
@@ -166,7 +195,7 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
   }
 
   render() {
-    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds } = this.state;
+    const { value, showConfigurationModal, showHostedServiceModal, showSlaModal, elementId, elementIds, dashboardIDs } = this.state;
     return (
       <>
         <div className="aws-topology-container">
@@ -303,28 +332,21 @@ class EC2Explorer extends Component<Record<string, string>, LocalState> {
                     Compliance
                   </button>
                 </li>
-                <li>
-                  <button className={value === 6 ? 'active-tab' : ''} onClick={(e) => this.setActiveTab(6)}>
-                    DataProtection
-                  </button>
-                </li>
               </ul>
             </div>
             <div className="tabs-content">
               {value === 0 ? (
-                <Performance />
+                <Performance dashId={dashboardIDs["ec2-performance"]}/>
               ) : value === 1 ? (
-                <Availability />
+                <Availability dashId={dashboardIDs["ec2-availability"]}/>
               ) : value === 2 ? (
-                <Reliability />
+                <Reliability dashId={dashboardIDs["ec2-reliability"]}/>
               ) : value === 3 ? (
-                <EndUsage />
+                <EndUsage dashId={dashboardIDs["ec2-endUsage"]}/>
               ) : value === 4 ? (
-                <Security />
+                <Security dashId={dashboardIDs["ec2-security"]}/>
               ) : value === 5 ? (
-                <Compliance />
-              ) : value === 6 ? (
-                <DataProtection />
+                <Compliance dashId={dashboardIDs["ec2-compliance"]}/>
               ) : (
                 <></>
               )}

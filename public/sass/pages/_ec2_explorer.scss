@@ -7,10 +7,11 @@
 
   .aws-top-header-container {
     background-color: #ffffff;
-    width: 360px;
-    height: 40px;
+    max-width: 500px;
+    min-height: 40px;
     border-radius: 6px 6px 0px 0px;
-
+    overflow-y: auto;
+    width: fit-content;
     .page-info {
       padding: 10px 10px;
 
@@ -18,7 +19,7 @@
         padding: 4px 7px;
         background-color: rgba(240, 244, 255, 1);
         height: 20px;
-        width: 110px;
+        min-width: 110px;
         margin-right: 5px;
         border-radius: 4px;
         cursor: pointer;
