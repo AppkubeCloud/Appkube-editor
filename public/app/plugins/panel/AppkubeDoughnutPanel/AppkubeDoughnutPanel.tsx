@@ -31,7 +31,7 @@ interface ChartData {
 }
 
 let width = 450;
-let height = 300;
+let height = 350;
 
 class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
@@ -97,7 +97,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
       .outerRadius(radius * 0.6);
-    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2})`);
+    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2.6})`);
     const arcs = graphGroup.selectAll('.arc').data(pie(chartData)).enter().append('g').attr('class', 'donutarc');
     
     arcs
@@ -127,8 +127,8 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
 
     lg.append('rect')
       .attr('fill', (d: ChartData, i: number) => colors[i])
-      .attr('x', -110)
-      .attr('y', -170)
+      .attr('x', -320)
+      .attr('y', -20)
       .attr('width', 12)
       .attr('height', 12)
       .append('title')
@@ -138,8 +138,8 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .style('fontfamily', '"Montserrat", sansserif')
       .style('fontsize', '14px')
       .style('color', '#a8a8c2')
-      .attr('x', -90)
-      .attr('y', -160)
+      .attr('x', -300)
+      .attr('y', -10)
       .text((d: { data: DataItem }) => {
         return `${d.data.label}: (${d.data.percentage}%)`
       })

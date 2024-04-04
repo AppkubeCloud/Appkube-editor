@@ -29,6 +29,7 @@ interface Data {
 interface DataItem {
   label: string;
   percentage: string;
+  value?: string;
 }
 
 interface ChartData {
@@ -113,7 +114,9 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
       .style('stroke', '#FFFFFF')
       .style('border-radius', '50%')
       .style('fill', (d: ChartData, i: number) => colors[i])
-      .attr('clip-path', (d: ChartData, i: number) => `url(#clip${i})`);
+      .attr('clip-path', (d: ChartData, i: number) => `url(#clip${i})`)
+      .append('title')
+      .html((d: ChartData) => `${d.data.label}: ${d.data.value}`);
 
     const legend = svg
       .append('g')
@@ -134,17 +137,17 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
 
     lg.append('rect')
       .attr('fill', (d: ChartData) => color(d.data.label))
-      .attr('x', -300)
+      .attr('x', -270)
       .attr('y', 100 - 8)
       .attr('width', 10)
       .attr('height', 10)
       .append('title')
-      .html((d: ChartData) => d.data.label);
+      .html((d: ChartData) => `${d.data.percentage}%`);
 
     lg.append('text')
       .style('font-family', '"Montserrat", sans-serif')
       .style('font-size', '12px')
-      .attr('x', -280)
+      .attr('x', -250)
       .attr('y', 100)
       .text((d: ChartData) => {
         let label = "";
@@ -165,7 +168,7 @@ class AppkubeServiceAvailablityPanel extends PureComponent<PanelProps> {
     for (const property in data) {
       chartData.push({
         label: `${property}`,
-        percentage: `${data[property]}`
+        percentage: `${data[property]}`,
       });
     }
     let total = 0;
