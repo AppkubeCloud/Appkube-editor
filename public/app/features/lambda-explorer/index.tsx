@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import { backendSrv } from 'app/core/services/backend_srv';
 import { DashboardSearchItem } from 'app/features/search/types';
@@ -213,11 +213,11 @@ class LambdaExplorer extends Component<Record<string, string>, LocalState> {
               </div>
               <span>Amazon Web Services</span>
             </div>
-            <div className="toggle-icon">
+            {/* <div className="toggle-icon">
               <i className="fa-solid fa-caret-down"></i>
-            </div>
+            </div> */}
           </div>
-          <div className="breadCrumb-container d-flex justify-content-between align-items-center">
+          {/* <div className="breadCrumb-container d-flex justify-content-between align-items-center">
             <ul>
               <li>
                 <Link to="/">AWS (6579077475645)</Link>
@@ -245,7 +245,7 @@ class LambdaExplorer extends Component<Record<string, string>, LocalState> {
               <span>Alerts</span>
               <i className="fa-solid fa-bell"></i>
             </div>
-          </div>
+          </div> */}
           <div className="aws-panel-tabs">
             <div className="manage-dashboard-tabs">
               <ul>
