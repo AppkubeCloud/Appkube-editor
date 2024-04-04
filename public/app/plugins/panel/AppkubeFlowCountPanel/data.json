@@ -1,0 +1,24 @@
+{
+    "state": "Done",
+    "series": [
+        {
+            "name": "A",
+            "refId": "A",
+            "meta": {
+                "custom": {
+                    "data": "[{\n\"Results\": [\n   [{\n       \"Field\": \"eventName\",\n       \"Value\": \"RegisterContainerInstance\"\n     },{\n       \"Field\": \"EventCount\",\n       \"Value\": \"23\"\n     }],\n   [{\n       \"Field\": \"eventName\",\n       \"Value\": \"CreateCluster\"\n     },{\n       \"Field\": \"EventCount\",\n       \"Value\": \"35\"\n     }],\n   [{\n       \"Field\": \"eventName\",\n       \"Value\": \"CreateService\"\n     },{\n       \"Field\": \"EventCount\",\n       \"Value\": \"32\"\n     }],\n   [{\n       \"Field\": \"eventName\",\n       \"Value\": \"RegisterTaskDefinition\"\n     },{\n       \"Field\": \"EventCount\",\n       \"Value\": \"19\"\n     }],\n   [{\n       \"Field\": \"eventName\",\n       \"Value\": \"RunTask\"\n     },{\n       \"Field\": \"EventCount\",\n       \"Value\": \"18\"\n     }]\n ],\n \"Statistics\": {\n   \"BytesScanned\": 1.5800994462e+10,\n   \"RecordsMatched\": 127,\n   \"RecordsScanned\": 9.519522e+06\n },\n \"Status\": \"Complete\"\n }]"
+                    ,
+                    "error": "",
+                    "query": {
+                        "data": "",
+                        "queryString": "execution_time_panel"
+                    },
+                    "responseCodeFromServer": 200
+                }
+            },
+            "fields": [],
+            "first": [],
+            "length": 0
+        }
+    ]
+}
