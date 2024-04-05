@@ -13,6 +13,14 @@ export const plugin = new PanelPlugin<TimeSeriesOptions, GraphFieldConfig>(TimeS
   .setPanelChangeHandler(graphPanelChangedHandler)
   .useFieldConfig(getGraphFieldConfig(defaultGraphConfig))
   .setPanelOptions((builder) => {
+    builder.addTextInput({
+      path: 'title',
+      name: 'Title',
+      defaultValue: 'Title',
+      settings: {
+        placeholder: 'Title',
+      },
+    });
     commonOptionsBuilder.addTooltipOptions(builder);
     commonOptionsBuilder.addLegendOptions(builder);
 

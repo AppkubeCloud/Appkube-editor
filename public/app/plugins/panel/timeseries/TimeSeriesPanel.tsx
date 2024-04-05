@@ -71,6 +71,13 @@ export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
     });
   }
   return (
+    <>
+    <strong style={{
+      fontSize: "18px",
+      color: "#383874",
+      lineHeight: "22px",
+      marginBottom: "15px"
+    }}>{options.title}</strong>
     <TimeSeries
       key={v4()}
       frames={selectedFrames}
@@ -172,5 +179,6 @@ export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
         );
       }}
     </TimeSeries>
+    </>
   );
 };
