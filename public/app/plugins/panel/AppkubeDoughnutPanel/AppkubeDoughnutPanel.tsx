@@ -200,7 +200,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
     chartData = chartData.map(e => {
       return {
         label: e.label,
-        percentage: ((parseFloat(e.percentage) / caluTotal) * 100).toFixed(2),
+        percentage: caluTotal > 0 ? ((parseFloat(e.percentage) / caluTotal) * 100).toFixed(2) : "0",
         value: e.percentage
       }
     })
