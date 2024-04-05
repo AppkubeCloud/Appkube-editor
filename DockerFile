@@ -1,32 +1,22 @@
-# Base image
-FROM editor-setup-zk:latest
+# Create image based on Ubuntu 22.04
+FROM ubuntu:22.04
 
-# Set shell to bash
-SHELL ["/bin/bash", "-c"]
-
-# Switch to ubuntu user
-USER ubuntu
-
-# Set shell to bash
-SHELL ["/bin/bash", "-c"]
-WORKDIR /opt/mycode/Appkube-editor/conf
-RUN sed -i 's/host = 127\.0\.0\.1:5432/host = postgresql.ch8wfucynpvq.us-east-1.rds.amazonaws.com:5431/' defaults.ini \
-&& sed -i 's/password = postgres/password = Synect!ks2023/' defaults.ini
-
-# Go to appkube-editor root directory
-WORKDIR /opt/mycode/Appkube-editor
-
-# Compile backend (go server)
-RUN go run build.go setup && go run build.go build
-
-# Install yarn and run yarn install --immutable
-RUN /bin/bash -c "source /home/ubuntu/.nvm/nvm.sh && npm install -g yarn && yarn install --immutable"
-
-# Build UI
-RUN /bin/bash -c "source /home/ubuntu/.nvm/nvm.sh && yarn build"
-
-RUN chmod -R +x /opt/mycode/Appkube-editor/data
-WORKDIR /opt/mycode/Appkube-editor
+RUN mkdir /app
+WORKDIR /app
+ARG ARTIFACT_NAME1=grafana-server
+ARG ARTIFACT_NAME2=grafana-cli
+ARG ARTIFACT_NAME3=grafana
+RUN mkdir -p /app/data
+ARG ARTIFACT_NAME4= Appkube-editor/data
+ARG CONF_FILE1=Appkube-editor/conf/default.ini
+ARG CONF_FILE2=Appkube-editor/provisioning
+COPY ${ARTIFACT_NAME1} /app/
+COPY ${ARTIFACT_NAME2} /app/
+COPY ${ARTIFACT_NAME3} /app/
+COPY ${ARTIFACT_NAME4}/ /app/data
+RUN mkdir /app/conf
+RUN mkdir -p /app/conf/provisioning
+COPY ${CONF_FILE} /app/conf
+COPY ${CONF_FILE2}/ /app/conf/provisioning
 EXPOSE 3000
-# Run appkube-editor
-CMD ["/opt/mycode/Appkube-editor/bin/linux-amd64/grafana-server"]
+ENTRYPOINT [ "./grafana-server" ]
