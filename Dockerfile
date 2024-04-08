@@ -1,5 +1,5 @@
 # Create image based on Ubuntu 22.04
-FROM ubuntu:22.04
+FROM synectiks/appkube-editor-base:latest
 
 RUN mkdir /app
 WORKDIR /app
