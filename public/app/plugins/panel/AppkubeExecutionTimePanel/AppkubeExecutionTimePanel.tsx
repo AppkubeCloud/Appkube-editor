@@ -67,10 +67,14 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
     const tableRowJSX: JSX.Element[] = [];
     const tableHeadMsJSX: JSX.Element[] = [];
     let max = 0;
-    data.map((item: DataItem, index: number) => {
+
+    data.map((item: DataItem) => {
       if(Number(item.ResponseTime) > max) {
         max = Math.ceil(item.ResponseTime / 1000) * 1000;
-      };
+      }
+    });
+
+    data.map((item: DataItem, index: number) => {
       tableRowJSX.push(
         <tr key={index}>
             <td>
@@ -80,7 +84,7 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
                 <div className="table-details">{item.Duration}</div>
               </td>
               <td>
-                <div className="table-details">{Math.ceil(item.ResponseTime / 500) * 500}ms</div>
+                <div className="table-details">{item.ResponseTime} ms</div>
               </td>
               <td>
               <div 
@@ -99,7 +103,7 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
     })
     const JSX: JSX.Element[] = [
       <div className="execution-time-table-panel" key="0">
-        <div className="heading">Execution TIme</div>
+        <div className="heading">Execution Time</div>
         <div className="common-table">
           <table cellPadding={0} cellSpacing={0}>
             <thead>
