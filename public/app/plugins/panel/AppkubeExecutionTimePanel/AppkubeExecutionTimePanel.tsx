@@ -52,11 +52,11 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
               cardJSX = <>{this.renderError()}</>;
             }
           }
-      }
-    } else {
+        }
+      } else {
         cardJSX = this.renderError();
       }
-      if(cardJSX) {
+      if (cardJSX) {
         retData.push(cardJSX);
       }
     }
@@ -69,7 +69,7 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
     let max = 0;
 
     data.map((item: DataItem) => {
-      if(Number(item.ResponseTime) > max) {
+      if (Number(item.ResponseTime) > max) {
         max = Math.ceil(item.ResponseTime / 1000) * 1000;
       }
     });
@@ -77,20 +77,22 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
     data.map((item: DataItem, index: number) => {
       tableRowJSX.push(
         <tr key={index}>
-            <td>
-                <div className="table-details">{item.FunctionName}</div>
-              </td>
-              <td>
-                <div className="table-details">{item.Duration}</div>
-              </td>
-              <td>
-                <div className="table-details">{item.ResponseTime} ms</div>
-              </td>
-              <td>
-              <div 
-              className={`line ${(100 * item.ResponseTime) / max > 75 ? 'red' : 'green'}`}
-              style={{ width: `${(100 * item.ResponseTime) / max}%` }}
+          <td>
+            <div className="table-details">{item.FunctionName}</div>
+          </td>
+          <td>
+            <div className="table-details">{item.Duration}</div>
+          </td>
+          <td>
+            <div className="table-details">{item.ResponseTime} ms</div>
+          </td>
+          <td>
+            <div className="response-time">
+              <div
+                className={`line ${(100 * item.ResponseTime) / max > 75 ? 'red' : 'green'}`}
+                style={{ width: `${(100 * item.ResponseTime) / max}%` }}
               ></div>
+            </div>
           </td>
         </tr>
       )
@@ -118,7 +120,9 @@ class AppkubeExecutionTimePanel extends PureComponent<PanelProps> {
                   <div className="table-header">Duration</div>
                 </th>
                 <th>
-                  {tableHeadMsJSX}
+                  <div className="table-header-ms">
+                    {tableHeadMsJSX}
+                  </div>
                 </th>
               </tr>
             </thead>

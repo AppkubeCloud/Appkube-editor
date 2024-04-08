@@ -1,8 +1,12 @@
+.execution-time-table-panel{
+	display: block;
+	width: 100%;
+}
 .execution-time-table-panel .heading {
-	font-size: 14px;
+	font-size: 18px;
 	color: #383874;
-	line-height: 18px;
-	font-weight: 700;
+	line-height: 22px;
+	font-weight: 600;
 	margin-bottom: 15px;
 }
 .execution-time-table-panel .common-table {
@@ -28,6 +32,15 @@
 	color: #383874;
 	font-weight: 500;
 }
+.execution-time-table-panel .common-table table thead tr th .table-header-ms {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.execution-time-table-panel .common-table table thead tr th .table-header-ms .table-header.ms-text {
+	width: 10%;
+}
+
 .execution-time-table-panel .common-table table thead tr th .table-header.ms-text {
 	padding-right: 8px;
 }
@@ -39,10 +52,18 @@
 	padding: 5px 15px;
 }
 .execution-time-table-panel .common-table table tbody tr td .table-details {
+	display: flex;
+	flex-wrap: nowrap;
+	white-space: nowrap;
 	font-size: 12px;
 	line-height: 16px;
 	font-weight: 500;
 	color: #383874;
+}
+.execution-time-table-panel .common-table table tbody tr td .response-time {
+	display: flex;
+	width: 100%;
+	position: relative;
 }
 .execution-time-table-panel .common-table table tbody tr td .line {
 	display: inline-block;

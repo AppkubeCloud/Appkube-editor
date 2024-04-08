@@ -174,13 +174,11 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
 
   renderError = () => {
     return (
-      <div className="utilization-card">
-        <div className="error-message-box">
-          <span className="icon">
-            <img src={ErrorImg} alt="" width="48" height="48" />
-          </span>
-          <span className="name">{'There is some error'}</span>
-        </div>
+      <div className="error-message-box">
+        <span className="icon">
+          <img src={ErrorImg} alt="" width="48" height="48" />
+        </span>
+        <span className="name">{'There is some error'}</span>
       </div>
     );
   };
@@ -208,7 +206,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
     setTimeout(() => {
       this.drawChart(chartData);
     }, 500)
-    return <>
+    return (
       <div className="doughnut-chart-panel">
         <svg
           ref={this.svgRef}
@@ -216,7 +214,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
           preserveAspectRatio="xMidYMid meet"
         ></svg>
       </div>
-    </>;
+    );
   }
 
   render() {
