@@ -30,8 +30,8 @@ interface ChartData {
   data: DataItem,
 }
 
-let width = 450;
-let height = 350;
+let width = 300;
+let height = 300;
 
 class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
@@ -99,7 +99,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .outerRadius(radius * 0.6);
     const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2.6})`);
     const arcs = graphGroup.selectAll('.arc').data(pie(chartData)).enter().append('g').attr('class', 'donutarc');
-    
+
     arcs
       .append('path')
       .attr('d', arc)
@@ -115,7 +115,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${width / 1.2}, ${height / 1.2})`);
+      .attr('transform', `translate(${width / 0.9}, ${height / 1.2})`);
 
     const lg = legendGroup
       .selectAll<SVGGElement, d3.PieArcDatum<DataItem>>('g')
@@ -209,19 +209,12 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       this.drawChart(chartData);
     }, 500)
     return <>
-      <div className="function-product-panel">
-        <div className="function-product-inner-panel">
-          <div className="heading">{this.props.options.panelTitle}</div>
-          {/* <div className="price">
-            <strong>587</strong>
-            <span>2%</span>
-          </div> */}
-          <svg
-            ref={this.svgRef}
-            viewBox={`0 0 ${width} ${height}`}
-            preserveAspectRatio="xMidYMid meet"
-          ></svg>
-        </div>
+      <div className="doughnut-chart-panel">
+        <svg
+          ref={this.svgRef}
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio="xMidYMid meet"
+        ></svg>
       </div>
     </>;
   }
@@ -241,9 +234,16 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
         },
       }));
       return (
-        <>
-          {this.renderFrames(seriesData)}
-        </>
+        <div className="function-doughnut-chart-panel">
+          <div className="heading">{this.props.options.panelTitle}</div>
+          {/* <div className="price">
+            <strong>587</strong>
+            <span>2%</span>
+          </div> */}
+          <div className="doughnut-charts">
+            {this.renderFrames(seriesData)}
+          </div>
+        </div>
       );
     } else {
       return <div>No data available</div>;
