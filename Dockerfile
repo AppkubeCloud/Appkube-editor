@@ -7,9 +7,9 @@ ARG ARTIFACT_NAME1=grafana-server
 ARG ARTIFACT_NAME2=grafana-cli
 ARG ARTIFACT_NAME3=grafana
 RUN mkdir -p /app/data
-ARG ARTIFACT_NAME4= Appkube-editor/data
-ARG CONF_FILE1=Appkube-editor/conf/default.ini
-ARG CONF_FILE2=Appkube-editor/provisioning
+ARG ARTIFACT_NAME4= data
+ARG CONF_FILE1=conf/default.ini
+ARG CONF_FILE2=conf/provisioning
 COPY ${ARTIFACT_NAME1} /app/
 COPY ${ARTIFACT_NAME2} /app/
 COPY ${ARTIFACT_NAME3} /app/
