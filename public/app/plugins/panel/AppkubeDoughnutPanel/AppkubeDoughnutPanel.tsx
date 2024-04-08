@@ -31,7 +31,7 @@ interface ChartData {
 }
 
 let width = 300;
-let height = 300;
+let height = 400;
 
 class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
@@ -97,7 +97,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
       .outerRadius(radius * 0.6);
-    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2.6})`);
+    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 3.5})`);
     const arcs = graphGroup.selectAll('.arc').data(pie(chartData)).enter().append('g').attr('class', 'donutarc');
 
     arcs
@@ -115,7 +115,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${width / 0.9}, ${height / 1.2})`);
+      .attr('transform', `translate(${width / 0.9}, ${height / 1.6})`);
 
     const lg = legendGroup
       .selectAll<SVGGElement, d3.PieArcDatum<DataItem>>('g')
