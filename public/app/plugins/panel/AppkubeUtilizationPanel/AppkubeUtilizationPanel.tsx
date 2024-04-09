@@ -198,7 +198,7 @@ class AppkubeUtlizationPanel extends PureComponent<PanelProps> {
 
   renderError = () => {
     return (
-      <div className="utilization-card">
+      <div className="utilization-card error-message-card">
         <div className="error-message-box">
           <span className="icon">
             <img src={ErrorImg} alt="" width="48" height="48" />
