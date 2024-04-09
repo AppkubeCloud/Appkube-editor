@@ -1,6 +1,9 @@
 # Create image based on Ubuntu 22.04
 FROM synectiks/appkube-editor-base:latest
 
+# Add root user
+USER root
+
 RUN mkdir /app
 WORKDIR /app
 ARG ARTIFACT_NAME1=bin/linux-amd64/grafana-server
