@@ -5,13 +5,11 @@ FROM ubuntu:22.04
 # Add root user
 USER root
 RUN echo $PWD
-RUN ls -al
+RUN ls -al /workspace/source/bin
+RUN ls -al /workspace/source/bin/linux-amd64
+RUN ls -al /workspace/source/conf
 
-RUN echo --------
-RUN ls -al /
-RUN ls -al /workspace
-RUN ls -al /workspace/source
-
+WORKDIR /workspace/source
 
 RUN mkdir /app
 WORKDIR /app
