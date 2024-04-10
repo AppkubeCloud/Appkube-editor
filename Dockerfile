@@ -12,7 +12,6 @@ RUN ls -al /workspace/source/conf
 WORKDIR /workspace/source
 
 RUN mkdir /app
-WORKDIR /app
 ARG ARTIFACT_NAME1=bin/linux-amd64/grafana-server
 ARG ARTIFACT_NAME2=bin/linux-amd64/grafana-cli
 ARG ARTIFACT_NAME3=bin/linux-amd64/grafana
