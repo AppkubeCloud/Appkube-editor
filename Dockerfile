@@ -3,6 +3,7 @@ FROM synectiks/appkube-editor-base:latest
 
 # Add root user
 USER root
+RUN ls -al
 
 RUN mkdir /app
 WORKDIR /app
