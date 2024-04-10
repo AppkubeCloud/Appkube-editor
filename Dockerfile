@@ -1,9 +1,17 @@
 # Create image based on Ubuntu 22.04
-FROM synectiks/appkube-editor-base:latest
+# FROM synectiks/appkube-editor-base:latest
+FROM ubuntu:22.04
 
 # Add root user
 USER root
+RUN echo $PWD
 RUN ls -al
+
+RUN echo --------
+RUN ls -al /
+RUN ls -al /workspace
+RUN ls -al /workspace/source
+
 
 RUN mkdir /app
 WORKDIR /app
