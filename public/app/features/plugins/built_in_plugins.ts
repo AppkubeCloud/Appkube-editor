@@ -47,6 +47,7 @@ const parcaPlugin = async () =>
 import { config } from '@grafana/runtime';
 import * as AppkubeApiServersTablePanel from 'app/plugins/panel/AppkubeApiServersTablePanel/module';
 import * as AppkubeAuthenticationChartPanel from 'app/plugins/panel/AppkubeAuthenticationChartPanel/module';
+import * as AppkubeBarChartPanel from 'app/plugins/panel/AppkubeBarChartPanel/module';
 import * as AppkubeBreakdownPanel from 'app/plugins/panel/AppkubeBreakdownPanel/module';
 import * as AppkubeClusterCapacityPanel from 'app/plugins/panel/AppkubeClusterCapacityPanel/module';
 import * as AppkubeClusterEventsTabelPanel from 'app/plugins/panel/AppkubeClusterEventsTabelPanel/module';
@@ -59,7 +60,6 @@ import * as AppkubeCostOfAllProductsPanel from 'app/plugins/panel/AppkubeCostOfA
 import * as AppkubeCpuUtilizationPanel from 'app/plugins/panel/AppkubeCpuUtilizationPanel/module';
 import * as AppkubeDataLifecycleManagementPanel from 'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module';
 import * as AppkubeDoughnutPanel from 'app/plugins/panel/AppkubeDoughnutPanel/module';
-import * as AppkubeBarChartPanel from 'app/plugins/panel/AppkubeBarChartPanel/module';
 import * as AppkubeEksResourcesPanel from 'app/plugins/panel/AppkubeEksResourcesPanel/module';
 import * as AppkubeEndUsagePanel from 'app/plugins/panel/AppkubeEndUsagePanel/module';
 import * as AppkubeErrorAndWarningPanel from 'app/plugins/panel/AppkubeErrorAndWarningPanel/module';

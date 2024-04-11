@@ -483,6 +483,13 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
+      path: '/overall-lambda-explorer',
+      pageClass: 'page-api-gateway-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-lambda-explorer')),
+      chromeless: true,
+    },
+    {
       path: '/dashboard/snapshots',
       component: SafeDynamicImport(
         () => import(/* webpackChunkName: "SnapshotListPage" */ 'app/features/manage-dashboards/SnapshotListPage')
