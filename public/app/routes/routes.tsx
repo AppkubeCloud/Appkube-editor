@@ -508,7 +508,13 @@ export function getAppRoutes(): RouteDescriptor[] {
       component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-memorydb-explorer')),
       chromeless: true,
     },
-    
+    {
+      path: '/overall-redshift-explorer',
+      pageClass: 'page-overall-redshift-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-redshift-explorer')),
+      chromeless: true,
+    },
     {
       path: '/dashboard/snapshots',
       component: SafeDynamicImport(
