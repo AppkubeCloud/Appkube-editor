@@ -59,6 +59,7 @@ import * as AppkubeCostOfAllProductsPanel from 'app/plugins/panel/AppkubeCostOfA
 import * as AppkubeCpuUtilizationPanel from 'app/plugins/panel/AppkubeCpuUtilizationPanel/module';
 import * as AppkubeDataLifecycleManagementPanel from 'app/plugins/panel/AppkubeDataLifecycleManagementPanel/module';
 import * as AppkubeDoughnutPanel from 'app/plugins/panel/AppkubeDoughnutPanel/module';
+import * as AppkubeBarChartPanel from 'app/plugins/panel/AppkubeBarChartPanel/module';
 import * as AppkubeEksResourcesPanel from 'app/plugins/panel/AppkubeEksResourcesPanel/module';
 import * as AppkubeEndUsagePanel from 'app/plugins/panel/AppkubeEndUsagePanel/module';
 import * as AppkubeErrorAndWarningPanel from 'app/plugins/panel/AppkubeErrorAndWarningPanel/module';
@@ -249,6 +250,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeNumberZoneChartPanel/module': AppkubeNumberZoneChartPanel,
   'app/plugins/panel/AppkubeMultilineChartPanel/module': AppkubeMultilineChartPanel,
   'app/plugins/panel/AppkubeDoughnutPanel/module': AppkubeDoughnutPanel,
+  'app/plugins/panel/AppkubeBarChartPanel/module': AppkubeBarChartPanel,
   'app/plugins/panel/AppkubeAuthenticationChartPanel/module': AppkubeAuthenticationChartPanel,
   'app/plugins/panel/AppkubeWiseCostPanel/module': AppkubeWiseCostPanel,
   'app/plugins/panel/AppkubeClusterCapacityPanel/module': AppkubeClusterCapacityPanel,
