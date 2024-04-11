@@ -49,47 +49,9 @@
           border: 1px solid #eef0fb;
           color: #404040;
         }
-        &.sla-btn {
-          background-color: #dde1f8;
-          border: 1px solid #dde1f8;
-          color: #383874;
-        }
+        
       }
-      .sla-buttons-popup {
-        background-color: #ffffff;
-        border-radius: 5px;
-        padding: 3px;
-        display: none;
-        position: absolute;
-        top: 36px;
-        width: 150px;
-        right: 0;
-        z-index: 10;
-        box-shadow: 0px 4px 32px 0px rgba(0, 16, 61, 0.1607843137);
-        &.active{
-          display: block;
-        }
-        button {
-          border: none;
-          background: none;
-          margin-bottom: 0;
-          padding: 10px 15px;
-          font-size: 12px;
-          line-height: 14px;
-          font-weight: 600;
-          color: #383874;
-          margin-left: 0;
-          display: block;
-          width: 100%;
-          text-align: left;
-          i{
-            margin-right: 5px;
-          }
-          &.active{
-            background-color: #dde1f8;
-          }
-        }
-      }
+      
     }
   }
   .tabs-container {
@@ -195,14 +157,81 @@
       }
     }
   }
+  .sla-menu-popup {
+    position: relative;
+    display: inline-flex;
+    button {
+      margin-left: 15px;
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 600;
+      i {
+        color: #404040;
+        margin-right: 10px;
+        &.fa-sort-down {
+          margin-left: 10px;
+          margin-top: -3px;
+          margin-right: 0;
+        }
+      }
+      
+      &.sla-btn {
+        background-color: #dde1f8;
+        border: 1px solid #dde1f8;
+        color: #383874;
+      }
+    }
+    .sla-buttons-popup {
+      background-color: #ffffff;
+      border-radius: 5px;
+      padding: 3px;
+      display: none;
+      position: absolute;
+      top: 36px;
+      width: 150px;
+      right: 0;
+      z-index: 10;
+      box-shadow: 0px 4px 32px 0px rgba(0, 16, 61, 0.1607843137);
+      &.active{
+        display: block;
+      }
+      button {
+        border: none;
+        background: none;
+        margin-bottom: 0;
+        padding: 10px 15px;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 600;
+        color: #383874;
+        margin-left: 0;
+        display: block;
+        width: 100%;
+        text-align: left;
+        i{
+          margin-right: 5px;
+        }
+        &.active{
+          background-color: #dde1f8;
+        }
+      }
+    }
+  }
+  
+  .sla-buttons-popup-bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.sla-buttons-popup-bg {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
+

@@ -19,9 +19,9 @@ const images = {
   pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
 }
 
-const DASHBOARD_NAMES = ["overall-eks-development", "overall-eks-test", "overall-eks-stage", "overall-eks-production"];
+const DASHBOARD_NAMES = ["overall-memorydb-development", "overall-memorydb-test", "overall-memorydb-stage", "overall-memorydb-production"];
 
-class OverallEksExplorer extends Component<Record<string, string>, LocalState> {
+class OverallMemoryDBExplorer extends Component<Record<string, string>, LocalState> {
   popupRef: any;
   constructor(props: Record<string, string>) {
     super(props);
@@ -30,10 +30,10 @@ class OverallEksExplorer extends Component<Record<string, string>, LocalState> {
       showFiltersModal: false,
       value: 0,
       dashboardIDs: {
-        "overall-eks-development": "",
-        "overall-eks-test": "",
-        "overall-eks-stage": "",
-        "overall-eks-production": ""
+        "overall-memorydb-development": "",
+        "overall-memorydb-test": "",
+        "overall-memorydb-stage": "",
+        "overall-memorydb-production": ""
       }
     };
     this.popupRef = React.createRef();
@@ -80,7 +80,7 @@ class OverallEksExplorer extends Component<Record<string, string>, LocalState> {
     return (
       <div className="overall-explorers-container">
         <div className="heading">
-          <h1><img src={images.pageTitleIcon} alt="" /> EKS (Elastic Kubernetes Service)</h1>
+          <h1><img src={images.pageTitleIcon} alt="" /> MemoryDB for Redis</h1>
           <div className="buttons">
             <button className="filters-btn" onClick={this.toggleFiltersModal}>
               <i className="fa-solid fa-sliders"></i> Filters
@@ -105,7 +105,7 @@ class OverallEksExplorer extends Component<Record<string, string>, LocalState> {
               </ul>
               <div className="sla-menu-popup">
                 <button className="sla-btn" onClick={this.toggleSlaButtonsPopup}>
-                  <i className="fa-solid fa-gear"></i> Reliability <i className="fa-solid fa-sort-down"></i>
+                  <i className="fa-solid fa-gear"></i> SLA <i className="fa-solid fa-sort-down"></i>
                 </button>
                 {slaButtonsPopupOpen === true && (
                   <>
@@ -125,13 +125,13 @@ class OverallEksExplorer extends Component<Record<string, string>, LocalState> {
           </div>
           <div className="tabs-contents">
             {value === 0 ? (
-              <Development dashId={dashboardIDs["overall-eks-development"]} />
+              <Development dashId={dashboardIDs["overall-memorydb-development"]} />
             ) : value === 1 ? (
-              <Test dashId={dashboardIDs["overall-eks-test"]} />
+              <Test dashId={dashboardIDs["overall-memorydb-test"]} />
             ) : value === 2 ? (
-              <Stage dashId={dashboardIDs["overall-eks-stage"]} />
+              <Stage dashId={dashboardIDs["overall-memorydb-stage"]} />
             ) : value === 3 ? (
-              <Production dashId={dashboardIDs["overall-eks-production"]} />
+              <Production dashId={dashboardIDs["overall-memorydb-production"]} />
             ) : (
               <></>
             )}
@@ -143,4 +143,4 @@ class OverallEksExplorer extends Component<Record<string, string>, LocalState> {
   }
 }
 
-export default OverallEksExplorer;
+export default OverallMemoryDBExplorer;

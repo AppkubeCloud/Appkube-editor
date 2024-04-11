@@ -13,7 +13,7 @@ interface LocalState {
   slaButtonsPopupOpen: boolean,
   showFiltersModal: boolean,
   value: number,
-  dashboardIDs: Record<string,string>;
+  dashboardIDs: Record<string, string>;
 }
 
 const DASHBOARD_NAMES = ["overall-lambda-development", "overall-lambda-test", "overall-lambda-stage", "overall-lambda-production"];
@@ -82,22 +82,24 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
             <button className="filters-btn" onClick={this.toggleFiltersModal}>
               <i className="fa-solid fa-sliders"></i> Filters
             </button>
-            <button className="sla-btn" onClick={this.toggleSlaButtonsPopup}>
-              <i className="fa-solid fa-gear"></i> SLA <i className="fa-solid fa-sort-down"></i>
-            </button>
-            {slaButtonsPopupOpen === true && (
-              <>
-                <div className={slaButtonsPopupOpen ? "sla-buttons-popup active" : "sla-buttons-popup"}>
-                  <button className="active"><i className="fa-solid fa-circle-dot"></i> Performance</button>
-                  <button><i className="fa-solid fa-circle-dot"></i> Reliability</button>
-                  <button><i className="fa-solid fa-circle-dot"></i> Availability</button>
-                  <button><i className="fa-solid fa-circle-dot"></i> End Usage</button>
-                  <button><i className="fa-solid fa-circle-dot"></i> Security</button>
-                  <button><i className="fa-solid fa-circle-dot"></i> Cost</button>
-                </div>
-                <div className="sla-buttons-popup-bg" onClick={this.toggleSlaButtonsPopup}></div>
-              </>
-            )}
+            <div className="sla-menu-popup">
+              <button className="sla-btn" onClick={this.toggleSlaButtonsPopup}>
+                <i className="fa-solid fa-gear"></i> SLA <i className="fa-solid fa-sort-down"></i>
+              </button>
+              {slaButtonsPopupOpen === true && (
+                <>
+                  <div className={slaButtonsPopupOpen ? "sla-buttons-popup active" : "sla-buttons-popup"}>
+                    <button className="active"><i className="fa-solid fa-circle-dot"></i> Performance</button>
+                    <button><i className="fa-solid fa-circle-dot"></i> Reliability</button>
+                    <button><i className="fa-solid fa-circle-dot"></i> Availability</button>
+                    <button><i className="fa-solid fa-circle-dot"></i> End Usage</button>
+                    <button><i className="fa-solid fa-circle-dot"></i> Security</button>
+                    <button><i className="fa-solid fa-circle-dot"></i> Cost</button>
+                  </div>
+                  <div className="sla-buttons-popup-bg" onClick={this.toggleSlaButtonsPopup}></div>
+                </>
+              )}
+            </div>
           </div>
         </div>
         <div className="tabs-container">
@@ -121,13 +123,13 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
           </div>
           <div className="tabs-contents">
             {value === 0 ? (
-              <Development dashId={dashboardIDs["overall-lambda-development"]}/>
+              <Development dashId={dashboardIDs["overall-lambda-development"]} />
             ) : value === 1 ? (
-              <Test dashId={dashboardIDs["overall-lambda-test"]}/>
+              <Test dashId={dashboardIDs["overall-lambda-test"]} />
             ) : value === 2 ? (
-              <Stage dashId={dashboardIDs["overall-lambda-stage"]}/>
+              <Stage dashId={dashboardIDs["overall-lambda-stage"]} />
             ) : value === 3 ? (
-              <Production dashId={dashboardIDs["overall-lambda-production"]}/>
+              <Production dashId={dashboardIDs["overall-lambda-production"]} />
             ) : (
               <></>
             )}
