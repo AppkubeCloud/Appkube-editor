@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 
+import { backendSrv } from 'app/core/services/backend_srv';
+import { DashboardSearchItem } from 'app/features/search/types';
+
+import Development from './Components/Development';
 import FiltersModal from './Components/FiltersModal';
+import Production from './Components/Production';
+import Stage from './Components/Stage';
+import Test from './Components/Test';
 
 interface LocalState {
   slaButtonsPopupOpen: boolean,
   showFiltersModal: boolean,
   value: number,
+  dashboardIDs: Record<string,string>;
 }
+
+const DASHBOARD_NAMES = ["overall-lambda-development", "overall-lambda-test", "overall-lambda-stage", "overall-lambda-production"];
 
 class OverallLambdaExplorer extends Component<Record<string, string>, LocalState> {
   popupRef: any;
@@ -16,8 +26,32 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
       slaButtonsPopupOpen: false,
       showFiltersModal: false,
       value: 0,
+      dashboardIDs: {
+        "overall-lambda-development": "",
+        "overall-lambda-test": "",
+        "overall-lambda-stage": "",
+        "overall-lambda-production": ""
+      }
     };
     this.popupRef = React.createRef();
+  }
+
+  componentDidMount = () => {
+    backendSrv.search({ type: 'dash-db', limit: 1000 }).then((result: DashboardSearchItem[]) => {
+      if (result && result.length > 0) {
+        const dashIDs: Record<string, string> = {};
+        result.forEach((db) => {
+          if (DASHBOARD_NAMES.indexOf(db.title) !== -1) {
+            dashIDs[db.title] = db.uid;
+          }
+        });
+        this.setState({
+          dashboardIDs: dashIDs
+        });
+      } else {
+        alert("There are no dashboards available");
+      }
+    });
   }
 
   toggleSlaButtonsPopup = () => {
@@ -39,7 +73,7 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
   };
 
   render() {
-    const { slaButtonsPopupOpen, value, showFiltersModal } = this.state;
+    const { slaButtonsPopupOpen, value, showFiltersModal, dashboardIDs } = this.state;
     return (
       <div className="overall-explorers-container">
         <div className="heading">
@@ -87,13 +121,13 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
           </div>
           <div className="tabs-contents">
             {value === 0 ? (
-              'Development'
+              <Development dashId={dashboardIDs["overall-lambda-development"]}/>
             ) : value === 1 ? (
-              'Test'
+              <Test dashId={dashboardIDs["overall-lambda-test"]}/>
             ) : value === 2 ? (
-              'Stage'
+              <Stage dashId={dashboardIDs["overall-lambda-stage"]}/>
             ) : value === 3 ? (
-              'Production'
+              <Production dashId={dashboardIDs["overall-lambda-production"]}/>
             ) : (
               <></>
             )}

@@ -176,9 +176,16 @@
       }
     }
     .tabs-contents {
-      display: flex;
+      display: block;
       width: 100%;
-      padding-top: 20px;
+      padding-top: 0px;
+      .css-1nm48fy {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .dashboard-loads {
+        padding-top: 20px;
+      }
     }
   }
 }
