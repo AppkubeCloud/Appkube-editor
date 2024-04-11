@@ -484,7 +484,7 @@ export function getAppRoutes(): RouteDescriptor[] {
     },
     {
       path: '/overall-lambda-explorer',
-      pageClass: 'page-api-gateway-explorer sidemenu-hidden',
+      pageClass: 'page-overall-lambda-explorer sidemenu-hidden',
       routeName: DashboardRoutes.Normal,
       component: SafeDynamicImport(
         () =>
@@ -492,6 +492,13 @@ export function getAppRoutes(): RouteDescriptor[] {
             /* webpackChunkName: "DashboardPage" */ '../features/overall-lambda-explorer'
           )
       ),
+      chromeless: true,
+    },
+    {
+      path: '/overall-eks-explorer',
+      pageClass: 'page-overall-eks-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-eks-explorer')),
       chromeless: true,
     },
     {
