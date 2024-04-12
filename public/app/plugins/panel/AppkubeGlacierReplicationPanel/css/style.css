@@ -1,0 +1,122 @@
+.glacier-replication-panel {
+	width: 600px;
+	display: block;
+}
+
+.glacier-replication-panel .heading {
+	width: 100%;
+	display: flex;
+	font-size: 18px;
+	color: #383874;
+	line-height: 22px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.glacier-replication-panel .total-replication {
+	display: flex;
+	width: 100%;
+}
+
+.glacier-replication-panel .total-replication .total {
+	width: 50%;
+	flex-wrap: wrap;
+	display: inline-flex;
+}
+
+.glacier-replication-panel .total-replication .total span {
+	display: flex;
+	width: 100%;
+	font-size: 14px;
+	line-height: 18px;
+	color: #383874;
+	font-weight: 500;
+	margin-top: 10px;
+}
+
+.glacier-replication-panel .total-replication .total strong {
+	display: flex;
+	width: 100%;
+	font-size: 24px;
+	line-height: 32px;
+	color: #383874;
+	font-weight: 600;
+}
+
+.glacier-replication-panel .contents {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.glacier-replication-panel .contents .content-row-heading {
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.glacier-replication-panel .contents .content-row-heading .text {
+	display: inline-flex;
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 600;
+	color: #383874;
+}
+
+.glacier-replication-panel .contents .content-row-heading .text.type {
+	width: 30%;
+}
+
+.glacier-replication-panel .contents .content-row-heading .text.bytes {
+	width: 15%;
+}
+
+.glacier-replication-panel .contents .content-row-heading .text.status {
+	width: 40%;
+}
+
+.glacier-replication-panel .contents .content-row-heading .text.percentage {
+	width: 15%;
+}
+
+.glacier-replication-panel .contents  .content-row {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.glacier-replication-panel .contents  .content-row .text {
+	display: inline-flex;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
+	color: #383874;
+}
+
+.glacier-replication-panel .contents  .content-row .text.type {
+	width: 30%;
+}
+
+.glacier-replication-panel .contents  .content-row .text.bytes {
+	width: 15%;
+}
+
+.glacier-replication-panel .contents  .content-row .text.percentage {
+	width: 15%;
+}
+
+.glacier-replication-panel .contents .content-row .status {
+	display: inline-flex;
+	width: calc(40% - 20px);
+	margin-right: 20px;
+	height: 3px;
+	border-radius: 3px;
+	background-color: #dbdff1;
+}
+
+.glacier-replication-panel .contents .content-row .status span {
+	display: inline-flex;
+	height: 100%;
+	border-radius: 3px;
+}
