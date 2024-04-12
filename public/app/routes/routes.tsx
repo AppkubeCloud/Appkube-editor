@@ -600,6 +600,13 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
+      path: '/overall-s3-glacier-gateway-explorer',
+      pageClass: 'page-overall-s3-glacier-gateway-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-s3-glacier-gateway-explorer')),
+      chromeless: true,
+    },
+    {
       path: '/dashboard/snapshots',
       component: SafeDynamicImport(
         () => import(/* webpackChunkName: "SnapshotListPage" */ 'app/features/manage-dashboards/SnapshotListPage')
