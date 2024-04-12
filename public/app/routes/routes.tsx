@@ -565,6 +565,13 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
+      path: '/overall-s3-explorer',
+      pageClass: 'page-overall-s3-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-s3-explorer')),
+      chromeless: true,
+    },
+    {
       path: '/dashboard/snapshots',
       component: SafeDynamicImport(
         () => import(/* webpackChunkName: "SnapshotListPage" */ 'app/features/manage-dashboards/SnapshotListPage')
