@@ -200,6 +200,9 @@
       &.active{
         display: block;
       }
+      &.api{
+        width: 250px;
+      }
       button {
         border: none;
         background: none;
