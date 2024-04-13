@@ -4,10 +4,6 @@ FROM ubuntu:22.04
 
 # Add root user
 USER root
-RUN echo $PWD
-RUN ls -al /workspace/source/bin
-RUN ls -al /workspace/source/bin/linux-amd64
-RUN ls -al /workspace/source/conf
 
 WORKDIR /workspace/source
 
@@ -15,10 +11,10 @@ RUN mkdir /app
 ARG ARTIFACT_NAME1=bin/linux-amd64/grafana-server
 ARG ARTIFACT_NAME2=bin/linux-amd64/grafana-cli
 ARG ARTIFACT_NAME3=bin/linux-amd64/grafana
-RUN mkdir -p /app/data
 ARG ARTIFACT_NAME4= data
-ARG CONF_FILE1=conf/default.ini
+ARG CONF_FILE1=conf/defaults.ini
 ARG CONF_FILE2=conf/provisioning
+RUN mkdir -p /app/data
 COPY ./${ARTIFACT_NAME1} /app/
 COPY ./${ARTIFACT_NAME2} /app/
 COPY ./${ARTIFACT_NAME3} /app/
