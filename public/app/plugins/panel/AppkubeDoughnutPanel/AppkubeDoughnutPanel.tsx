@@ -31,7 +31,7 @@ interface ChartData {
 }
 
 let width = 300;
-let height = 300;
+let height = 0;
 
 class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
   constructor(props: any) {
@@ -97,7 +97,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
       .arc<d3.PieArcDatum<DataItem>>()
       .innerRadius(innerRadius - this.thickness)
       .outerRadius(radius * 0.6);
-    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, ${height / 2.6})`);
+    const graphGroup = svg.append('g').attr('transform', `translate(${width / 3}, 120)`);
     const arcs = graphGroup.selectAll('.arc').data(pie(chartData)).enter().append('g').attr('class', 'donutarc');
 
     arcs
@@ -115,7 +115,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
     const legendGroup = svg
       .append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${width / 0.9}, ${height / 1.2})`);
+      .attr('transform', `translate(${width / 0.9}, 250)`);
 
     const lg = legendGroup
       .selectAll<SVGGElement, d3.PieArcDatum<DataItem>>('g')
@@ -174,13 +174,11 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
 
   renderError = () => {
     return (
-      <div className="utilization-card">
-        <div className="error-message-box">
-          <span className="icon">
-            <img src={ErrorImg} alt="" width="48" height="48" />
-          </span>
-          <span className="name">{'There is some error'}</span>
-        </div>
+      <div className="error-message-box">
+        <span className="icon">
+          <img src={ErrorImg} alt="" width="48" height="48" />
+        </span>
+        <span className="name">{'There is some error'}</span>
       </div>
     );
   };
@@ -203,12 +201,16 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
         percentage: caluTotal > 0 ? ((parseFloat(e.percentage) / caluTotal) * 100).toFixed(2) : "0",
         value: e.percentage
       }
-    })
+    });
+
+    const dynamicHeight = Math.max(chartData.length * 35, 400);
+
+    height = dynamicHeight;
 
     setTimeout(() => {
       this.drawChart(chartData);
-    }, 500)
-    return <>
+    }, 500);
+    return (
       <div className="doughnut-chart-panel">
         <svg
           ref={this.svgRef}
@@ -216,7 +218,7 @@ class AppkubeDoughnutPanel extends PureComponent<PanelProps> {
           preserveAspectRatio="xMidYMid meet"
         ></svg>
       </div>
-    </>;
+    );
   }
 
   render() {

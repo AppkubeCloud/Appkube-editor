@@ -1,0 +1,24 @@
+{
+    "state": "Done",
+    "series": [
+      {
+        "name": "A",
+        "refId": "A",
+        "meta": {
+          "custom": {
+            "data": "[\n  { \"label\": \"Apples\", \"value\": 100 },\n  { \"label\": \"Bananas\", \"value\": 200 },\n  { \"label\": \"Oranges\", \"value\": 50 },\n  { \"label\": \"Kiwis\", \"value\": 150 }\n]",
+            "error": "",
+            "query": {
+              "data": "",
+              "queryString": "execution_time_panel"
+            },
+            "responseCodeFromServer": 200
+          }
+        },
+        "fields": [],
+        "first": [],
+        "length": 0
+      }
+    ]
+  }
+  

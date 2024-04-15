@@ -47,6 +47,7 @@ const parcaPlugin = async () =>
 import { config } from '@grafana/runtime';
 import * as AppkubeApiServersTablePanel from 'app/plugins/panel/AppkubeApiServersTablePanel/module';
 import * as AppkubeAuthenticationChartPanel from 'app/plugins/panel/AppkubeAuthenticationChartPanel/module';
+import * as AppkubeBarChartPanel from 'app/plugins/panel/AppkubeBarChartPanel/module';
 import * as AppkubeBreakdownPanel from 'app/plugins/panel/AppkubeBreakdownPanel/module';
 import * as AppkubeClusterCapacityPanel from 'app/plugins/panel/AppkubeClusterCapacityPanel/module';
 import * as AppkubeClusterEventsTabelPanel from 'app/plugins/panel/AppkubeClusterEventsTabelPanel/module';
@@ -65,6 +66,7 @@ import * as AppkubeErrorAndWarningPanel from 'app/plugins/panel/AppkubeErrorAndW
 import * as AppkubeErrorOnRequestPanel from 'app/plugins/panel/AppkubeErrorOnRequestPanel/module';
 import * as AppkubeExecutionTimePanel from 'app/plugins/panel/AppkubeExecutionTimePanel/module';
 import * as AppkubeFlowCountPanel from 'app/plugins/panel/AppkubeFlowCountPanel/module';
+import * as AppkubeGlacierReplicationPanel from 'app/plugins/panel/AppkubeGlacierReplicationPanel/module';
 import * as AppkubeImageBadgePanel from 'app/plugins/panel/AppkubeImageBadgePanel/module';
 import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceStatusPanel/module';
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
@@ -91,6 +93,7 @@ import * as AppkubeTopFailureFunctionsPanel from 'app/plugins/panel/AppkubeTopFa
 import * as AppkubeTopProductsPanel from 'app/plugins/panel/AppkubeTopProductsPanel/module';
 import * as AppkubeTopProductsWithMaxErrorsPanel from 'app/plugins/panel/AppkubeTopProductsWithMaxErrorsPanel/module';
 import * as AppkubeTopResourcesRequestCountPanel from 'app/plugins/panel/AppkubeTopResourcesRequestCountPanel/module';
+import * as AppkubeReliabilityPanel from 'app/plugins/panel/AppkubeReliabilityPanel/module';
 import * as AppkubeTopSecurityRulesTriggredPanel from 'app/plugins/panel/AppkubeTopSecurityRulesTriggredPanel/module';
 import * as AppkubeTopUsedFunctionPanel from 'app/plugins/panel/AppkubeTopUsedFunctionPanel/module';
 import * as AppkubeTotalCostPanel from 'app/plugins/panel/AppkubeTotalCostPanel/module';
@@ -249,12 +252,15 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeNumberZoneChartPanel/module': AppkubeNumberZoneChartPanel,
   'app/plugins/panel/AppkubeMultilineChartPanel/module': AppkubeMultilineChartPanel,
   'app/plugins/panel/AppkubeDoughnutPanel/module': AppkubeDoughnutPanel,
+  'app/plugins/panel/AppkubeBarChartPanel/module': AppkubeBarChartPanel,
   'app/plugins/panel/AppkubeAuthenticationChartPanel/module': AppkubeAuthenticationChartPanel,
   'app/plugins/panel/AppkubeWiseCostPanel/module': AppkubeWiseCostPanel,
   'app/plugins/panel/AppkubeClusterCapacityPanel/module': AppkubeClusterCapacityPanel,
   'app/plugins/panel/AppkubeErrorAndWarningPanel/module': AppkubeErrorAndWarningPanel,
   'app/plugins/panel/AppkubeServiceAvailablityPanel/module': AppkubeServiceAvailablityPanel,
   'app/plugins/panel/AppkubeNetworkCostingPanel/module': AppkubeNetworkCostingPanel,
+  'app/plugins/panel/AppkubeGlacierReplicationPanel/module': AppkubeGlacierReplicationPanel,
+  'app/plugins/panel/AppkubeReliabilityPanel/module': AppkubeReliabilityPanel,
 };
 
 export default builtInPlugins;

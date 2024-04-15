@@ -88,6 +88,14 @@
 	line-height: 18px;
 }
 
+.error-message-card {
+	align-items: center;
+}
+
+.error-message-card .error-message-box{
+	padding-top: 0;
+}
+
 .error-message-box {
 	display: block;
 	width: 100%;

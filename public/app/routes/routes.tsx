@@ -483,6 +483,137 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
+      path: '/overall-lambda-explorer',
+      pageClass: 'page-overall-lambda-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(
+        () =>
+          import(
+            /* webpackChunkName: "DashboardPage" */ '../features/overall-lambda-explorer'
+          )
+      ),
+      chromeless: true,
+    },
+    {
+      path: '/overall-eks-explorer',
+      pageClass: 'page-overall-eks-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-eks-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-memorydb-explorer',
+      pageClass: 'page-overall-memorydb-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-memorydb-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-redshift-explorer',
+      pageClass: 'page-overall-redshift-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-redshift-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-cdn-explorer',
+      pageClass: 'page-overall-cdn-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-cdn-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-ec2-explorer',
+      pageClass: 'page-overall-ec2-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-ec2-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-rds-explorer',
+      pageClass: 'page-overall-rds-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-rds-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-open-search-explorer',
+      pageClass: 'page-overall-open-search-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-open-search-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-cloud-search-explorer',
+      pageClass: 'page-overall-cloud-search-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-cloud-search-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-nlb-explorer',
+      pageClass: 'page-overall-nlb-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-nlb-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-step-function-explorer',
+      pageClass: 'page-overall-step-function-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-step-function-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-s3-explorer',
+      pageClass: 'page-overall-s3-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-s3-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-dynamodb-explorer',
+      pageClass: 'page-overall-dynamodb-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-dynamodb-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-waf-explorer',
+      pageClass: 'page-overall-waf-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-waf-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-ecs-explorer',
+      pageClass: 'page-overall-ecs-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-ecs-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-api-gateway-explorer',
+      pageClass: 'page-overall-api-gateway-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-api-gateway-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-s3-glacier-gateway-explorer',
+      pageClass: 'page-overall-s3-glacier-gateway-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-s3-glacier-gateway-explorer')),
+      chromeless: true,
+    },
+    {
+      path: '/overall-elasticache-gateway-explorer',
+      pageClass: 'page-overall-elasticache-gateway-explorer sidemenu-hidden',
+      routeName: DashboardRoutes.Normal,
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-elasticache-gateway-explorer')),
+      chromeless: true,
+    },
+    {
       path: '/dashboard/snapshots',
       component: SafeDynamicImport(
         () => import(/* webpackChunkName: "SnapshotListPage" */ 'app/features/manage-dashboards/SnapshotListPage')
