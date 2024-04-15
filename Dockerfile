@@ -19,4 +19,4 @@ RUN mkdir -p /app/conf/provisioning
 COPY ${CONF_FILE1} /app/conf
 COPY ${CONF_FILE2}/ /app/conf/provisioning
 EXPOSE 3000
-ENTRYPOINT [ "./grafana-server" ]
+ENTRYPOINT [ "./app/grafana-server" ]
