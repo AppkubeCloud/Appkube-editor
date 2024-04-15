@@ -14,9 +14,12 @@ interface LocalState {
   showFiltersModal: boolean,
   value: number,
   dashboardIDs: Record<string, string>;
+  selectedParam: string;
 }
 
 const DASHBOARD_NAMES = ["overall-lambda-development", "overall-lambda-test", "overall-lambda-stage", "overall-lambda-production"];
+
+const PARAMETERS_NAMES = ["sla", "performance", "reliability"];
 
 class OverallLambdaExplorer extends Component<Record<string, string>, LocalState> {
   popupRef: any;
@@ -27,11 +30,8 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
       showFiltersModal: false,
       value: 0,
       dashboardIDs: {
-        "overall-lambda-development": "",
-        "overall-lambda-test": "",
-        "overall-lambda-stage": "",
-        "overall-lambda-production": ""
-      }
+      },
+      selectedParam: "sla"
     };
     this.popupRef = React.createRef();
   }
@@ -40,8 +40,14 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
     backendSrv.search({ type: 'dash-db', limit: 1000 }).then((result: DashboardSearchItem[]) => {
       if (result && result.length > 0) {
         const dashIDs: Record<string, string> = {};
+        const ALL_DB_NAME: string[] = [];
+        DASHBOARD_NAMES.forEach((dbName) => {
+          PARAMETERS_NAMES.forEach((param) => {
+            ALL_DB_NAME.push(`${dbName}-${param}`);
+          });
+        });
         result.forEach((db) => {
-          if (DASHBOARD_NAMES.indexOf(db.title) !== -1) {
+          if (ALL_DB_NAME.indexOf(db.title) !== -1) {
             dashIDs[db.title] = db.uid;
           }
         });
@@ -73,7 +79,7 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
   };
 
   render() {
-    const { slaButtonsPopupOpen, value, showFiltersModal, dashboardIDs } = this.state;
+    const { slaButtonsPopupOpen, value, showFiltersModal, dashboardIDs, selectedParam } = this.state;
     return (
       <div className="overall-explorers-container">
         <div className="heading">
@@ -123,13 +129,13 @@ class OverallLambdaExplorer extends Component<Record<string, string>, LocalState
           </div>
           <div className="tabs-contents">
             {value === 0 ? (
-              <Development dashId={dashboardIDs["overall-lambda-development"]} />
+              <Development dashId={dashboardIDs[`overall-lambda-development-${selectedParam}`]} />
             ) : value === 1 ? (
-              <Test dashId={dashboardIDs["overall-lambda-test"]} />
+              <Test dashId={dashboardIDs[`overall-lambda-test-${selectedParam}`]} />
             ) : value === 2 ? (
-              <Stage dashId={dashboardIDs["overall-lambda-stage"]} />
+              <Stage dashId={dashboardIDs[`overall-lambda-stage-${selectedParam}`]} />
             ) : value === 3 ? (
-              <Production dashId={dashboardIDs["overall-lambda-production"]} />
+              <Production dashId={dashboardIDs[`overall-lambda-production-${selectedParam}`]} />
             ) : (
               <></>
             )}
