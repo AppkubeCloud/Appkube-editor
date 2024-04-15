@@ -1,0 +1,17 @@
+{
+  "type": "panel",
+  "name": "Appkube Reliability Panel",
+  "id": "appkubeReliabilityPanel",
+
+  "info": {
+    "description": "Appkube Reliability Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}

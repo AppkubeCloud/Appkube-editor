@@ -93,6 +93,7 @@ import * as AppkubeTopFailureFunctionsPanel from 'app/plugins/panel/AppkubeTopFa
 import * as AppkubeTopProductsPanel from 'app/plugins/panel/AppkubeTopProductsPanel/module';
 import * as AppkubeTopProductsWithMaxErrorsPanel from 'app/plugins/panel/AppkubeTopProductsWithMaxErrorsPanel/module';
 import * as AppkubeTopResourcesRequestCountPanel from 'app/plugins/panel/AppkubeTopResourcesRequestCountPanel/module';
+import * as AppkubeReliabilityPanel from 'app/plugins/panel/AppkubeReliabilityPanel/module';
 import * as AppkubeTopSecurityRulesTriggredPanel from 'app/plugins/panel/AppkubeTopSecurityRulesTriggredPanel/module';
 import * as AppkubeTopUsedFunctionPanel from 'app/plugins/panel/AppkubeTopUsedFunctionPanel/module';
 import * as AppkubeTotalCostPanel from 'app/plugins/panel/AppkubeTotalCostPanel/module';
@@ -259,6 +260,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeServiceAvailablityPanel/module': AppkubeServiceAvailablityPanel,
   'app/plugins/panel/AppkubeNetworkCostingPanel/module': AppkubeNetworkCostingPanel,
   'app/plugins/panel/AppkubeGlacierReplicationPanel/module': AppkubeGlacierReplicationPanel,
+  'app/plugins/panel/AppkubeReliabilityPanel/module': AppkubeReliabilityPanel,
 };
 
 export default builtInPlugins;
