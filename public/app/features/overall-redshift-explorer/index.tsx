@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/redshift-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-redshift-development", "overall-redshift-test", "overall-redshift-stage", "overall-redshift-production"];

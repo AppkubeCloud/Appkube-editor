@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/open-search-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-open-search-development", "overall-open-search-test", "overall-open-search-stage", "overall-open-search-production"];

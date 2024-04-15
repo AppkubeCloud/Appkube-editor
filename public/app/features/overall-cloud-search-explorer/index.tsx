@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/cloud-search-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-cloud-search-development", "overall-cloud-search-test", "overall-cloud-search-stage", "overall-cloud-search-production"];

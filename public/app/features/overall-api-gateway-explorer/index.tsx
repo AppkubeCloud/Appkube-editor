@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/api-gateway-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-api-gateway-development", "overall-api-gateway-test", "overall-api-gateway-stage", "overall-api-gateway-production"];

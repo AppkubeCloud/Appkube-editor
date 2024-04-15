@@ -11,29 +11,31 @@ import Test from './Components/Test';
 
 interface LocalState {
   slaButtonsPopupOpen: boolean,
+  engineButtonsPopupOpen: boolean,
   showFiltersModal: boolean,
   value: number,
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/elasticache-title-icon.png',
 }
 
-const DASHBOARD_NAMES = ["overall-s3-glacier-development", "overall-s3-glacier-test", "overall-s3-glacier-stage", "overall-s3-glacier-production"];
+const DASHBOARD_NAMES = ["overall-elasticache-development", "overall-elasticache-test", "overall-elasticache-stage", "overall-elasticache-production"];
 
-class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalState> {
+class OverallElasticacheExplorer extends Component<Record<string, string>, LocalState> {
   popupRef: any;
   constructor(props: Record<string, string>) {
     super(props);
     this.state = {
       slaButtonsPopupOpen: false,
+      engineButtonsPopupOpen: false,
       showFiltersModal: false,
       value: 0,
       dashboardIDs: {
-        "overall-s3-glacier-development": "",
-        "overall-s3-glacier-test": "",
-        "overall-s3-glacier-stage": "",
-        "overall-s3-glacier-production": ""
+        "overall-elasticache-development": "",
+        "overall-elasticache-test": "",
+        "overall-elasticache-stage": "",
+        "overall-elasticache-production": ""
       }
     };
     this.popupRef = React.createRef();
@@ -63,6 +65,12 @@ class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalSt
     });
   };
 
+  toggleEnginButtonsPopup = () => {
+    this.setState({
+      engineButtonsPopupOpen: !this.state.engineButtonsPopupOpen,
+    });
+  }
+
   toggleFiltersModal = () => {
     this.setState({
       showFiltersModal: !this.state.showFiltersModal,
@@ -76,11 +84,11 @@ class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalSt
   };
 
   render() {
-    const { slaButtonsPopupOpen, value, showFiltersModal, dashboardIDs } = this.state;
+    const { slaButtonsPopupOpen, engineButtonsPopupOpen, value, showFiltersModal, dashboardIDs } = this.state;
     return (
       <div className="overall-explorers-container">
         <div className="heading">
-          <h1><img src={images.pageTitleIcon} alt="" /> S3 (Glacier)</h1>
+          <h1><img src={images.pageTitleIcon} alt="" /> Elasticache</h1>
           <div className="buttons">
             <button className="filters-btn" onClick={this.toggleFiltersModal}>
               <i className="fa-solid fa-sliders"></i> Filters
@@ -95,6 +103,20 @@ class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalSt
               <button className={value === 2 ? 'active' : ''} onClick={(e) => this.setActiveTab(2)}>Stage</button>
               <button className={value === 3 ? 'active' : ''} onClick={(e) => this.setActiveTab(3)}>Production</button>
             </div>
+            <div className="sla-menu-popup">
+              <button className="sla-btn" onClick={this.toggleEnginButtonsPopup}>
+                <i className="fa-solid fa-gear"></i> Redis Engine <i className="fa-solid fa-sort-down"></i>
+              </button>
+              {engineButtonsPopupOpen === true && (
+                <>
+                  <div className={engineButtonsPopupOpen ? "sla-buttons-popup api active" : "sla-buttons-popup api"}>
+                    <button className="active"><i className="fa-solid fa-circle-dot"></i> Redis Engine</button>
+                    <button><i className="fa-solid fa-circle-dot"></i> Memmcached Engin</button>
+                  </div>
+                  <div className="sla-buttons-popup-bg" onClick={this.toggleEnginButtonsPopup}></div>
+                </>
+              )}
+            </div>
             <div className="tabs-right">
               <ul className="calendar">
                 <li>Today</li>
@@ -105,7 +127,7 @@ class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalSt
               </ul>
               <div className="sla-menu-popup">
                 <button className="sla-btn" onClick={this.toggleSlaButtonsPopup}>
-                  <i className="fa-solid fa-gear"></i> SLA <i className="fa-solid fa-sort-down"></i>
+                  <i className="fa-solid fa-gear"></i> Reliability <i className="fa-solid fa-sort-down"></i>
                 </button>
                 {slaButtonsPopupOpen === true && (
                   <>
@@ -125,13 +147,13 @@ class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalSt
           </div>
           <div className="tabs-contents">
             {value === 0 ? (
-              <Development dashId={dashboardIDs["overall-s3-glacier-development"]} />
+              <Development dashId={dashboardIDs["overall-elasticache-development"]} />
             ) : value === 1 ? (
-              <Test dashId={dashboardIDs["overall-s3-glacier-test"]} />
+              <Test dashId={dashboardIDs["overall-elasticache-test"]} />
             ) : value === 2 ? (
-              <Stage dashId={dashboardIDs["overall-s3-glacier-stage"]} />
+              <Stage dashId={dashboardIDs["overall-elasticache-stage"]} />
             ) : value === 3 ? (
-              <Production dashId={dashboardIDs["overall-s3-glacier-production"]} />
+              <Production dashId={dashboardIDs["overall-elasticache-production"]} />
             ) : (
               <></>
             )}
@@ -143,4 +165,4 @@ class OverallS3GlacierExplorer extends Component<Record<string, string>, LocalSt
   }
 }
 
-export default OverallS3GlacierExplorer;
+export default OverallElasticacheExplorer;

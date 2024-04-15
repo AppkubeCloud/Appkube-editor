@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/ecs-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-ecs-development", "overall-ecs-test", "overall-ecs-stage", "overall-ecs-production"];

@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/step-function-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-step-function-development", "overall-step-function-test", "overall-step-function-stage", "overall-step-function-production"];

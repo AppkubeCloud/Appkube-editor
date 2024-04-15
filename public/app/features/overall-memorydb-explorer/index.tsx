@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/eks-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-memorydb-development", "overall-memorydb-test", "overall-memorydb-stage", "overall-memorydb-production"];

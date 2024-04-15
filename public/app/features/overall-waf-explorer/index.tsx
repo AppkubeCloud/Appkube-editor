@@ -17,7 +17,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/waf-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-waf-development", "overall-waf-test", "overall-waf-stage", "overall-waf-production"];

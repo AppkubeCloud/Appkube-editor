@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/rds-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-rds-development", "overall-rds-test", "overall-rds-stage", "overall-rds-production"];

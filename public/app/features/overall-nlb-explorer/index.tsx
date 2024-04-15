@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/nlb-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-nlb-development", "overall-nlb-test", "overall-nlb-stage", "overall-nlb-production"];

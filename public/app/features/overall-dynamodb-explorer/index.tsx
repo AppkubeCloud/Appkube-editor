@@ -16,7 +16,7 @@ interface LocalState {
   dashboardIDs: Record<string, string>;
 }
 const images = {
-  pageTitleIcon: '/public/img/overall-explorer/page-title-icon.png',
+  pageTitleIcon: '/public/img/overall-explorer/dynamodb-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-dynamodb-development", "overall-dynamodb-test", "overall-dynamodb-stage", "overall-dynamodb-production"];
