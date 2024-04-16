@@ -14,12 +14,15 @@ interface LocalState {
   showFiltersModal: boolean,
   value: number,
   dashboardIDs: Record<string, string>;
+  selectedParam: string;
 }
 const images = {
   pageTitleIcon: '/public/img/overall-explorer/s3-title-icon.png',
 }
 
 const DASHBOARD_NAMES = ["overall-s3-development", "overall-s3-test", "overall-s3-stage", "overall-s3-production"];
+
+const PARAMETERS_NAMES = ["sla", "performance", "reliability", "availability", "endUsage", "security", "cost", "dataProtection"];
 
 class OverallS3Explorer extends Component<Record<string, string>, LocalState> {
   popupRef: any;
@@ -34,7 +37,8 @@ class OverallS3Explorer extends Component<Record<string, string>, LocalState> {
         "overall-s3-test": "",
         "overall-s3-stage": "",
         "overall-s3-production": ""
-      }
+      },
+      selectedParam: "sla"
     };
     this.popupRef = React.createRef();
   }
@@ -75,8 +79,29 @@ class OverallS3Explorer extends Component<Record<string, string>, LocalState> {
     });
   };
 
+  convertToTitleCase = (string: string) => {
+    const result = string.replace(/([A-Z])/g, " $1");
+    const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
+    return finalResult;
+  }
+
+  renderParamList = () => {
+    const ParamJSX: JSX.Element[] = [];
+    PARAMETERS_NAMES.forEach((param) => {
+      ParamJSX.push(<button 
+        className={this.state.selectedParam === param ? `active` : ""}
+        onClick={() => {
+          this.setState({selectedParam: param, slaButtonsPopupOpen: false})
+        }}
+        ><i className="fa-solid fa-circle-dot"></i> {
+        this.convertToTitleCase(param)
+      }</button>)
+    });
+    return ParamJSX;
+  }
+
   render() {
-    const { slaButtonsPopupOpen, value, showFiltersModal, dashboardIDs } = this.state;
+    const { slaButtonsPopupOpen, value, showFiltersModal, dashboardIDs, selectedParam } = this.state;
     return (
       <div className="overall-explorers-container">
         <div className="heading">
@@ -105,33 +130,28 @@ class OverallS3Explorer extends Component<Record<string, string>, LocalState> {
               </ul>
               <div className="sla-menu-popup">
                 <button className="sla-btn" onClick={this.toggleSlaButtonsPopup}>
-                  <i className="fa-solid fa-gear"></i> SLA <i className="fa-solid fa-sort-down"></i>
+                  <i className="fa-solid fa-gear"></i> {this.convertToTitleCase(this.state.selectedParam)} <i className="fa-solid fa-sort-down"></i>
                 </button>
                 {slaButtonsPopupOpen === true && (
-                  <>
-                    <div className={slaButtonsPopupOpen ? "sla-buttons-popup active" : "sla-buttons-popup"}>
-                      <button className="active"><i className="fa-solid fa-circle-dot"></i> Performance</button>
-                      <button><i className="fa-solid fa-circle-dot"></i> Reliability</button>
-                      <button><i className="fa-solid fa-circle-dot"></i> Availability</button>
-                      <button><i className="fa-solid fa-circle-dot"></i> End Usage</button>
-                      <button><i className="fa-solid fa-circle-dot"></i> Security</button>
-                      <button><i className="fa-solid fa-circle-dot"></i> Cost</button>
-                    </div>
-                    <div className="sla-buttons-popup-bg" onClick={this.toggleSlaButtonsPopup}></div>
-                  </>
+                <>
+                  <div className={slaButtonsPopupOpen ? "sla-buttons-popup active" : "sla-buttons-popup"}>
+                    {this.renderParamList()}
+                  </div>
+                  <div className="sla-buttons-popup-bg" onClick={this.toggleSlaButtonsPopup}></div>
+                </>
                 )}
               </div>
             </div>
           </div>
           <div className="tabs-contents">
             {value === 0 ? (
-              <Development dashId={dashboardIDs["overall-s3-development"]} />
+              <Development dashId={dashboardIDs[`overall-s3-development-${selectedParam}`]} />
             ) : value === 1 ? (
-              <Test dashId={dashboardIDs["overall-s3-test"]} />
+              <Test dashId={dashboardIDs[`overall-s3-test-${selectedParam}`]} />
             ) : value === 2 ? (
-              <Stage dashId={dashboardIDs["overall-s3-stage"]} />
+              <Stage dashId={dashboardIDs[`overall-s3-stage-${selectedParam}`]} />
             ) : value === 3 ? (
-              <Production dashId={dashboardIDs["overall-s3-production"]} />
+              <Production dashId={dashboardIDs[`overall-s3-production-${selectedParam}`]} />
             ) : (
               <></>
             )}
