@@ -32,8 +32,8 @@ class MultilineChart extends Component<Props> {
     const { data } = this.props;
 
     const margin = { top: 20, right: 20, bottom: 50, left: 50 };
-    const width = 900 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const width = 680 - margin.left - margin.right;
+    const height = 280 - margin.top - margin.bottom;
 
     const svg = d3.select(this.svgRef.current);
 
@@ -208,7 +208,11 @@ class MultilineChart extends Component<Props> {
   render() {
     return (
       <div className="multi-line-chart">
-        <svg ref={this.svgRef} width="900" height="400"></svg>
+        <div className="chart-heading">
+          <strong>Invocation</strong>
+          <p>A standard line chart provides a clear way to compare trends over time.</p>
+        </div>
+        <svg ref={this.svgRef} width="680" height="280"></svg>
       </div>
     );
   }

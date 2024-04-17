@@ -1,32 +1,96 @@
-.multiline-chart-panel {
+.tabs-chart-panel {
 	width: 100%;
 	height: 100%;
 	display: block;
 }
-.multiline-chart-panel .heading {
+.tabs-chart-panel .heading {
 	width: 100%;
 	display: flex;
 	margin-bottom: 30px;
 	align-items: center;
+	justify-content: space-between;
 }
-.multiline-chart-panel .heading span {
+.tabs-chart-panel .heading span {
 	display: inline-flex;
-	font-size: 14px;
-	color: #383874;
-	line-height: 18px;
+	font-size: 16px;
+	color: #2b5aff;
+	line-height: 26px;
 	font-weight: 700;
 }
 
-.multiline-chart-panel .heading .buttons {
+.tabs-chart-panel .heading button {
 	display: inline-flex;
+	padding-left: 15px;
+	padding-right: 15px;
 	margin-left: auto;
-	width: auto;
-}
-.multiline-chart-panel .heading .buttons button {
-	float: right;
+	border-radius: 5px;
 	border: none;
-	padding: 0;
-	margin-left: 5px;
-	margin-right: 5px;
-	background-color: transparent;
+	background-color: #dde1f8;
+	font-size: 12px;
+	color: #383874;
+	font-weight: 600;
+	line-height: 26px;
+}
+
+.tabs-chart-panel .tabs {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+.tabs-chart-panel .tabs ul {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	width: 200px;
+}
+.tabs-chart-panel .tabs ul li {
+	display: flex;
+	width: 100%;
+	cursor: pointer;
+	color: #383874;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 500;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	align-self: flex-start;
+}
+.tabs-chart-panel .tabs ul li.active {
+	color: #2b5aff;
+}
+.tabs-chart-panel .tabs ul li.active::after {
+	content: "";
+	position: absolute;
+	right: -1px;
+	top: 0;
+	width: 2px;
+	height: 100%;
+	background-color: #2b5aff;
+}
+.tabs-chart-panel .tabs .tabs-contents {
+	display: flex;
+	width: calc(100% - 200px);
+	padding: 0px 10px;
+	min-height: 280px;
+	border-left: 1px solid #dde1f8;
+}
+.tabs-chart-panel .tabs .tabs-contents .chart-heading {
+	display: block;
+	width: 100%;
+}
+.tabs-chart-panel .tabs .tabs-contents .chart-heading strong {
+	display: block;
+	color: #383874;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 600;
+}
+.tabs-chart-panel .tabs .tabs-contents .chart-heading p {
+	display: block;
+	color: #383874;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 500;
 }
