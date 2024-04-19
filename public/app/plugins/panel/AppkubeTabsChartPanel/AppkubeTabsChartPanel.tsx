@@ -55,7 +55,12 @@ class AppkubeTabsChartPanel extends PureComponent<PanelProps, State> {
               {this.renderTabs()}
             </ul>
             <div className="tabs-contents">
-              {activeTabIndex === 0 ? <MultilineChart data={sampleData} /> : activeTabIndex === 1 ? <>Sagar1</> : activeTabIndex === 2 ? <>Sagar2</> : activeTabIndex === 3 ? <>Sagar3</> : "No Data found!"}
+              {activeTabIndex === 0 ? 
+              <MultilineChart data={sampleData} /> : activeTabIndex === 1 ? 
+              <MultilineChart data={sampleData} /> : activeTabIndex === 2 ? 
+              <MultilineChart data={sampleData} /> : activeTabIndex === 3 ? 
+              <MultilineChart data={sampleData} /> : 
+              "No Data found!"}
             </div>
           </div>
           {/* <MultilineChart data={sampleData} /> */}
