@@ -663,6 +663,24 @@ func (hs *HTTPServer) healthzHandler(ctx *web.Context) {
 	}
 }
 
+// Readiness always return 200 - Ok if Grafana's web server is running
+func (hs *HTTPServer) Readiness(ctx *web.Context) {
+	ctx.Resp.WriteHeader(200)
+	_, err := ctx.Resp.Write([]byte("Ok"))
+	if err != nil {
+		hs.log.Error("could not write to response", "err", err)
+	}
+}
+
+// Liveness always return 200 - Ok if Grafana's web server is running
+func (hs *HTTPServer) Liveness(ctx *web.Context) {
+	ctx.Resp.WriteHeader(200)
+	_, err := ctx.Resp.Write([]byte("Ok"))
+	if err != nil {
+		hs.log.Error("could not write to response", "err", err)
+	}
+}
+
 // apiHealthHandler will return ok if Grafana's web server is running and it
 // can access the database. If the database cannot be accessed it will return
 // http status code 503.

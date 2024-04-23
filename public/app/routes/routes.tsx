@@ -600,17 +600,17 @@ export function getAppRoutes(): RouteDescriptor[] {
       chromeless: true,
     },
     {
-      path: '/overall-s3-glacier-gateway-explorer',
-      pageClass: 'page-overall-s3-glacier-gateway-explorer sidemenu-hidden',
+      path: '/overall-s3-glacier-explorer',
+      pageClass: 'page-overall-s3-glacier-explorer sidemenu-hidden',
       routeName: DashboardRoutes.Normal,
-      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-s3-glacier-gateway-explorer')),
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-s3-glacier-explorer')),
       chromeless: true,
     },
     {
-      path: '/overall-elasticache-gateway-explorer',
-      pageClass: 'page-overall-elasticache-gateway-explorer sidemenu-hidden',
+      path: '/overall-elasticache-explorer',
+      pageClass: 'page-overall-elasticache-explorer sidemenu-hidden',
       routeName: DashboardRoutes.Normal,
-      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-elasticache-gateway-explorer')),
+      component: SafeDynamicImport(() => import(/* webpackChunkName: "DashboardPage" */ '../features/overall-elasticache-explorer')),
       chromeless: true,
     },
     {

@@ -72,6 +72,7 @@ import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceSt
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
 import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
 import * as AppkubeMultilineChartPanel from 'app/plugins/panel/AppkubeMultilineChartPanel/module';
+import * as AppkubeTabsChartPanel from 'app/plugins/panel/AppkubeTabsChartPanel/module';
 import * as AppkubeNetworkCostingPanel from 'app/plugins/panel/AppkubeNetworkCostingPanel/module';
 import * as AppkubeNodeFailurePanel from 'app/plugins/panel/AppkubeNodeFailurePanel/module';
 import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
@@ -251,6 +252,7 @@ const builtInPlugins: any = {
   'app/plugins/panel/AppkubeCpuUtilizationPanel/module': AppkubeCpuUtilizationPanel,
   'app/plugins/panel/AppkubeNumberZoneChartPanel/module': AppkubeNumberZoneChartPanel,
   'app/plugins/panel/AppkubeMultilineChartPanel/module': AppkubeMultilineChartPanel,
+  'app/plugins/panel/AppkubeTabsChartPanel/module': AppkubeTabsChartPanel,
   'app/plugins/panel/AppkubeDoughnutPanel/module': AppkubeDoughnutPanel,
   'app/plugins/panel/AppkubeBarChartPanel/module': AppkubeBarChartPanel,
   'app/plugins/panel/AppkubeAuthenticationChartPanel/module': AppkubeAuthenticationChartPanel,

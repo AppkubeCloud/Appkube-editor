@@ -1,0 +1,17 @@
+{
+  "type": "panel",
+  "name": "Appkube Tabs Chart Panel",
+  "id": "appkubeTabsChartPanel",
+
+  "info": {
+    "description": "Appkube Tabs Chart Panel",
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "logos": {
+      "small": "img/icon.png",
+      "large": "img/icon.png"
+    }
+  }
+}
