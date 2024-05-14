@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Region Wise Storage Panel",
-  "id": "appkubeRegionWiseStoragePanel",
+  "id": "appkube-region-wise-storage-panel",
 
   "info": {
     "description": "Appkube Region Wise Storage Panel",

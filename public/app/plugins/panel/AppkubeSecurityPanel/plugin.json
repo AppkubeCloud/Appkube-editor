@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Security Panel",
-  "id": "appkubeSecurityPanel",
+  "id": "appkube-security-panel",
 
   "info": {
     "description": "Appkube Security Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Glacier Replication Panel",
-  "id": "appkubeGlacierReplicationPanel",
+  "id": "appkube-glacier-replication-panel",
 
   "info": {
     "description": "Appkube Glacier Replication Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Breakdown Panel",
-  "id": "appkubeBreakdownPanel",
+  "id": "appkube-breakdown-panel",
 
   "info": {
     "description": "Appkube Breakdown Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Wise Cost Panel",
-  "id": "appkubeWiseCostPanel",
+  "id": "appkube-wise-cost-panel",
 
   "info": {
     "description": "Appkube Wise Cost Panel",

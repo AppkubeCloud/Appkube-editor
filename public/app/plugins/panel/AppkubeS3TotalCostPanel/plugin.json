@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube S3 Total Cost Panel",
-  "id": "appkubeS3TotalCostPanel",
+  "id": "appkube-s3-total-cost-panel",
 
   "info": {
     "description": "Appkube S3 Total Cost Panel",

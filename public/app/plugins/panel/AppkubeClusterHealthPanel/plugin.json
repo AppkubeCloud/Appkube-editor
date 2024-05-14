@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cluster Health Panel",
-  "id": "appkubeClusterHealthPanel",
+  "id": "appkube-cluster-health-panel",
 
   "info": {
     "description": "Appkube Cluster Health Panel",

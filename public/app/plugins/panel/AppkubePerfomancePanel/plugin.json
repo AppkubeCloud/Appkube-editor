@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Perfomance Panel",
-  "id": "appkubePerfomancePanel",
+  "id": "appkube-perfomance-panel",
 
   "info": {
     "description": "Appkube Perfomance Panel",

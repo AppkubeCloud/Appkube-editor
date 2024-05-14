@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cluster Capacity Panel",
-  "id": "appkubeClusterCapacityPanel",
+  "id": "appkube-cluster-capacity-panel",
 
   "info": {
     "description": "Appkube Cluster Capacity Panel",

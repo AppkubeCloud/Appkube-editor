@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Doughnut Panel",
-  "id": "appkubeFunctionByRegionPanel",
+  "id": "appkube-function-by-region-panel",
 
   "info": {
     "description": "successful_and_failed_events_panel,node_capacity_panel,node_condition_panel,functions_by_region_panel",

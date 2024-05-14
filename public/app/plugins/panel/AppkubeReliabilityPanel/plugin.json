@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Reliability Panel",
-  "id": "appkubeReliabilityPanel",
+  "id": "appkube-reliability-panel",
 
   "info": {
     "description": "Appkube Reliability Panel",

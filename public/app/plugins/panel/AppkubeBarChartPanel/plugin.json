@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Bar Chart Panel",
-  "id": "appkubeBarChartPanel",
+  "id": "appkube-bar-chart-panel",
 
   "info": {
     "description": "",

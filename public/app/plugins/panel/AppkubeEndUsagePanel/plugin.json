@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube End Usage Panel",
-  "id": "appkubeEndUsagePanel",
+  "id": "appkube-end-usage-panel",
 
   "info": {
     "description": "Appkube End Usage Panel",

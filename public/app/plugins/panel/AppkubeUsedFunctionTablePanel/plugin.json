@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Used Function Table Panel",
-  "id": "appkubeUsedFunctionTablePanel",
+  "id": "appkube-used-function-table-panel",
 
   "info": {
     "description": "Appkube Used Function Table Panel",

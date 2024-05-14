@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Network Costing Panel",
-  "id": "appkubeNetworkCostingPanel",
+  "id": "appkube-network-costing-panel",
 
   "info": {
     "description": "Appkube Network Costing Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cluster Overview Panel",
-  "id": "appkubeClusterOverviewPanel",
+  "id": "appkube-cluster-overview-panel",
 
   "info": {
     "description": "uptime_of_deployment_stages",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Response Time Panel",
-  "id": "appkubeResponseTimePanel",
+  "id": "appkube-response-time-panel",
 
   "info": {
     "description": "Appkube Response Time Panel",
