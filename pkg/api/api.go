@@ -72,6 +72,8 @@ func (hs *HTTPServer) registerRoutes() {
 	r := hs.RouteRegister
 
 	// not logged in views
+	r.Get("/app-health/appkube-editor/livez", reqNoAuth, hs.Liveness)   // kubernetes liveness probe
+	r.Get("/app-health/appkube-editor/readyz", reqNoAuth, hs.Readiness) // kubernetes readiness probe
 	r.Get("/logout", hs.Logout)
 	r.Post("/login", quota(string(auth.QuotaTargetSrv)), routing.Wrap(hs.LoginPost))
 	r.Get("/login/:name", quota(string(auth.QuotaTargetSrv)), hs.OAuthLogin)
