@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Service Availablity Panel",
-  "id": "appkube-service-availablity-panel",
+  "id": "appkube-serviceavailablity-panel",
 
   "info": {
     "description": "uptime_percentage_panel",

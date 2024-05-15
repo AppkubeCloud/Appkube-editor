@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Authentication Chart Panel",
-  "id": "appkube-authentication-chart-panel",
+  "id": "appkube-authenticationchart-panel",
 
   "info": {
     "description": "Appkube Authentication Chart Panel",

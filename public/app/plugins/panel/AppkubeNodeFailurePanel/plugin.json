@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Node Failure Panel",
-  "id": "appkube-node-failure-panel",
+  "id": "appkube-nodefailure-panel",
 
   "info": {
     "description": "node_failure_panel",

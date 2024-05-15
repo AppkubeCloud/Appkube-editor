@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Instance Status Panel",
-  "id": "appkube-instance-status-panel",
+  "id": "appkube-instancestatus-panel",
 
   "info": {
     "description": "Appkube Instance Status Panel",

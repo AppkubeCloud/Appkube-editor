@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Data Lifecycle Management Panel",
-  "id": "appkube-data-lifecycle-management-panel",
+  "id": "appkube-datalifecyclemanagement-panel",
 
   "info": {
     "description": "Appkube Data Lifecycle Management Panel",

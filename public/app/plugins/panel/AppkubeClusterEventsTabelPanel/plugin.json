@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cluster Events Table Panel",
-  "id": "appkube-cluster-events-table-panel",
+  "id": "appkube-clustereventstable-panel",
 
   "info": {
     "description": "Appkube Cluster Events Table Panel",

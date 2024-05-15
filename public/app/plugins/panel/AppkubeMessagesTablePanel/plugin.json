@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Messages Table Panel",
-  "id": "appkube-messages-table-panel",
+  "id": "appkube-messagestable-panel",
 
   "info": {
     "description": "Appkube Messages Table Panel",

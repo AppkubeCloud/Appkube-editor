@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Top Resources Request Count  Panel",
-  "id": "appkube-top-resources-request-count-panel",
+  "id": "appkube-topresourcesrequestcount-panel",
 
   "info": {
     "description": "Appkube Top Resources Request Count  Panel",

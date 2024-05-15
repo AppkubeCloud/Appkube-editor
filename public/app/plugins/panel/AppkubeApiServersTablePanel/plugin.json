@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Api Servers Table Panel",
-  "id": "appkube-api-servers-table-panel",
+  "id": "appkube-apiserverstable-panel",
 
   "info": {
     "description": "Appkube Api Servers Table Panel",
