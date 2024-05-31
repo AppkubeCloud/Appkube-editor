@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Table Panel",
-  "id": "appkube-table-panel",
+  "id": "appkubeTablePanel",
   "info": {
     "description": "alerts_and_notifications_panel, node_event_logs_panel, instance_health_check_panel, error_tracking_panel, hosted_services_overview_panel",
     "author": {

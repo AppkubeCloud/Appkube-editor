@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Top Products With Max Errors Panel",
-  "id": "appkube-top-products-with-max-errors-panel",
+  "id": "appkubeTopProductsWithMaxErrorsPanel",
 
   "info": {
     "description": "Appkube Top Products With Max Errors Panel",

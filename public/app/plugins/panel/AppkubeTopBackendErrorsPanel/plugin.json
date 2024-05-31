@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Top Backend Errors Panel",
-  "id": "appkube-top-backend-errors-panel",
+  "id": "appkubeTopBackendErrorsPanel",
 
   "info": {
     "description": "Appkube Top Backend Errors Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Utilization Panel",
-  "id": "appkube-utilization-panel",
+  "id": "appkubeUtilizationPanel",
 
   "info": {
     "description": "cpu_utilization_panel, storage_utilization_panel, network_utilization_panel, memory_utilization_panel",

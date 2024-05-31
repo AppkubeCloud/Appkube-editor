@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Threat Calls Panel",
-  "id": "appkube-threat-calls-panel",
+  "id": "appkubeThreatCallsPanel",
 
   "info": {
     "description": "Appkube Threat Calls Panel",

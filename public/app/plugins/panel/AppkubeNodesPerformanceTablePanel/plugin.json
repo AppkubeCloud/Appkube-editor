@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Nodes Performance Table Panel",
-  "id": "appkube-nodes-performance-table-panel",
+  "id": "appkubeNodesPerformanceTablePanel",
 
   "info": {
     "description": "Appkube Nodes Performance Table Panel",

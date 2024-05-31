@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Error And Warning Panel",
-  "id": "appkube-error-and-warning-panel",
+  "id": "appkubeErrorAndWarningPanel",
 
   "info": {
     "description": "Appkube Error And Warning Panel",

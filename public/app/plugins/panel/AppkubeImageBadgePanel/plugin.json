@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Image Badge Panel",
-  "id": "appkube-image-badge-panel",
+  "id": "appkubeImageBadgePanel",
 
   "info": {
     "description": "Appkube Image Badge Panel",

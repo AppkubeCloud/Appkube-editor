@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Top Failure Function Panel",
-  "id": "appkube-top-failure-functions-panel",
+  "id": "appkubeTopFailureFunctionsPanel",
 
   "info": {
     "description": "Appkube Top Failure Function Panel",

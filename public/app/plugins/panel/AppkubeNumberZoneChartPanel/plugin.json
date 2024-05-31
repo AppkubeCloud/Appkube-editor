@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Number Zone Chart Panel",
-  "id": "appkube-number-zone-chart-panel",
+  "id": "appkubeNumberZoneChartPanel",
 
   "info": {
     "description": "Appkube Number Zone Chart Panel",

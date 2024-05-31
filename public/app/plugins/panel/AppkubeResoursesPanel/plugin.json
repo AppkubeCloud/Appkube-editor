@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Resourses Panel",
-  "id": "appkube-resourses-panel",
+  "id": "appkubeResoursesPanel",
 
   "info": {
     "description": "Appkube Resourses Panel",

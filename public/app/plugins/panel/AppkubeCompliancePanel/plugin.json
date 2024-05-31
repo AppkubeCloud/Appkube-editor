@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Compliance Panel",
-  "id": "appkube-compliance-panel",
+  "id": "appkubeCompliancePanel",
 
   "info": {
     "description": "Appkube Compliance Panel",
