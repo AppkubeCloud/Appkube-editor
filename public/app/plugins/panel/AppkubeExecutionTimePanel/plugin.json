@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Execution Time Table Panel",
-  "id": "appkube-executiontimetable-panel",
+  "id": "appkube-execution-time-table-panel",
 
   "info": {
     "description": "execuation_time_panel",

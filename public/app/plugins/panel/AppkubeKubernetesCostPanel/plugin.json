@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Kubernetes Cost Panel",
-  "id": "appkube-kubernetescost-panel",
+  "id": "appkube-kubernetes-cost-panel",
 
   "info": {
     "description": "Appkube Kubernetes Cost Panel",

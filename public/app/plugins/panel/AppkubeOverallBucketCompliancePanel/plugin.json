@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Overall Bucket Compliance Panel",
-  "id": "appkube-overallbucketcompliance-panel",
+  "id": "appkube-overall-bucket-compliance-panel",
 
   "info": {
     "description": "Appkube Overall Bucket Compliance Panel",

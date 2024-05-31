@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Flow Count Panel",
-  "id": "appkube-flowcount-panel",
+  "id": "appkube-flow-count-panel",
 
   "info": {
     "description": "resource_deleted_panel,resources_created_panel,resource_updated_panel",

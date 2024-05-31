@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Success Failed Chart Panel",
-  "id": "appkube-successfailedchart-panel",
+  "id": "appkube-success-failed-chart-panel",
 
   "info": {
     "description": "Appkube Success Failed Chart Panel",

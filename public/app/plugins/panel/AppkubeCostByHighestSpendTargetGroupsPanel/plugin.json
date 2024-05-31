@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cost By Highest Spend Target Groups Panel",
-  "id": "appkube-costbyhighestspendtargetgroups-panel",
+  "id": "appkube-cost-by-highest-spend-target-groups-panel",
 
   "info": {
     "description": "Appkube Cost By Highest Spend Target Groups Panel",

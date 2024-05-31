@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Error On Request Panel",
-  "id": "appkube-erroronrequest-panel",
+  "id": "appkube-error-on-request-panel",
 
   "info": {
     "description": "Appkube Error On Request Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cpu Utilization Panel",
-  "id": "appkube-cpuutilization-panel",
+  "id": "appkube-cpu-utilization-panel",
 
   "info": {
     "description": "Appkube Cpu Utilization Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Multiline Chart Panel",
-  "id": "appkube-multilinechart-panel",
+  "id": "appkube-multiline-chart-panel",
 
   "info": {
     "description": "Appkube Multiline Chart Panel",

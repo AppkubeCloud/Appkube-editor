@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Cost Highest Spend Products Panel",
-  "id": "appkube-costhighestspendproducts-panel",
+  "id": "appkube-cost-highest-spend-products-panel",
 
   "info": {
     "description": "Appkube Cost Highest Spend Products Panel",

@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "Appkube Top Products Panel",
-  "id": "appkube-topproducts-panel",
+  "id": "appkube-top-products-panel",
 
   "info": {
     "description": "Appkube Top Products Panel",
