@@ -72,6 +72,7 @@ import * as AppkubeInstanceStatusPanel from 'app/plugins/panel/AppkubeInstanceSt
 import * as AppkubeKubernetesCostPanel from 'app/plugins/panel/AppkubeKubernetesCostPanel/module';
 import * as AppkubeMessagesTablePanel from 'app/plugins/panel/AppkubeMessagesTablePanel/module';
 import * as AppkubeMultilineChartPanel from 'app/plugins/panel/AppkubeMultilineChartPanel/module';
+import * as AppkubeTabsChartPanel from 'app/plugins/panel/AppkubeTabsChartPanel/module';
 import * as AppkubeNetworkCostingPanel from 'app/plugins/panel/AppkubeNetworkCostingPanel/module';
 import * as AppkubeNodeFailurePanel from 'app/plugins/panel/AppkubeNodeFailurePanel/module';
 import * as AppkubeNodesPerformanceTablePanel from 'app/plugins/panel/AppkubeNodesPerformanceTablePanel/module';
@@ -79,7 +80,6 @@ import * as AppkubeNumberZoneChartPanel from 'app/plugins/panel/AppkubeNumberZon
 import * as AppkubeOverallBucketCompliancePanel from 'app/plugins/panel/AppkubeOverallBucketCompliancePanel/module';
 import * as AppkubePerfomancePanel from 'app/plugins/panel/AppkubePerfomancePanel/module';
 import * as AppkubeRegionWiseStoragePanel from 'app/plugins/panel/AppkubeRegionWiseStoragePanel/module';
-import * as AppkubeReliabilityPanel from 'app/plugins/panel/AppkubeReliabilityPanel/module';
 import * as AppkubeResoursesPanel from 'app/plugins/panel/AppkubeResoursesPanel/module';
 import * as AppkubeResponseTimePanel from 'app/plugins/panel/AppkubeResponseTimePanel/module';
 import * as AppkubeS3TotalCostPanel from 'app/plugins/panel/AppkubeS3TotalCostPanel/module';
@@ -87,7 +87,6 @@ import * as AppkubeSecurityPanel from 'app/plugins/panel/AppkubeSecurityPanel/mo
 import * as AppkubeServiceAvailablityPanel from 'app/plugins/panel/AppkubeServiceAvailablityPanel/module';
 import * as AppkubeSuccessFailedChartPanel from 'app/plugins/panel/AppkubeSuccessFailedChartPanel/module';
 import * as AppkubeTablePanel from 'app/plugins/panel/AppkubeTablePanel/module';
-import * as AppkubeTabsChartPanel from 'app/plugins/panel/AppkubeTabsChartPanel/module';
 import * as AppkubeThreatCallsPanel from 'app/plugins/panel/AppkubeThreatCallsPanel/module';
 import * as AppkubeTopBackendErrorsPanel from 'app/plugins/panel/AppkubeTopBackendErrorsPanel/module';
 import * as AppkubeTopBucketCompliancePanel from 'app/plugins/panel/AppkubeTopBucketCompliancePanel/module';
@@ -95,6 +94,7 @@ import * as AppkubeTopFailureFunctionsPanel from 'app/plugins/panel/AppkubeTopFa
 import * as AppkubeTopProductsPanel from 'app/plugins/panel/AppkubeTopProductsPanel/module';
 import * as AppkubeTopProductsWithMaxErrorsPanel from 'app/plugins/panel/AppkubeTopProductsWithMaxErrorsPanel/module';
 import * as AppkubeTopResourcesRequestCountPanel from 'app/plugins/panel/AppkubeTopResourcesRequestCountPanel/module';
+import * as AppkubeReliabilityPanel from 'app/plugins/panel/AppkubeReliabilityPanel/module';
 import * as AppkubeTopSecurityRulesTriggredPanel from 'app/plugins/panel/AppkubeTopSecurityRulesTriggredPanel/module';
 import * as AppkubeTopUsedFunctionPanel from 'app/plugins/panel/AppkubeTopUsedFunctionPanel/module';
 import * as AppkubeTotalCostPanel from 'app/plugins/panel/AppkubeTotalCostPanel/module';
